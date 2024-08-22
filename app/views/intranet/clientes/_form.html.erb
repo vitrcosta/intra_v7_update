@@ -1,0 +1,155 @@
+<script>
+$.validator.setDefaults({
+  submitHandler: function() {
+    // alert("submitted!");
+    document.getElementById("form_post").submit();
+  }
+});
+
+$(document).ready(function() {
+  var validator = $("#form_post").validate({
+    errorPlacement: function(error, element) {
+      $( element )
+      .closest( "form" )
+      .find( "label[for='" + element.attr( "id" ) + "']" )
+      .append( error );
+    },
+    errorElement: "span",
+    messages: {
+      tipopostagem: {
+        required: " (obrigatório)"
+      }
+    }
+  });
+});
+</script>
+
+
+
+<div class="col-md-12 col-xs-12">
+  <div class="x_panel">
+
+    <%= form_for [:intranet, @cliente], html: { :multipart=> true , :novalidate=>"novalidate", :data=>{"parsley-validate"=>"true"},:class=>"form-horizontal form-label-left"} do |f| %>
+    <div class="x_title">
+      <h2>Cliente</h2>
+      <ul class="nav navbar-right panel_toolbox">
+      </ul>
+      <div class="clearfix"></div>
+    </div>
+    <div class="col-md-6 col-xs-12">
+
+      <div class="x_content">
+        <br />
+
+        <div class="text-center">
+          <% if @cliente.errors.any? %>
+          <div id="error_explanation">
+            <h2><%= pluralize(@cliente.errors.count, "erro") %> no preenchimento do fomulário:</h2>
+
+            <ul style="list-style: none;color: #f00;">
+              <% @cliente.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+              <% end %>
+            </ul>
+          </div>
+          <% end %>
+        </div>
+
+
+
+        <div class="form-group">
+          <label class="control-label col-md-3 col-sm-3 col-xs-12">
+            Nome <span class="required">*</span>
+          </label>
+          <div class="col-md-9 col-sm-9 col-xs-12">
+            <%= f.text_field :nome , :class=>"form-control col-md-7 col-xs-12", :data=> {"validate-length-range"=>"3", "validate-words"=>"1"}, :placeholder=>"", :required=> true %>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="control-label col-md-3 col-sm-3 col-xs-12">
+            Email
+          </label>
+          <div class="col-md-9 col-sm-9 col-xs-12">
+            <%= f.email_field :email , :class=>"form-control col-md-7 col-xs-12" %>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="control-label col-md-3 col-sm-3 col-xs-12">
+            Telefone
+          </label>
+          <div class="col-md-9 col-sm-9 col-xs-12">
+            <%= f.text_field :telefone , :class=>"form-control col-md-7 col-xs-12" %>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="control-label col-md-3 col-sm-3 col-xs-12">
+            Interesse
+          </label>
+          <div class="col-md-9 col-sm-9 col-xs-12">
+            <%= f.text_field :interesse , :class=>"form-control col-md-7 col-xs-12" %>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="control-label col-md-3 col-sm-3 col-xs-12">
+            Status
+          </label>
+          <div class="col-md-9 col-sm-9 col-xs-12">
+
+            <%= f.select :status,
+            options_for_select([['Aberto',1],['Em atendimento',2],['Encerrado',3],['Fechado',4]],
+            :selected => f.object.status), {}, { :class => 'form-control'} %>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="control-label col-md-3 col-sm-3 col-xs-12">
+            Atendido Por
+          </label>
+          <div class="col-md-9 col-sm-9 col-xs-12">
+            <%= f.text_field :atendido_por , :class=>"form-control col-md-7 col-xs-12" %>
+          </div>
+        </div>
+
+      </div>
+      <!-- end x_content -->
+
+    </div>
+
+    <div class="col-md-12 col-sm-12 col-xs-12">
+
+
+      <div class="x_content">
+        <label class="control-label">
+          Mensagem
+        </label>
+
+        <div class="">
+          <%= f.cktext_area :mensagem, :class => 'form-control', :style=>"resize: vertical;" %>
+        </div>
+
+        <br />
+
+        <div class="ln_solid"></div>
+        <div class="form-group fixed-position-btns">
+          <div class="text-center">
+            <a href="<%= intranet_clientes_path %>">
+              <button type="button" class="btn btn-primary">Cancel</button>
+            </a>
+            <%= f.submit "Salvar",class:"btn btn-success" %>
+            <!-- <button id="send" type="submit" class="btn btn-success" >Salvar</button> -->
+          </div>
+        </div>
+
+      </div>
+      <!-- end x_content -->
+    </div>
+
+    <% end %>
+
+  </div>
+
+
+
+</div>

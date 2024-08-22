@@ -1,0 +1,71 @@
+<div class="">
+
+  <div class="clearfix"></div>
+
+  <div class="row">
+    <div class="col-md-12 col-sm-12 col-xs-12">
+      <div class="x_panel">
+        <div class="x_title">
+          <ul class="nav navbar-right panel_toolbox">
+            <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+            </li>
+          </ul>
+          <div class="clearfix"></div>
+        </div>
+        <div class="x_content">
+          <%= form_for [:intranet, @user], html: { :novalidate=> true,:class=>"form-horizontal form-label-left" } do |f| %>
+
+          <span class="section">Usuário</span>
+
+          <div class="text-center">
+            <% if @user.errors.any? %>
+            <div id="error_explanation">
+              <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
+
+              <ul style="list-style: none;">
+                <% @user.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+                <% end %>
+              </ul>
+            </div>
+            <% end %>
+          </div>
+
+
+          <div class="item form-group">
+            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name" style="color:black;">Nome <span class="required">*</span>
+            </label>
+            <div class="col-md-6 col-sm-6 col-xs-12">
+              <%= f.text_field :name , :class=>"form-control col-md-7 col-xs-12", :data=> {"validate-length-range"=>"2", "validate-words"=>"1"}, :placeholder=>"Digite o nome", :required=> true %>
+            </div>
+          </div>
+          <div class="item form-group">
+            <label for="password" class="control-label col-md-3" style="color:black;">Senha</label>
+            <div class="col-md-6 col-sm-6 col-xs-12">
+              <%= f.password_field :password,:class=>"form-control col-md-7 col-xs-12", :placeholder=>"Digite a senha", :required=> true %>
+            </div>
+          </div>
+          <div class="item form-group">
+            <label for="password2" class="control-label col-md-3 col-sm-3 col-xs-12" style="color:black;">Confirme a senha</label>
+            <div class="col-md-6 col-sm-6 col-xs-12">
+              <%= f.password_field :password_confirmation, :class=>"form-control col-md-7 col-xs-12", :placeholder=>"Confirme a senha", :required=> true %>
+            </div>
+          </div>
+
+
+          <div class="ln_solid"></div>
+          <div class="form-group">
+            <div class="col-md-6 col-md-offset-3">
+              <a href="<%= intranet_users_path %>">
+                <button type="submit" class="btn btn-primary">Cancelar</button>
+              </a>
+              <%= f.submit "Salvar", :class=>"btn btn-success" %>
+              <!-- <button id="send" type="submit" class="btn btn-success">Salvar</button> -->
+            </div>
+          </div>
+          <%end%>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

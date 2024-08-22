@@ -1,0 +1,179 @@
+.container {
+  width: 100% !important;
+}
+.width-canvas canvas {
+  width: 100%;
+}
+.borda_img img {
+  width: 100%;
+}
+.fixed-position-btns {
+  position: fixed;
+  bottom: 5px;
+  right: 44px;
+  z-index: 9;
+}
+.program {
+  position: fixed;
+  display: none;
+  width: 400px;
+  right: 0;
+  top: 50%;
+  background-color: #2a3f54;
+  border: 1px solid gray;
+  transition: all 0.4s ease-in-out;
+  z-index: 99;
+  border-radius: 50px;
+  height: 260px;
+}
+.containerflex {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100% !important;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+.item {
+  flex-basis: 80%;
+  position: relative;
+  align-self: center;
+  color: white;
+}
+.item a {
+  padding: 9px 39px;
+  background-color: white;
+  border-radius: 40px;
+}
+.animationtest {
+  display: block !important;
+  animation: animate 2s linear 1;
+}
+@keyframes animate {
+  0% {
+    right: -30vw;
+  }
+  40% {
+    right: -20vw;
+  }
+  80% {
+    right: -10vw;
+  }
+  100% {
+    right: 0vw;
+  }
+}
+$color: #449d44;
+.button {
+  display: inline-block;
+  padding: 9px 39px;
+  border-radius: 40px;
+  color: #fff;
+  transition: all 0.3s;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  &:after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: $color;
+    border-radius: 10rem;
+    z-index: -2;
+  }
+  &:before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0%;
+    height: 100%;
+    background-color: darken($color, 15%);
+    transition: all 0.3s;
+    border-radius: 10rem;
+    z-index: -1;
+  }
+  &:hover {
+    color: #fff;
+    &:before {
+      width: 100%;
+    }
+  }
+}
+.closetask {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 15px;
+  color: white;
+  cursor: pointer;
+}
+.item svg {
+  width: 30px;
+  height: 16px;
+  top: 3px;
+  position: relative;
+}
+.daterangepicker .calendar.single .calendar-table {
+  width: auto !important;
+}
+.daterangepicker table {
+  width: auto !important;
+}
+.main_container {
+  width: 100% !important;
+}
+
+@media (max-width: 600px) {
+  .html2canvas-container {
+    width: 1600px !important;
+    height: 3000px !important;
+  }
+  .html2canvas-container canvas {
+    width: 1400px !important;
+  }
+  .dashboard-container {
+    overflow-x: auto;
+    margin: 0 auto;
+  }
+  .dashboard_graph .x_title h3 {
+    margin-bottom: 10px;
+  }
+  .main_container {
+    overflow-x: hidden;
+  }
+}
+.x_panel {
+  margin-bottom: 30px;
+}
+.dashboard {
+  color: #515b65 !important;
+}
+.w_50 span {
+  font-size: 20px !important;
+}
+.w_30 {
+  width: 30%;
+}
+.w_50 {
+  width: 50%;
+}
+.widget_summary .w_left {
+  margin-bottom: 5px;
+}
+table.tile_info td {
+  font-size: 22px !important;
+}
+table.tile_info td p {
+  font-size: 22px !important;
+}
+.x_title p {
+  float: left;
+  padding-top: 15px;
+  padding-left: 10px;
+  margin-bottom: 0;
+}

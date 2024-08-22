@@ -1,0 +1,49 @@
+<div class="">
+  <div class="clearfix"></div>
+  <div class="row">
+    <div class="col-md-12 col-sm-12 col-xs-12">
+      <div class="x_panel">
+        <div class="x_title">
+          <ul class="nav navbar-right panel_toolbox">
+            <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+            </li>
+          </ul>
+          <div class="clearfix"></div>
+        </div>
+        <div class="x_content">
+          <%= form_for [:intranet, @kind_of_post], html: { :novalidate=> true,:class=>"form-horizontal form-label-left" } do |f| %>
+            <span class="section">Tipo de postagem</span>
+            <div class="text-center">
+              <% if @kind_of_post.errors.any? %>
+                <div id="error_explanation">
+                  <h2><%= pluralize(@kind_of_post.errors.count, "error") %> prohibited this kind of post from being saved:</h2>
+                  <ul style="list-style: none;">
+                    <% @kind_of_post.errors.full_messages.each do |message| %>
+                      <li><%= message %></li>
+                    <% end %>
+                  </ul>
+                </div>
+              <% end %>
+            </div>
+            <div class="item form-group">
+              <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Nome <span class="required">*</span>
+              </label>
+              <div class="col-md-6 col-sm-6 col-xs-12">
+                <%= f.text_field :name , :class=>"form-control col-md-7 col-xs-12", :data=> {"validate-length-range"=>"3", "validate-words"=>"1"}, :placeholder=>"Digite o nome", :required=> true %>
+              </div>
+            </div>
+            <div class="ln_solid"></div>
+            <div class="form-group">
+              <div class="col-md-6 col-md-offset-3">
+                <a href="<%= intranet_kind_of_posts_path %>">
+                  <button type="submit" class="btn btn-primary">Cancelar</button>
+                </a>
+                <%= f.submit "Salvar", :class=>"btn btn-success" %>
+              </div>
+            </div>
+          <%end%>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

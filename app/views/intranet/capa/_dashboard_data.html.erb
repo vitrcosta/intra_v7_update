@@ -1,0 +1,190 @@
+<div style="display: block; height: 30px">
+  <div style="float: right">
+    <%= date_filter_options(@date_filter) %>
+  </div>
+</div>
+<div class="linha"></div>
+<div class="clear"></div>
+<div class="row-dashboard">
+
+  <div class="col-box">
+    <div class="dashboard blue">
+      <div class="visual" style="color: #b1dcef">
+        <i class="fa fa-eye"></i>
+      </div>
+      <div class="details">
+        <div class="number">
+          <%= @pageviews %>
+        </div>
+        <div class="desc">
+          Visualizações de Página
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+  <div class="col-box">
+    <div class="dashboard red">
+      <div class="visual" style="color: #f9b1b1">
+        <i class="fa fa-sign-in"></i>
+      </div>
+      <div class="details">
+        <div class="number">
+          <%= @sessions %>
+        </div>
+        <div class="desc">
+          Total de Acessos
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+  <div class="col-box">
+    <div class="dashboard green">
+      <div class="visual" style="color: #94ece9">
+        <i class="fa fa-users"></i>
+      </div>
+      <div class="details">
+        <div class="number">
+          <%= @visitors %>
+        </div>
+        <div class="desc">
+          Visitantes Únicos
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+  <div class="col-box">
+    <div class="dashboard purple">
+      <div class="visual" style="color: #dacfe9">
+        <i class="fa fa-clock-o"></i>
+      </div>
+      <div class="details">
+        <div class="number">
+          <%= @avg_duration %>
+        </div>
+        <div class="desc">
+          Duração Média da Visita
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+
+</div>
+
+
+<div id="chartContainer" style="height: 300px; width: 99%;display: table;"></div>
+<br/>
+<br/>
+<p style="font-size: 14px;color: #000;">Números referentes <%= date_filter_helper(@date_filter) %>. Para informação mais detalhadas, acesse: <a href="https://analytics.google.com/analytics/web/" target="_blank" class="link_analytics">Google Analytics</a></p>
+
+
+<script>
+    $(function () {
+        <% if @date_filter == 'ontem' %>
+        var options = {
+            title: {
+                text: "Acessos por hora:"
+            },
+            axisX: {
+                labelFontSize:  18
+            },
+            axisY: {
+                title: "N° de acessos",
+                interlacedColor: "azure",
+                labelFontSize:  18
+            },
+            animationEnabled: true,
+            data: [
+                {
+
+                    type: "area",
+                    color: "rgba(0,75,141,0.4)",
+
+                    dataPoints: [
+                        <% counter = 0 %>
+                        <% unless @visitors_by_date.nil? %>
+                        <% @visitors_by_date.each  do | v |  %>
+
+                        <% if counter != @visitors_by_date.count %>
+                        { label: '<%= v[0]  %>:00h',  x: <%= counter %>, y: <%= v[1] %>, indexLabel:"<%= v[1] %>" },
+
+                        <% else %>
+                        { label: '<%= v[0] %>:00h', x: <%= counter %>, y: <%= v[1] %>, indexLabel:"<%= v[1] %>" }
+                        <% end %>
+
+                        <% counter = counter + 1 %>
+
+                        <% end %>
+                        <% end %>
+
+                    ]
+                }
+            ]
+        };
+        <% else %>
+        var options = {
+            title: {
+                text: "Acessos por dia:"
+            },
+            axisX: {
+                labelFontSize:  18
+            },
+            axisY: {
+                title: "N° de acessos",
+                interlacedColor: "azure",
+                labelFontSize:  18
+            },
+            animationEnabled: true,
+            data: [
+                {
+
+                    type: "area",
+                    color: "rgba(0,75,141,0.4)",
+
+                    dataPoints: [
+                        <% counter = 0 %>
+                        <% unless @visitors_by_date.nil? %>
+                        <% @visitors_by_date.each  do | v |  %>
+
+                        <% if counter != @visitors_by_date.count %>
+                        { label: '<%= dia_analytics( v[0] ) %>/<%= mes_analytics( v[0] ) %>',  x: <%= counter %>, y: <%= v[1] %>, indexLabel:"<%= v[1] %>" },
+
+                        <% else %>
+                        { label: '<%= dia_analytics( v[0] ) %>/<%= mes_analytics( v[0] ) %>', x: <%= counter %>, y: <%= v[1] %>, indexLabel:"<%= v[1] %>" }
+                        <% end %>
+
+                        <% counter = counter + 1 %>
+
+                        <% end %>
+                        <% end %>
+
+                    ]
+                }
+            ]
+        };
+        <% end %>
+
+
+        $("#chartContainer").CanvasJSChart(options);
+
+        $(".update_index").click(function(){
+
+            var date = $(this).attr('id');
+            $('.content').block({ message: '<div class="load"><img src="/loader.png"></div> ', css: { backgroundColor: 'transparent', border: "none"}});
+            $.post('/update_dashboard', {date: date}, null, 'script');
+            setTimeout(function(){ $.unblockUI(); }, 5000); // se o serviço ta indisponível, a tela não fica bloqueada
+        })
+
+
+    });
+</script>

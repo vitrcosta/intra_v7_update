@@ -1,0 +1,224 @@
+<div class="modal fade" id="modal-alert" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="myModalLabel">Alerta</h4>
+      </div>
+      <div class="modal-body">
+        <p id="texto_alerta"></p>
+        <p class="debug-url"></p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Ok</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="col-md-12 col-xs-12">
+  <div class="text-center">
+    <% if notice %>
+      <script type="text/javascript">
+        $(document).ready(function(){
+
+          $("#notice").fadeIn();
+          setTimeout(function(){
+            $("#notice").fadeOut(1000);
+          }, 3000);
+
+        });
+      </script>
+      <p id="notice" class="bg-green" style="display: none;"><%= notice %></p>
+    <%end%>
+  </div>
+  <div class="x_panel">
+    <%= form_for [:intranet, @folheto], html: { :multipart=> true , :novalidate=>"novalidate", :data=>{"parsley-validate"=>"true"},:class=>"form-horizontal form-label-left", :id=>"formulario" } do |f| %>
+      <div class="x_title">
+        <h2>Folheto</h2>
+        <ul class="nav navbar-right panel_toolbox">
+        </ul>
+        <div class="clearfix"></div>
+      </div>
+      <div class="col-md-6 col-xs-12">
+        <div class="x_content">
+          <br />
+          <div class="text-center">
+            <% if @folheto.errors.any? %>
+              <div id="error_explanation">
+                <h2><%= pluralize(@folheto.errors.count, "erro") %> no preenchimento do fomulário:</h2>
+                <ul style="list-style: none;color: #f00;">
+                  <% @folheto.errors.full_messages.each do |message| %>
+                    <li><%= message %></li>
+                  <% end %>
+                </ul>
+              </div>
+            <% end %>
+          </div>
+          <div class="form-group">
+            <label class="control-label col-md-3 col-sm-3 col-xs-12">Tipo de folheto</label>
+            <div class="col-md-9 col-sm-9 col-xs-12">
+              <select class="form-control" onchange="Change(this)" id="select_tipos_folheto">
+                <option>Imagem</option>
+                <option>Vídeo</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group" id="folheto_video" style="display: none;">
+            <label class="control-label col-md-3 col-sm-3 col-xs-12">
+              Link do vídeo
+            </label>
+            <div class="col-md-9 col-sm-9 col-xs-12">
+              <%= f.text_field :link_video , :class=>"form-control col-md-7 col-xs-12", :id=>"text_video_folheto", :placeholder=>"Informe o link do vídeo no youtube" %>
+            </div>
+            <span style="margin-left: 26.5%;font-size: 11px !important;"> * (Utilizar somente a parte em negrito do link. Ex: www.youtube.com/watch?v=<span style="color: black; font-weight: bolder; font-size:12px;">M6yg7kJb-eY</span>)</span>
+          </div>
+          <div id="folheto_imagem">
+            <div class="form-group" style="margin-bottom: 5px;">
+              <label class="control-label col-md-3 col-sm-3 col-xs-12"></label>
+              <div class="col-md-9 col-sm-9 col-xs-12">
+                <% if f.object.imagem_folheto.attached? %>
+                  <div class="">
+                    <div class="">
+                      <div class="image view">
+                        <%= f.hidden_field :id %>
+                        <%= image_tag f.object.imagem_folheto, :style=>"width: 100%; display: block;", :class=>"imagem_folheto" %>
+                      </div>
+                      <div class="caption">
+                        <div class="checkbox">
+                          <label class="checkbox-remove-image-folheto">
+                            <% unless f.object.imagem_folheto.blank? %>
+                              <%= check_box_tag :remover_imagem_folheto, 'yes', false, :class=>"flat" %> Remover imagem
+                            <% end %>
+                          </label>
+                        </div>
+                        <p></p>
+                      </div>
+                    </div>
+                  </div>
+                <% end %>
+              </div>
+            </div>
+            <style>
+              .span-folheto {
+                margin-left: 26.5%;
+                font-size: 12px !important;
+              }
+              @media (max-width: 767px) {
+                .span-folheto {
+                  margin-left: 0;
+                }
+              }
+            </style>
+            <div class="form-group">
+              <label class="control-label col-md-3 col-sm-3 col-xs-12"></label>
+              <div class="col-md-9 col-sm-9 col-xs-12">
+                <div class="input-group">
+                  <label class="input-group-btn" title="Importar imagem">
+                    <span class="btn btn-primary">
+                      <%# f.file_field :imagem, :class => 'campos_intranet' %>
+                      Arquivo&hellip; <%= f.file_field :imagem_folheto,
+                    :class => 'fileupload campos_intranet field_galeria',
+                    :style=>"display: none;",
+                    :onchange=>"galeria_change_file(this)" %>
+                    </span>
+                  </label>
+                  <input type="text" name="galeria_text-file" class="form-control text_file_galeria" value="Nenhum arquivo selecionado" readonly>
+                </div>
+              </div>
+              <span class="span-folheto">* (Arquivo JPG / Dimensão Máxima 1200x1200px / Peso 250kb).</span>
+            </div>
+          </div>
+        </div>
+        <!-- end x_content -->
+      </div>
+      <div class="col-md-12 col-sm-12 col-xs-12">
+        <div class="x_content">
+          <br />
+          <div class="ln_solid"></div>
+          <div class="form-group fixed-position-btns">
+            <div class="text-center">
+              <!-- <a href="#">
+              <button type="button" class="btn btn-primary">Cancel</button>
+            </a> -->
+              <button id="send" type="submit" class="btn btn-success" onclick="submit_form()">Salvar</button>
+            </div>
+          </div>
+        </div>
+        <!-- end x_content -->
+      </div>
+    <% end %>
+  </div>
+</div>
+<script type="text/javascript">
+  $(document).ready(function() {
+    var tem_imagem = $(".imagem_folheto")[0];
+    var tem_video = document.getElementById("text_video_folheto").value;
+
+    if (tem_imagem != undefined) {
+      document.getElementById("select_tipos_folheto").selectedIndex = "0";
+      $("#folheto_video").css("display","none");
+      $("#folheto_imagem").css("display","block");
+    }
+    if (tem_video.length != 0) {
+      document.getElementById("select_tipos_folheto").selectedIndex = "1";
+      $("#folheto_video").css("display","block");
+      $("#folheto_imagem").css("display","none");
+    }
+  });
+
+  // altera o nome do input text para o nome da imagem selecionada no input file
+  function galeria_change_file(field){
+    // var className = $(".fileupload");
+    document.getElementsByName('galeria_text-file')[0].value = field.value.replace(/\\/g, '/').replace(/.*\//, '');
+  }
+
+  // mostra a imagem quando selecionada no input file
+  $("#inputImage").change(function(){
+    change_file();
+    readURL(this);
+  });
+  $("#imgInp").change(function(){
+    readURL(this);
+  });
+  function submit_form(){
+    document.getElementById("formulario").submit();
+  }
+  function Change(option){
+    var opcao = option.value.toLowerCase();
+    var tem_imagem = $(".imagem_folheto")[0];
+    var tem_video = document.getElementById("text_video_folheto").value;
+
+    // alert("tem_video.length = " + tem_video.length);
+    if (opcao == "imagem") {
+      if (tem_video.length != 0) {
+        $( "p#texto_alerta" ).html( "O folheto possui vídeo cadastrado. <br>Deixe em branco o link do vídeo e salve para poder adicionar uma imagem." );
+        $('#modal-alert').modal('show');
+        // alert("O folheto permite somente 1 imagem ou 1 vídeo!");
+        document.getElementById("select_tipos_folheto").selectedIndex = "1";
+        $("#folheto_video").css("display","block");
+        $("#folheto_imagem").css("display","none");
+      }else {
+        // alert("video NÃO existe");
+        // alert("Selecionou imagem");
+        $("#folheto_video").css("display","none");
+        $("#folheto_imagem").css("display","block");
+      }
+    }
+    if (opcao == "vídeo" ) {
+      if (tem_imagem != undefined) {
+        $( "p#texto_alerta" ).html( "O folheto possui imagem cadastrada. <br>Clique em remover imagem e salve para poder adicionar o link de um vídeo." );
+        $('#modal-alert').modal('show');
+
+        // alert("O folheto permite somente 1 imagem ou 1 vídeo!");
+        document.getElementById("select_tipos_folheto").selectedIndex = "0";
+        $("#folheto_video").css("display","none");
+        $("#folheto_imagem").css("display","block");
+      }else {
+        // alert("Imagem NÃO existe");
+        // alert("Selecionou video");
+        $("#folheto_video").css("display","block");
+        $("#folheto_imagem").css("display","none");
+      }
+    }
+  }
+</script>

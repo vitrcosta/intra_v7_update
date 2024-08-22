@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Intranet</title>
+
+  <%= stylesheet_link_tag    "intranet", media: 'all' %>
+  <%= javascript_include_tag "intranet" %>
+  <%= javascript_include_tag Ckeditor.cdn_url%>
+  <%= javascript_include_tag "https://cdn.jsdelivr.net/npm/sortablejs@1.14.0/Sortable.min.js" %>
+
+  <%= csrf_meta_tags %>
+
+  <%= favicon_link_tag '/fav_icon_intra.ico' %>
+  
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/3.2.0/css/font-awesome.min.css">
+    <!-- <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous"> -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/css/bootstrap.min.css">
+  <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.1.25/jquery.fancybox.min.css" /> -->
+</head>
+<body class="nav-md <%= controller_name %> <%= action_name %>">
+
+  <style media="screen">
+    .icheckbox_flat-green {
+      background-color: #c2c0c4;
+      border-radius: 5px;
+    }
+    .icheckbox_flat-green.checked {
+      background-color: #6ab46a;
+    }
+    textarea#post_descricao{
+      visibility: visible !important;
+      height: 200px !important;
+    }
+    .nav > li > a:focus, .nav > li > a:hover {
+      background-color: rgba(26, 187, 156, 0.8) !important;
+    }
+  </style>
+  <div class="container body" style="width:auto!important;padding:0px!important;">
+    <div class="main_container">
+
+      <div class="col-md-3 left_col" style="position: fixed;">
+        <div class="left_col scroll-view">
+          <div class="navbar nav_title updater_md" style="border: 0;">
+            <a href="/intranet/dashboard" class="site_title"> <%= image_tag "updaterv7.svg" %></a>
+          </div>
+          <div class="navbar nav_title updater_sm" style="border: 0;">
+            <a href="/intranet/dashboard" class="site_title"> <%= image_tag "rocket.svg" %></a>
+          </div>
+
+          <div class="clearfix"></div>
+
+          <!-- menu profile quick info -->
+          <div class="profile clearfix">
+            <div class="profile_pic">
+              <%= image_tag "avatar_criativitta.svg", :class => "img-circle profile_img" %>
+            </div>
+            <div class="profile_info">
+              <span>Bem vindo,</span>
+              <h2><%= session[:user_name].titleize %> </h2>
+            </div>
+          </div>
+          <!-- /menu profile quick info -->
+
+          <br />
+
+          <!-- sidebar menu -->
+          <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
+            <div class="menu_section">
+              <ul class="nav side-menu">
+                <li><a href="<%= intranet_dashboard_index_path %>"><i class="fa fa-bar-chart"></i> Painel Administrativo</a></li>
+                <li><a href="<%= intranet_clientes_path %>"><span class="glyphicon glyphicon-king" aria-hidden="true" ></span> Clientes</a></li>
+                <li><a href="<%= edit_intranet_folheto_path("1") %>"><i class="fa fa fa-desktop"></i> Folheto</a></li>
+                <li><a href="<%= intranet_kind_of_posts_path %>"><i class="fa fa-reorder"></i> Tipo De Postagem</a>
+                </li>
+                <li><a href="<%= intranet_categories_path %>"><i class="fa fa-th-list"></i> Categorias</a></li>
+                <li><a><i class="fa fa-reorder"></i> Postagens <span class="fa fa-chevron-down"></span></a>
+                  <ul class="nav child_menu">
+                    <!-- <li>
+                    <%# link_to "Todas", intranet_posts_path %>
+                  </li> -->
+                  <% KindOfPost.all.each do |tipospost| %>
+                  <li>
+                    <%= link_to (tipospost.name).titleize, intranet_kind_of_post_posts_path(tipospost) %>
+                  </li>
+                  <%end%>
+                </ul>
+              </li>
+              <li><a href="<%= intranet_users_path %>"><i class="fa fa-user"></i> Usuários</a></li>
+
+            </ul>
+          </div>
+        </div>
+        <!-- /sidebar menu -->
+
+        <!-- /menu footer buttons -->
+        <div class="sidebar-footer hidden-small">
+          <!-- <a data-toggle="tooltip" data-placement="top" title="Settings">
+          <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
+        </a>
+        <a data-toggle="tooltip" data-placement="top" title="FullScreen">
+        <span class="glyphicon glyphicon-fullscreen" aria-hidden="true"></span>
+      </a>
+      <a data-toggle="tooltip" data-placement="top" title="Lock">
+      <span class="glyphicon glyphicon-eye-close" aria-hidden="true"></span>
+    </a> -->
+    <a data-toggle="tooltip" data-placement="top" title="Logout" href="<%= intranet_logout_path %>">
+      <span class="glyphicon glyphicon-off" aria-hidden="true" style="left: -8.5px;"></span>
+    </a>
+  </div>
+  <!-- /menu footer buttons -->
+</div>
+</div>
+
+<div class="top_nav">
+  <div class="nav_menu">
+    <nav>
+      <div class="nav toggle">
+        <a id="menu_toggle"><i class="fa fa-bars"></i></a>
+      </div>
+
+      <ul class="nav navbar-nav navbar-right">
+        <li class="">
+          <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+            <%= session[:user_name].titleize %>
+            <span class=" fa fa-angle-down"></span>
+          </a>
+          <ul class="dropdown-menu dropdown-usermenu pull-right">
+            <li><a href="<%= intranet_logout_path %>"><i class="fa fa-sign-out pull-right"></i> Sair</a></li>
+          </ul>
+        </li>
+        <li><span class="user-profile"><%= image_tag "updaterv7_v2.svg" %></span></li>
+
+      </ul>
+    </nav>
+  </div>
+</div>
+<div class="right_col" role="main">
+
+  <%= yield %>
+
+</div>
+</div>
+</div>
+
+<script>
+  $(document).ready( function() {
+  var el = document.getElementById('sortable-gallery');
+  var sortable = Sortable.create(el, {
+    onEnd: function (evt) {
+      var itemEl = evt.item;
+      // Atualiza a posição dos itens
+      updatePositions();
+    }
+  });
+
+  function updatePositions() {
+    var items = document.querySelectorAll('.sortable-item');
+    items.forEach(function(item, index) {
+      var id = item.getAttribute('data-id');
+      var positionInput = item.querySelector('input[name*="[id]"]');
+      if (positionInput) {
+        positionInput.value = index + 1; // Atualiza a posição de cada imagem
+      }
+    });
+  }
+});
+</script>
+<%= javascript_include_tag 'footermanifest', 'data-turbolinks-track' => true %>
+</body>
+</html>
+<script type="text/javascript">
+  function agendar(){
+    // $('.program').css({'display' : 'block'});
+    $('.program').removeClass('animationclose');
+    $('.program').addClass('animationtest');
+  }
+  function close(){
+    $('.program').removeClass('animationopen');
+    $('.program').addClass('animationclose');
+  }
+</script>

@@ -1,0 +1,2 @@
+module FolhetosHelper
+end

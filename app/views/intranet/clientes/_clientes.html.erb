@@ -1,0 +1,50 @@
+<div class="text-center">
+  <% if notice %>
+  <script type="text/javascript">
+  $(document).ready(function(){
+
+    $("#notice").fadeIn();
+    setTimeout(function(){
+      $("#notice").fadeOut(1000);
+    }, 3000);
+
+  });
+  </script>
+  <p id="notice" class="bg-green" style="display: none;"><%= notice %></p>
+  <%end%>
+</div>
+
+
+
+<table id="datatable" class="table table-striped table-bordered">
+  <thead>
+    <tr>
+      <th>Data</th>
+      <th class="col-xs-2">Nome</th>
+      <th class="col-xs-2">Email</th>
+      <th class="col-xs-1">Telefone</th>
+      <th class="col-xs-3">Curso de Interesse</th>
+      <th>Status</th>
+      <th>Atendido Por</th>
+      <th>Editar</th>
+      <th>Excluir</th>
+    </tr>
+  </thead>
+
+
+  <tbody>
+    <% @clientes.each do |cliente| %>
+    <tr>
+      <td><%= cliente.created_at.strftime("%d/%m/%Y") unless cliente.created_at.blank? %></td>
+      <td><%= cliente.nome %></td>
+      <td><%= cliente.email %></td>
+      <td><%= cliente.telefone %></td>
+      <td><%= cliente.interesse %></td>
+      <td><%= cliente_status(cliente.status) %></td>
+      <td><%= cliente.atendido_por %></td>
+      <td><%= link_to ("<i class='fa fa-edit'></i>".html_safe), edit_intranet_cliente_path(cliente) %></td>
+      <td><%= link_to ("<i class='fa fa-close'></i>".html_safe), intranet_cliente_path(cliente), method: :delete, data: { confirm: 'Deseja excluir?' } %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>

@@ -1,0 +1,40 @@
+
+<div class="barra_middle" style="height: 70px">
+  <div class="cartola_secao">
+    <%# image_tag"img_admin/cartola_admin_sliders.png" %>
+  </div>
+  <div class="cartola_admin_titulo">
+  </div>
+</div>
+
+
+<div class="content" style="font-family: helvetica neue;">
+
+  <div class="content_padding">
+    <div id="list" class="my_header">
+
+
+
+      <%= render 'dashboard_data' %>
+
+    </div>
+  </div>
+
+  <div class="clean"></div>
+
+</div>
+
+<script>
+
+    function post(){
+        $.post('/update_dashboard', {date: '30_dias'}, null, 'script');
+    }
+
+
+    $(document).ready(function(){
+
+        $('.content').block({ message: '<div class="load"><img src="/loader.png"></div> ', css: { backgroundColor: 'transparent', border: "none"}});
+        window.setTimeout(post, 2000);
+
+    });
+</script>

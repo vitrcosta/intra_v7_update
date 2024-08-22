@@ -1,0 +1,38 @@
+<div>
+  <div class="login_wrapper">
+    <div class="text-center">
+      <% flash.each do |type, message| %>
+        <div class="message notice">
+          <p>
+            <%= message %>
+          </p>
+        </div>
+      <% end %>
+    </div>
+    <div class="animate form login_form">
+      <section class="login_content">
+        <%= form_tag intranet_login_path, :id=>"form_login" do %>
+          <h1><%= image_tag "updaterv7.svg", :class=>"updater_login" %></h1>
+          <div>
+            <i class="fa fa-user" style="position: absolute; left: 8px; top: 64px; font-size: 20px;" aria-hidden="true"></i>
+            <%= text_field_tag :name, params[:name], :class=>"form-control", :style => "padding-left: 34px;", :placeholder=>"Usuário", :required=> true %>
+            <!-- <input type="text" class="form-control" placeholder="Username" required="" /> -->
+          </div>
+          <div>
+            <i class="fa fa-lock" style="position: absolute; left: 8px; top: 118px; font-size: 20px;" aria-hidden="true"></i>
+            <%= password_field_tag :password, params[:password], :class=>"form-control", :style => "padding-left: 34px;", :placeholder=>"Senha", :required=> true %>
+            <!-- <input type="password" class="form-control" placeholder="Password" required="" /> -->
+          </div>
+          <div>
+            <%= submit_tag "Entrar" , :class=>"btn btn-default submit hover-entrar" ,
+            :style=>"background-color: #00bd97;border-color: #00bd97;float: none;margin: 0 auto;color: #FFFFFF; width: 100%;transition: all 0.33s ease;" %>
+          </div>
+          <div class="clearfix"></div>
+        <% end %>
+      </section>
+    </div>
+    <a href="http://criativitta.com.br" target="_blank">
+      <%= image_tag "/criativitta-rodape.svg", :style => "float: right; max-width: 113px; position: fixed; right: 50% !important; bottom: 0; transform: translate(50%);", :class=>"logo-svg-right" %>
+    </a>
+  </div>
+</div>

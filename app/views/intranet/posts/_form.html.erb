@@ -1,0 +1,367 @@
+<script>
+$.validator.setDefaults({
+	submitHandler: function() {
+		// alert("submitted!");
+    document.getElementById("form_post").submit();
+	}
+});
+
+$(document).ready(function() {
+	var validator = $("#form_post").validate({
+		errorPlacement: function(error, element) {
+			$( element )
+				.closest( "form" )
+					.find( "label[for='" + element.attr( "id" ) + "']" )
+						.append( error );
+		},
+		errorElement: "span",
+		messages: {
+			tipopostagem: {
+				required: " (obrigatório)"
+			}
+		}
+	});
+});
+</script>
+
+
+
+<div class="col-md-12 col-xs-12">
+  <div class="x_panel">
+
+    <%= form_for [:intranet, @post], html: { :multipart=> true , :novalidate=>"novalidate", :data=>{"parsley-validate"=>"true"},:class=>"form-horizontal form-label-left", :id=>"form_post" } do |f| %>
+    <div class="x_title">
+      <h2>Postagem</h2>
+      <ul class="nav navbar-right panel_toolbox">
+      </ul>
+      <div class="clearfix"></div>
+    </div>
+    <div class="col-md-6 col-xs-12">
+
+      <div class="x_content">
+        <br />
+
+        <div class="text-center">
+          <% if @post.errors.any? %>
+          <div id="error_explanation">
+            <h2><%= pluralize(@post.errors.count, "erro") %> no preenchimento do fomulário:</h2>
+
+            <ul style="list-style: none;color: #f00;">
+              <% @post.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+              <% end %>
+            </ul>
+          </div>
+          <% end %>
+        </div>
+
+        <div class="form-group">
+          <label class="control-label col-md-3 col-sm-3 col-xs-12">Inativar</label>
+          <div class="col-md-9 col-sm-9 col-xs-12">
+            <div class="">
+              <div class="checkbox">
+                <%= f.check_box :inativar, :class=>"js-switch" %>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="tipopostagem" class="control-label col-md-3 col-sm-3 col-xs-12">
+            Tipo de postagem <span class="required">*</span>
+          </label>
+          <div class="col-md-9 col-sm-9 col-xs-12">
+            <%= collection_select :post, :kind_of_post_id, KindOfPost.all, :id, :name, {prompt: 'Selecione o tipo de postagem (obrigatório)',selected: @kind }, {:class=>"form-control", :id=>"tipopostagem", :required =>"true"}  %>
+          </div>
+
+        </div>
+
+
+        <div class="form-group">
+          <label class="control-label col-md-3 col-sm-3 col-xs-12">
+            Título <span class="required">*</span>
+          </label>
+          <div class="col-md-9 col-sm-9 col-xs-12">
+            <%= f.text_field :titulo , :class=>"form-control col-md-7 col-xs-12", :data=> {"validate-length-range"=>"3", "validate-words"=>"1"}, :placeholder=>"Digite o título (obrigatório)", :required=> true %>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="control-label col-md-3 col-sm-3 col-xs-12">
+            Subtítulo
+          </label>
+          <div class="col-md-9 col-sm-9 col-xs-12">
+            <%= f.text_field :subtitulo , :class=>"form-control col-md-7 col-xs-12", :data=> {"validate-length-range"=>"3", "validate-words"=>"1"}, :placeholder=>"Digite o subtítulo" %>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="control-label col-md-3 col-sm-3 col-xs-12">
+            Categoria
+          </label>
+          <div class="col-md-9 col-sm-9 col-xs-12">
+            <%= collection_select :post, :category_id, Category.all.where(inativar: false), :id, :name, {prompt: 'Selecione a categoria', :include_blank => "Nenhuma"}, {:class=>"form-control"}  %>
+          </div>
+        </div>
+
+
+
+				<div class="form-group">
+          <label class="control-label col-md-3 col-sm-3 col-xs-12">
+            Data
+          </label>
+          <div class="col-md-9 col-sm-9 col-xs-12">
+
+            <div class="control-group">
+              <div class="controls">
+                <div class="">
+                  <%= f.date_field :data, :value => @data, :class=>"form-control has-feedback-left" %>
+                  <span class="fa fa-calendar-o form-control-feedback left" aria-hidden="true"></span>
+                  <span id="inputSuccess2Status3" class="sr-only">(success)</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+				<div class="form-group">
+          <label class="control-label col-md-3 col-sm-3 col-xs-12">
+            Keywords
+          </label>
+          <div class="col-md-9 col-sm-9 col-xs-12">
+            <%= f.text_field :keywords , :class=>"form-control col-md-7 col-xs-12", :data=> {"validate-length-range"=>"3", "validate-words"=>"1"}, :placeholder=>"Digite as keywords" %>
+          </div>
+        </div>
+
+
+        <div class="form-group">
+          <div class="col-md-9 col-sm-9 col-xs-12">
+
+            <div id="result_hidden_field" class="hidden-field"></div>
+            <script type="text/javascript">
+            function change_file(){
+              var data = '<%= f.hidden_field :foto_principal %>';
+              // hidden field recebe a image escolhida, para poder salvar todas as imagens em canvas
+              document.getElementById('result_hidden_field').innerHTML += data;
+            }
+            </script>
+          </div>
+        </div>
+
+        <!-- <div class="form-group">
+        <label class="control-label col-md-3 col-sm-3 col-xs-12">
+        MOSTRA FOTO UPLOAD
+      </label>
+      <div class="col-md-9 col-sm-9 col-xs-12 borda_img">
+      <img id="blah" src="#" alt="your image" />
+    </div>
+  </div> -->
+</div>
+<!-- end x_content -->
+
+
+
+
+</div>
+
+
+<!-- image cropping -->
+<div  id="image_cropping">
+  <%= render partial: "image_cropping", object: @post, as: 'post' %>
+  <div class="container cropper">
+    <span style="font-size: 11px !important;"> Formato recomendado: <span style="color: black; font-weight: bolder; font-size:12px;">JPG.</span></span>
+    <span style="font-size: 11px !important;"> Dimensões recomendadas: <span style="color: black; font-weight: bolder; font-size:12px;">1600x900 pixels.</span></span>
+    <span style="font-size: 11px !important;"> Peso recomendado: <span style="color: black; font-weight: bolder; font-size:12px;">até 300kb.</span></span>
+  </div>
+</div>
+<!-- /image cropping -->
+
+<!-- GALLERY -->
+<div class="row">
+  <div class="col-md-12">
+    <div class="x_panel">
+      <div class="x_title">
+        <h2>Galeria de Fotos</h2>
+        <div class="clearfix"></div>
+      </div>
+      <div class="x_content">
+
+        <div class="row">
+
+          <div id="sortable-gallery" class="row">
+  <%= f.fields_for :galleries do |galleries| %>
+    <% unless galleries.object.new_record? %>
+      <div class="col-md-55 sortable-item" data-id="<%= galleries.object.id %>">
+        <div class="thumbnail">
+          <div class="image view">
+            <% unless galleries.object.nil? %>
+              <%= image_tag galleries.object.image, style: "width: 100%; display: block;" %>
+            <% end %>
+          </div>
+          <div class="caption">
+            <div class="checkbox">
+              <label class="checkbox-remove-image">
+                <%= galleries.check_box :_destroy, class: "flat" %> Remover imagem
+              </label>
+            </div>
+            <%= galleries.hidden_field :position %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+</div>
+
+
+          <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="col-md-3 col-sm-3 col-xs-12" style="padding-left: 0px !important;">
+              <div class="input-group">
+                <label class="input-group-btn" title="Importar imagem">
+                  <span class="btn btn-primary">
+                    <%= f.fields_for :galleries do |ff| %>
+                    <% if ff.object.new_record? %>
+
+                    Arquivo&hellip; <%= ff.file_field :image,
+                    :class => 'fileupload campos_intranet field_galeria',
+                    :style=>"display: none;",
+                    :onchange=>"galeria_change_file(this)" %>
+
+                    <div class="conta_quantos_botao_file"></div>
+
+                    <% end %>
+                    <% end %>
+                  </span>
+                </label>
+                <input type="text" name="galeria_text-file" class="form-control text_file_galeria" value="Nenhum arquivo selecionado" readonly>
+              </div>
+
+              <div class="append_imagens2"></div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- END GALLERY -->
+
+
+
+
+<div class="col-md-12 col-sm-12 col-xs-12">
+
+
+  <div class="x_content">
+    <label class="control-label">
+      Descrição
+    </label>
+
+    <div class="">
+      <%= f.cktext_area :descricao, :class => 'form-control', :style=>"resize: vertical;" %>
+    </div>
+
+    <br />
+
+    <div class="form-group fixed-position-btns">
+      <div class="text-center">
+        <a href="<%= intranet_kind_of_post_posts_path(@kind) %>">
+          <button type="button" class="btn btn-primary">Cancelar</button>
+        </a>
+        <button id="send" type="submit" class="btn btn-success" >Salvar</button>
+      </div>
+    </div>
+
+  </div>
+  <!-- end x_content -->
+</div>
+
+<% end %>
+
+</div>
+
+
+
+</div>
+
+
+<script type="text/javascript">
+
+$(document).ready(function() {
+  var cont = $(".switchery");
+  if(cont.length > 0){
+    $(".switchery").last().hide();
+  }
+});
+
+function submit_form(){
+  // document.getElementById("formulario").submit();
+}
+// altera o nome do input text para o nome da imagem selecionada no input file
+function galeria_change_file(field){
+  // var className = $(".fileupload");
+  document.getElementsByName('galeria_text-file')[0].value = field.value.replace(/\\/g, '/').replace(/.*\//, '');
+}
+// para mostrar a imagem depois que ela é selecionada no input file
+function readURL(input) {
+  if (input.files && input.files[0]) {
+    var reader = new FileReader();
+
+    reader.onload = function (e) {
+      var dataURL = e.target.result;
+      $('#post_foto_principal').val(dataURL);
+    }
+
+    reader.readAsDataURL(input.files[0]);
+  }
+}
+// mostra a imagem quando selecionada no input file
+$("#inputImage").change(function(){
+  change_file();
+  readURL(this);
+});
+$("#imgInp").change(function(){
+  readURL(this);
+});
+// acao quando o botao limpar imagem eh clicado
+function limpar_imagem(){
+  var image = "/images/missing.png";
+  var hidden = $('#post_foto_principal');
+  hidden.remove();
+  $('#post_foto_principal').val("");
+  // document.getElementsByName('text-name-file')[0].value = ("Nenhum arquivo selecionado");
+  $('.box-image-cropped').html("");
+  $(".image_current").show();
+  // renderiza o partial para a amostra do corte da imagem ficar no tamanho inicial
+  $('#image_cropping').html('<%= escape_javascript( render 'image_cropping' ) %>').css("display","none");
+  $('#image_cropping').fadeIn('slow', function() {});
+  //funcao para zerar o tamanho do crop do box da imagem
+  init_cropper();
+  iCheckinit();
+}
+// altera o input text para o nome da imagem selecionada no input file
+// function set_text_input(){
+//   document.getElementsByName('text-name-file')[0].value = document.getElementById('inputImage').value.replace(/\\/g, '/').replace(/.*\//, '');
+// }
+
+// funcao quando o botao de cada corte eh clicado.
+/* correcao do bug que fazia com que cada corte aparecia um a baixo do outro ,
+*  entao a funcao remove a div de baixo caso o erro ocorra.
+*/
+function clicked_cropper(){
+  // alert("clicked_cropper");
+  var cropper_container = $(".cropper-container");
+  console.log('cropper_container.length> ' + cropper_container.length);
+  if(cropper_container.length > 0 && cropper_container.length < 2){
+    console.log('cropper_container.length (2)> ' + cropper_container.length);
+    $(".cropper-container").last().remove();
+  }
+
+}
+// funcao que reinicia a pre visualizacao do crop da imagem, para o tamanho inicial
+// essa funcao eh chamada apos o clique em alguns dos botoes de corte
+function resetPreview_cropper(){
+  $('.docs-preview').html('<%= escape_javascript( render 'docs_preview' ) %>');
+}
+
+</script>

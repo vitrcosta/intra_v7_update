@@ -1,0 +1,238 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ * require_tree .
+ *= require_self
+ *= require intranet-our-styles
+ *= require chartjs-visualizations.css
+
+ *= require vendors/bootstrap/dist/css/bootstrap
+ *= require vendors/font-awesome/css/font-awesome.min
+ *= require vendors/nprogress/nprogress
+ *= require vendors/normalize-css/normalize
+ *= require vendors/ion.rangeSlider/css/ion.rangeSlider
+ *= require vendors/ion.rangeSlider/css/ion.rangeSlider.skinFlat
+ *= require vendors/mjolnic-bootstrap-colorpicker/dist/css/bootstrap-colorpicker.min
+ *= require vendors/cropper/dist/cropper.min
+ *= require cropper
+ *= require vendors/iCheck/skins/flat/green
+ *= require vendors/google-code-prettify/bin/prettify.min
+ *= require vendors/select2/dist/css/select2.min
+ *= require vendors/switchery/dist/switchery.min
+ *= require vendors/starrr/dist/starrr
+ *= require vendors/bootstrap-daterangepicker/daterangepicker
+ *= require build/css/custom
+ *= require vendors/bootstrap-progressbar/css/bootstrap-progressbar-3.3.4.min
+ *= require vendors/jqvmap/dist/jqvmap.min
+
+ *= require vendors/datatables.net-bs/css/dataTables.bootstrap.min
+ *= require vendors/datatables.net-buttons-bs/css/buttons.bootstrap.min
+ *= require vendors/datatables.net-fixedheader-bs/css/fixedHeader.bootstrap.min
+ *= require vendors/datatables.net-responsive-bs/css/responsive.bootstrap.min
+ *= require vendors/datatables.net-scroller-bs/css/scroller.bootstrap.min
+ *= require vendors/animate.css/animate.min
+
+ */
+
+
+.message {
+    color: #ff000a;
+}
+
+
+.object_image_preview img {
+    width: 100%;
+    height: auto;
+}
+
+.checkbox-remove-image {
+    padding-left: 0px !important;
+    margin-left: -10px !important;
+}
+
+.checkbox-remove-image-folheto {
+    padding-left: 0px !important;
+    margin-left: -5px !important;
+}
+
+
+/*CSS PARA O DASHBOARD */
+
+
+.content-dashboard {
+    background-color: #ffffff;
+    border-radius: 10px;
+    margin: 14px 15px 0;
+    padding-bottom: 60px;
+    padding-right: 30px;
+}
+
+.visual {
+    display: block;
+    float: left;
+    font-size: 35px;
+    height: 80px;
+    line-height: 35px;
+    margin-bottom: 15px;
+    padding-left: 15px;
+    padding-top: 10px;
+    width: 80px;
+}
+
+.visual>i {
+    font-size: 110px;
+    line-height: 110px;
+    margin-left: -27px;
+}
+
+.details {
+    padding-right: 15px;
+    right: 15px;
+    color: #FFFFFF;
+}
+
+.details .number {
+    font-size: 34px;
+    font-weight: 300;
+    letter-spacing: -1px;
+    line-height: 36px;
+    margin-bottom: 0;
+    padding-top: 25px;
+    text-align: right;
+}
+
+.details .desc {
+    font-size: 16px;
+    font-weight: 300;
+    letter-spacing: 0;
+    text-align: right;
+}
+
+.more {
+    clear: both;
+    display: block;
+    font-size: 11px;
+    font-weight: 300;
+    opacity: 0.7;
+    padding: 6px 10px;
+    position: relative;
+    text-transform: uppercase;
+}
+
+.row-dashboard {
+    padding-top: 10px;
+    padding-left: 5px;
+    padding-right: 10px;
+}
+
+.col-box {
+    width: 24%;
+    float: left;
+    margin-right: 15px;
+}
+
+.col-box:last-child {
+    margin-right: -15px;
+}
+
+
+
+.dashboard {
+    height: 130px;
+    margin-bottom: 25px;
+    color: #73879C;
+}
+
+.link_analytics {
+    color: #588ebd
+}
+
+.link_analytics:hover {
+    text-decoration: underline;
+}
+
+.update_index {
+    display: inline;
+    margin-right: 25px;
+    color: grey;
+    cursor: pointer;
+}
+
+.update_index:hover {
+    text-decoration: underline;
+}
+
+.update_index_active {
+    display: inline;
+    margin-right: 25px;
+    color: #000;
+}
+
+@media (max-width: 890px) {
+    .col-box {
+        width: 48%;
+    }
+}
+
+@media (max-width: 750px) {
+    .col-box {
+        width: 100%;
+        margin-right: 0;
+    }
+
+    .row-dashboard {
+        margin-right: 15px;
+        margin-left: 15px;
+        margin-top: 10px;
+    }
+}
+
+/*FIM CSS PARA O DASHBOARD */
+
+
+
+.status_green {
+    border-radius: 2em;
+    height: 15px;
+    margin: 0 auto;
+    width: 15px;
+    background-color: #53b171;
+}
+
+.status_red {
+    background-color: #c34747;
+    border-radius: 2em;
+    height: 15px;
+    margin: 0 auto;
+    width: 15px;
+}
+
+.status_blue {
+    background-color: #85AEC9;
+    border-radius: 2em;
+    height: 15px;
+    margin: 0 auto;
+    width: 15px;
+}
+
+.status_yellow {
+    background-color: #D6D45E;
+    border-radius: 2em;
+    height: 15px;
+    margin: 0 auto;
+    width: 15px;
+}
+
+.main_menu span {
+    width: 26px;
+    font-size: 18px;
+}

@@ -1,0 +1,2 @@
+$('#lista').html('<%= escape_javascript( render "clientes" ) %>');
+$("#link_relatorio").attr('href', '/intranet/clientes.pdf?search=<%= @search %>&de=<%= @de %>&ate=<%= @ate %>&status=<%= @status %>&atendido_por=<%= @atendido_por %>');

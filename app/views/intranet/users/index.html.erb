@@ -1,0 +1,57 @@
+<div class="">
+  <div class="page-title">
+    <div class="title_left">
+      <h3>Usuários</h3>
+    </div>
+    <div class="title_right">
+      <a href="<%= new_intranet_user_path %>">
+        <button type="button" class="pull-right btn btn-round btn-primary"><i class="fa fa-plus"></i> Novo</button>
+      </a>
+    </div>
+  </div>
+  <style>
+    @media (max-width: 767px){
+      .dataTables_filter {
+          float: none !important;
+      }
+      .dataTables_length {
+          text-align: left !important;
+      }
+    }
+  </style>
+  <div class="clearfix"></div>
+  <div class="row">
+    <div class="col-md-12 col-sm-12 col-xs-12">
+      <div class="x_panel">
+        <div class="x_title">
+          <div class="clearfix"></div>
+        </div>
+        <div class="x_content">
+          <div class="text-center">
+            <% if notice %>
+              <p id="notice" class="bg-green"><%= notice %></p>
+            <%end%>
+          </div>
+          <table id="datatable" class="table table-striped table-bordered">
+            <thead>
+              <tr>
+                <th>Nome</th>
+                <th class="col-xs-1">Editar</th>
+                <th class="col-xs-1">Excluir</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% @users.each do |user| %>
+                <tr>
+                  <td><%= user.name %></td>
+                  <td><%= link_to ("<i class='fa fa-edit'></i>".html_safe), edit_intranet_user_path(user) %></td>
+                  <td><%= link_to ("<i class='fa fa-close'></i>".html_safe), intranet_user_path(user), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
