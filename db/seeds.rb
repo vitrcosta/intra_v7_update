@@ -7,5 +7,5 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
-# User.create(name: 'criativitta', password: 'mytruck9', password_confirmation: 'mytruck9')
+User.create(name: 'criativitta', password: 'mytruck9', password_confirmation: 'mytruck9')
 Folheto.create(id: 1)

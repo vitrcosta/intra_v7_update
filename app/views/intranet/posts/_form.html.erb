@@ -189,7 +189,7 @@ $(document).ready(function() {
         <div class="row">
 
           <div id="sortable-gallery" class="row">
-  <%= f.fields_for :galleries do |galleries| %>
+  <%= f.fields_for :galleries, @galleries do |galleries| %>
     <% unless galleries.object.new_record? %>
       <div class="col-md-55 sortable-item" data-id="<%= galleries.object.id %>">
         <div class="thumbnail">
@@ -265,7 +265,7 @@ $(document).ready(function() {
 
     <div class="form-group fixed-position-btns">
       <div class="text-center">
-        <a href="<%= intranet_kind_of_post_posts_path(@kind) %>">
+        <a href="/intranet/kind_of_posts/<%=@kind%>/posts">
           <button type="button" class="btn btn-primary">Cancelar</button>
         </a>
         <button id="send" type="submit" class="btn btn-success" >Salvar</button>
@@ -283,7 +283,30 @@ $(document).ready(function() {
 
 
 </div>
+<script>
+  $(document).ready( function() {
+  var el = document.getElementById('sortable-gallery');
+  var sortable = Sortable.create(el, {
+    onEnd: function (evt) {
+      var itemEl = evt.item;
+      // Atualiza a posição dos itens
+      updatePositions();
+    }
+  });
 
+  function updatePositions() {
+    var items = document.querySelectorAll('.sortable-item');
+    items.forEach(function(item, index) {
+      var id = item.getAttribute('data-id');
+      var positionInput = item.querySelector('input[name*="[position]"]');
+      if (positionInput) {
+        positionInput.value = index + 1; // Atualiza a posição de cada imagem
+      }
+    });
+  }
+});
+</script>
+<%= javascript_include_tag "https://cdn.jsdelivr.net/npm/sortablejs@1.14.0/Sortable.min.js" %>
 
 <script type="text/javascript">
 

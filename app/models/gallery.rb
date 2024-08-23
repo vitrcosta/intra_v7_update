@@ -1,5 +1,5 @@
 class Gallery < ActiveRecord::Base
-
+  default_scope { order(:position) }
   belongs_to :post
   has_one_attached :image
 
