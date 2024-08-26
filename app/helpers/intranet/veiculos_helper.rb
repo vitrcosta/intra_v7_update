@@ -1,0 +1,2 @@
+module Intranet::VeiculosHelper
+end

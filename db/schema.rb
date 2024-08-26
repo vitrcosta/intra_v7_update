@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_08_22_135230) do
+ActiveRecord::Schema[7.1].define(version: 2024_08_23_190123) do
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -95,6 +95,13 @@ ActiveRecord::Schema[7.1].define(version: 2024_08_22_135230) do
     t.index ["post_id"], name: "index_galleries_on_post_id"
   end
 
+  create_table "intranet_veiculos", force: :cascade do |t|
+    t.integer "ano"
+    t.string "modelo"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "kind_of_posts", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
@@ -129,6 +136,28 @@ ActiveRecord::Schema[7.1].define(version: 2024_08_22_135230) do
     t.string "password_digest"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "veiculos", force: :cascade do |t|
+    t.string "ano"
+    t.string "modelo"
+    t.decimal "preco", precision: 12, scale: 2
+    t.text "observacao"
+    t.text "descricao"
+    t.integer "quilometragem"
+    t.string "cor"
+    t.string "anofab"
+    t.string "combustivel"
+    t.string "procedencia"
+    t.boolean "inativo"
+    t.boolean "destaque"
+    t.integer "codigo"
+    t.string "versao"
+    t.string "placa"
+    t.integer "marca_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["marca_id"], name: "index_veiculos_on_marca_id"
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"

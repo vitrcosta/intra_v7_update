@@ -1,0 +1,27 @@
+<%= form_with(model: intranet_veiculo) do |form| %>
+  <% if intranet_veiculo.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(intranet_veiculo.errors.count, "error") %> prohibited this intranet_veiculo from being saved:</h2>
+
+      <ul>
+        <% intranet_veiculo.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :ano, style: "display: block" %>
+    <%= form.number_field :ano %>
+  </div>
+
+  <div>
+    <%= form.label :modelo, style: "display: block" %>
+    <%= form.text_field :modelo %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
