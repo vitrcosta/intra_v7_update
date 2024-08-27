@@ -1,27 +1,354 @@
-<%= form_with(model: intranet_veiculo) do |form| %>
-  <% if intranet_veiculo.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(intranet_veiculo.errors.count, "error") %> prohibited this intranet_veiculo from being saved:</h2>
+<script>
+$.validator.setDefaults({
+	submitHandler: function() {
+		// alert("submitted!");
+    document.getElementById("form_post").submit();
+	}
+});
 
-      <ul>
-        <% intranet_veiculo.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
+$(document).ready(function() {
+	var validator = $("#form_post").validate({
+		errorPlacement: function(error, element) {
+			$( element )
+				.closest( "form" )
+					.find( "label[for='" + element.attr( "id" ) + "']" )
+						.append( error );
+		},
+		errorElement: "span",
+		messages: {
+			tipopostagem: {
+				required: " (obrigatório)"
+			}
+		}
+	});
+});
+</script>
+
+
+
+<div class="col-md-12 col-xs-12">
+  <div class="x_panel">
+
+    <%= form_for @intranet_veiculo, html: { :multipart=> true , :novalidate=>"novalidate", :data=>{"parsley-validate"=>"true"},:class=>"form-horizontal form-label-left", :id=>"form_post" } do |f| %>
+    <div class="x_title">
+      <h2>Postagem</h2>
+      <ul class="nav navbar-right panel_toolbox">
       </ul>
+      <div class="clearfix"></div>
     </div>
-  <% end %>
+    <div class="col-md-6 col-xs-12">
 
-  <div>
-    <%= form.label :ano, style: "display: block" %>
-    <%= form.number_field :ano %>
-  </div>
+      <div class="x_content">
+        <br />
 
-  <div>
-    <%= form.label :modelo, style: "display: block" %>
-    <%= form.text_field :modelo %>
-  </div>
+        <div class="text-center">
+          <% if @intranet_veiculo.errors.any? %>
+          <div id="error_explanation">
+            <h2><%= pluralize(@intranet_veiculo.errors.count, "erro") %> no preenchimento do fomulário:</h2>
 
-  <div>
-    <%= form.submit %>
+            <ul style="list-style: none;color: #f00;">
+              <% @intranet_veiculo.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+              <% end %>
+            </ul>
+          </div>
+          <% end %>
+        </div>
+
+        <div class="form-group">
+          <label class="control-label col-md-3 col-sm-3 col-xs-12">Inativar</label>
+          <div class="col-md-9 col-sm-9 col-xs-12">
+            <div class="">
+              <div class="checkbox">
+                <%= f.check_box :inativo, :class=>"js-switch" %>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="control-label col-md-3 col-sm-3 col-xs-12">Destaque</label>
+          <div class="col-md-9 col-sm-9 col-xs-12">
+            <div class="">
+              <div class="checkbox">
+                <%= f.check_box :destaque, :class=>"js-switch" %>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="control-label col-md-3 col-sm-3 col-xs-12">
+            Modelo <span class="required">*</span>
+          </label>
+          <div class="col-md-9 col-sm-9 col-xs-12">
+            <%= f.text_field :modelo , :class=>"form-control col-md-7 col-xs-12", :data=> {"validate-length-range"=>"3", "validate-words"=>"1"}, :placeholder=>"Digite o título (obrigatório)", :required=> true %>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="control-label col-md-3 col-sm-3 col-xs-12">
+            Versão <span class="required">*</span>
+          </label>
+          <div class="col-md-9 col-sm-9 col-xs-12">
+            <%= f.text_field :versao , :class=>"form-control col-md-7 col-xs-12", :data=> {"validate-length-range"=>"3", "validate-words"=>"1"}, :placeholder=>"Digite o título (obrigatório)", :required=> true %>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="control-label col-md-3 col-sm-3 col-xs-12">
+            Código
+          </label>
+          <div class="col-md-9 col-sm-9 col-xs-12">
+            <%= f.number_field :codigo , :class=>"form-control col-md-7 col-xs-12", :data=> {"validate-length-range"=>"3", "validate-words"=>"1"}, :placeholder=>"Digite o subtítulo" %>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="control-label col-md-3 col-sm-3 col-xs-12">
+            Ano
+          </label>
+          <div class="col-md-9 col-sm-9 col-xs-12">
+            <%= f.number_field :ano , :class=>"form-control col-md-7 col-xs-12", :data=> {"validate-length-range"=>"3", "validate-words"=>"1"}, :placeholder=>"Digite o subtítulo" %>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="control-label col-md-3 col-sm-3 col-xs-12">
+            Ano Fabricação
+          </label>
+          <div class="col-md-9 col-sm-9 col-xs-12">
+            <%= f.number_field :anofab , :class=>"form-control col-md-7 col-xs-12", :data=> {"validate-length-range"=>"3", "validate-words"=>"1"}, :placeholder=>"Digite o subtítulo" %>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="control-label col-md-3 col-sm-3 col-xs-12">
+            Quilometragem
+          </label>
+          <div class="col-md-9 col-sm-9 col-xs-12">
+            <%= f.number_field :quilometragem , :class=>"form-control col-md-7 col-xs-12", :data=> {"validate-length-range"=>"3", "validate-words"=>"1"}, :placeholder=>"Digite o subtítulo" %>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="control-label col-md-3 col-sm-3 col-xs-12">
+            Preço
+          </label>
+          <div class="col-md-9 col-sm-9 col-xs-12">
+            <%= f.number_field :preco , :class=>"form-control col-md-7 col-xs-12", :data=> {"validate-length-range"=>"3", "validate-words"=>"1"}, :placeholder=>"Digite o subtítulo" %>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="control-label col-md-3 col-sm-3 col-xs-12">
+            Combustível
+          </label>
+          <div class="col-md-9 col-sm-9 col-xs-12">
+            <%= f.text_field :combustivel , :class=>"form-control col-md-7 col-xs-12", :data=> {"validate-length-range"=>"3", "validate-words"=>"1"}, :placeholder=>"Digite o subtítulo" %>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="control-label col-md-3 col-sm-3 col-xs-12">
+            Procedência
+          </label>
+          <div class="col-md-9 col-sm-9 col-xs-12">
+            <%= f.text_field :procedencia , :class=>"form-control col-md-7 col-xs-12", :data=> {"validate-length-range"=>"3", "validate-words"=>"1"}, :placeholder=>"Digite o subtítulo" %>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="control-label col-md-3 col-sm-3 col-xs-12">
+            Placa
+          </label>
+          <div class="col-md-9 col-sm-9 col-xs-12">
+            <%= f.text_field :placa , :class=>"form-control col-md-7 col-xs-12", :data=> {"validate-length-range"=>"3", "validate-words"=>"1"}, :placeholder=>"Digite o subtítulo" %>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <div class="col-md-9 col-sm-9 col-xs-12">
+
+            <div id="result_hidden_field" class="hidden-field"></div>
+            <script type="text/javascript">
+            function change_file(){
+              var data = '<%= f.hidden_field :foto_principal %>';
+              // hidden field recebe a image escolhida, para poder salvar todas as imagens em canvas
+              document.getElementById('result_hidden_field').innerHTML += data;
+            }
+            </script>
+          </div>
+        </div>
+
+        <!-- <div class="form-group">
+        <label class="control-label col-md-3 col-sm-3 col-xs-12">
+        MOSTRA FOTO UPLOAD
+      </label>
+      <div class="col-md-9 col-sm-9 col-xs-12 borda_img">
+      <img id="blah" src="#" alt="your image" />
+    </div>
+  </div> -->
+</div>
+<!-- end x_content -->
+
+
+
+
+</div>
+
+
+<!-- image cropping -->
+<div  id="image_cropping">
+  <%= render partial: "image_cropping", object: @intranet_veiculo, as: 'post' %>
+  <div class="container cropper">
+    <span style="font-size: 11px !important;"> Formato recomendado: <span style="color: black; font-weight: bolder; font-size:12px;">JPG.</span></span>
+    <span style="font-size: 11px !important;"> Dimensões recomendadas: <span style="color: black; font-weight: bolder; font-size:12px;">1600x900 pixels.</span></span>
+    <span style="font-size: 11px !important;"> Peso recomendado: <span style="color: black; font-weight: bolder; font-size:12px;">até 300kb.</span></span>
   </div>
+</div>
+<!-- /image cropping -->
+
+
+
+
+
+<div class="col-md-12 col-sm-12 col-xs-12">
+
+
+  <div class="x_content">
+    <label class="control-label">
+      Descrição
+    </label>
+
+    <div class="">
+      <%= f.cktext_area :descricao, :class => 'form-control', :style=>"resize: vertical;" %>
+    </div>
+
+    <br />
+
+    <div class="form-group fixed-position-btns">
+      <div class="text-center">
+        <a href="/intranet/veiculos">
+          <button type="button" class="btn btn-primary">Cancelar</button>
+        </a>
+        <button id="send" type="submit" class="btn btn-success" >Salvar</button>
+      </div>
+    </div>
+
+  </div>
+  <!-- end x_content -->
+</div>
+
 <% end %>
+
+</div>
+
+
+
+</div>
+<script>
+  $(document).ready( function() {
+  var el = document.getElementById('sortable-gallery');
+  var sortable = Sortable.create(el, {
+    onEnd: function (evt) {
+      var itemEl = evt.item;
+      // Atualiza a posição dos itens
+      updatePositions();
+    }
+  });
+
+  function updatePositions() {
+    var items = document.querySelectorAll('.sortable-item');
+    items.forEach(function(item, index) {
+      var id = item.getAttribute('data-id');
+      var positionInput = item.querySelector('input[name*="[position]"]');
+      if (positionInput) {
+        positionInput.value = index + 1; // Atualiza a posição de cada imagem
+      }
+    });
+  }
+});
+</script>
+<%= javascript_include_tag "https://cdn.jsdelivr.net/npm/sortablejs@1.14.0/Sortable.min.js" %>
+
+<script type="text/javascript">
+
+$(document).ready(function() {
+  var cont = $(".switchery");
+  if(cont.length > 0){
+    $(".switchery").last().hide();
+  }
+});
+
+function submit_form(){
+  // document.getElementById("formulario").submit();
+}
+// altera o nome do input text para o nome da imagem selecionada no input file
+function galeria_change_file(field){
+  // var className = $(".fileupload");
+  document.getElementsByName('galeria_text-file')[0].value = field.value.replace(/\\/g, '/').replace(/.*\//, '');
+}
+// para mostrar a imagem depois que ela é selecionada no input file
+function readURL(input) {
+  if (input.files && input.files[0]) {
+    var reader = new FileReader();
+
+    reader.onload = function (e) {
+      var dataURL = e.target.result;
+      $('#post_foto_principal').val(dataURL);
+    }
+
+    reader.readAsDataURL(input.files[0]);
+  }
+}
+// mostra a imagem quando selecionada no input file
+$("#inputImage").change(function(){
+  change_file();
+  readURL(this);
+});
+$("#imgInp").change(function(){
+  readURL(this);
+});
+// acao quando o botao limpar imagem eh clicado
+function limpar_imagem(){
+  var image = "/images/missing.png";
+  var hidden = $('#post_foto_principal');
+  hidden.remove();
+  $('#post_foto_principal').val("");
+  // document.getElementsByName('text-name-file')[0].value = ("Nenhum arquivo selecionado");
+  $('.box-image-cropped').html("");
+  $(".image_current").show();
+  // renderiza o partial para a amostra do corte da imagem ficar no tamanho inicial
+  $('#image_cropping').html('<%= escape_javascript( render 'image_cropping' ) %>').css("display","none");
+  $('#image_cropping').fadeIn('slow', function() {});
+  //funcao para zerar o tamanho do crop do box da imagem
+  init_cropper();
+  iCheckinit();
+}
+// altera o input text para o nome da imagem selecionada no input file
+// function set_text_input(){
+//   document.getElementsByName('text-name-file')[0].value = document.getElementById('inputImage').value.replace(/\\/g, '/').replace(/.*\//, '');
+// }
+
+// funcao quando o botao de cada corte eh clicado.
+/* correcao do bug que fazia com que cada corte aparecia um a baixo do outro ,
+*  entao a funcao remove a div de baixo caso o erro ocorra.
+*/
+function clicked_cropper(){
+  // alert("clicked_cropper");
+  var cropper_container = $(".cropper-container");
+  console.log('cropper_container.length> ' + cropper_container.length);
+  if(cropper_container.length > 0 && cropper_container.length < 2){
+    console.log('cropper_container.length (2)> ' + cropper_container.length);
+    $(".cropper-container").last().remove();
+  }
+
+}
+// funcao que reinicia a pre visualizacao do crop da imagem, para o tamanho inicial
+// essa funcao eh chamada apos o clique em alguns dos botoes de corte
+function resetPreview_cropper(){
+  $('.docs-preview').html('<%= escape_javascript( render 'docs_preview' ) %>');
+}
+
+</script>

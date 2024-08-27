@@ -1,9 +1,15 @@
-class Intranet::VeiculosController < ApplicationController
+class Intranet::VeiculosController < Intranet::IntranetController
   before_action :set_intranet_veiculo, only: %i[ show edit update destroy ]
 
   # GET /intranet/veiculos or /intranet/veiculos.json
   def index
     @intranet_veiculos = Intranet::Veiculo.all
+    respond_to do |format|
+      format.html
+      format.js
+      format.xml { @intranet_veiculos = Intranet::Veiculo.where.not(inativo: true) }
+      format.json { render json: @intranet_veiculos = Intranet::Veiculo.where.not(inativo: true)}
+    end
   end
 
   # GET /intranet/veiculos/1 or /intranet/veiculos/1.json
@@ -65,6 +71,6 @@ class Intranet::VeiculosController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def intranet_veiculo_params
-      params.require(:intranet_veiculo).permit(:ano, :modelo)
+      params.require(:intranet_veiculo).permit(:ano, :foto_principal, :modelo, :preco, :observacao, :descricao, :quilometragem, :cor, :anofab, :combustivel, :procedencia, :inativo, :destaque, :codigo, :versao, :placa, fotos: [])
     end
 end

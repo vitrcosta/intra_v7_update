@@ -1,0 +1,105 @@
+<div class="">
+  <div class="page-title">
+    <div class="title_left">
+      <h3>POSTAGENS</h3>
+    </div>
+
+    <div class="title_right">
+      <a href="<%= new_intranet_post_path(:kind=> params[:kind_of_post_id]) %>">
+        <button type="button" class="pull-right btn btn-round btn-primary"><i class="fa fa-plus"></i> Novo</button>
+      </a>
+
+    </div>
+  </div>
+
+  <div class="clearfix"></div>
+
+  <div class="row">
+    <div class="col-md-12 col-sm-12 col-xs-12">
+      <div class="x_panel">
+        <div class="x_title">
+          <div class="clearfix"></div>
+        </div>
+        <div class="x_content">
+
+          <div class="text-center">
+            <% if notice %>
+            <script type="text/javascript">
+              $(document).ready(function(){
+
+                $("#notice").fadeIn();
+                setTimeout(function(){
+                  $("#notice").fadeOut(1000);
+                }, 3000);
+
+              });
+            </script>
+            <p id="notice" class="bg-green" style="display: none;"><%= notice %></p>
+            <%end%>
+          </div>
+          <table id="datatable" class="table table-striped table-bordered">
+            <thead>
+              <tr>
+                <th>Cód</th>
+                <th>Tipo de Postagem</th>
+                <th class="col-xs-2">Título</th>
+                <th class="col-xs-2">Subtítulo</th>
+                <th class="col-xs-1">Data</th>
+                <th>Categoria</th>
+                <th>Status</th>
+                <th>Editar</th>
+                <th>Excluir</th>
+              </tr>
+            </thead>
+
+            <tbody>
+
+              <% @posts.each do |post| %>
+              <tr>
+                <td><%= post.id %></td>
+                <td><%= post.kind_of_post.name %></td>
+                <td><%= post.titulo %></td>
+                <td><%= post.subtitulo %></td>
+                <td><%= post.data %></td>
+                <td>
+                  <% if post.category.present? %>
+                  <%= post.category.name %>
+                  <% end %>
+                </td>
+                <td><%= post.ativo_inativo %></td>
+                <td><%= link_to ("<i class='fa fa-edit'></i>".html_safe), edit_intranet_post_path(post , :kind=> params[:kind_of_post_id]) %></td>
+                <!-- <td><%# link_to ("<i class='fa fa-close'></i>".html_safe), intranet_post_path(post), method: :delete, data: { confirm: 'Deseja excluir?' } %></td> -->
+                <td><a href="#" data-href="" data-toggle="modal" data-target="#confirm-delete_<%= post.id %>"><i class='fa fa-close'></i></a></td>
+              </tr>
+
+              <div class="modal fade" id="confirm-delete_<%= post.id %>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+
+                    <div class="modal-header">
+                      <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                      <h4 class="modal-title" id="myModalLabel">Confirmar</h4>
+                    </div>
+
+                    <div class="modal-body">
+                      <p>Você quer mesmo deletar?</p>
+                      <p class="debug-url"></p>
+                    </div>
+
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                      <%= link_to 'Delete', intranet_post_path(post), method: :delete, :class => 'btn btn-danger btn-ok' %>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <% end %>
+
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>

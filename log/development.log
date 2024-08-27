@@ -5413,3 +5413,2029 @@ Started GET "/fav_icon_intra.ico" for 127.0.0.1 at 2024-08-26 10:33:49 -0300
   
 ActionController::RoutingError (No route matches [GET] "/fav_icon_intra.ico"):
   
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/" for 127.0.0.1 at 2024-08-26 13:56:05 -0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Intranet::SessionsController#new as HTML
+  Rendering layout layouts/intranet_login.html.erb
+  Rendering intranet/sessions/new.html.erb within layouts/intranet_login
+  Rendered intranet/sessions/new.html.erb within layouts/intranet_login (Duration: 3849.1ms | Allocations: 81232)
+  Rendered layout layouts/intranet_login.html.erb (Duration: 4026.9ms | Allocations: 106071)
+Completed 200 OK in 5142ms (Views: 4270.3ms | ActiveRecord: 0.0ms | Allocations: 116239)
+
+
+Started GET "/criativitta-rodape.svg" for 127.0.0.1 at 2024-08-26 13:56:12 -0300
+Started GET "/green.png" for 127.0.0.1 at 2024-08-26 13:56:12 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/criativitta-rodape.svg"):
+  
+  
+ActionController::RoutingError (No route matches [GET] "/green.png"):
+  
+Started GET "/" for 127.0.0.1 at 2024-08-26 13:56:13 -0300
+Processing by Intranet::SessionsController#new as */*
+  Rendering layout layouts/intranet_login.html.erb
+  Rendering intranet/sessions/new.html.erb within layouts/intranet_login
+  Rendered intranet/sessions/new.html.erb within layouts/intranet_login (Duration: 1789.1ms | Allocations: 83918)
+Started POST "/intranet/login" for 127.0.0.1 at 2024-08-26 13:56:16 -0300
+Processing by Intranet::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "name"=>"criativitta", "password"=>"[FILTERED]", "commit"=>"Entrar"}
+  Rendered layout layouts/intranet_login.html.erb (Duration: 3178.0ms | Allocations: 132891)
+Completed 200 OK in 3190ms (Views: 3179.7ms | ActiveRecord: 0.0ms | Allocations: 133209)
+
+
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."name" = ? LIMIT ?[0m  [["name", "criativitta"], ["LIMIT", 1]]
+  ↳ app/controllers/intranet/sessions_controller.rb:14:in `create'
+Redirected to http://127.0.0.1:3000/intranet/dashboard
+Completed 302 Found in 2001ms (ActiveRecord: 60.7ms | Allocations: 35719)
+
+
+Started GET "/intranet/dashboard" for 127.0.0.1 at 2024-08-26 13:56:18 -0300
+Processing by Intranet::DashboardController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/intranet/intranet_controller.rb:8:in `authorize'
+{"07"=>[["2024", "07", "26", "21"], ["2024", "07", "27", "8"], ["2024", "07", "28", "13"], ["2024", "07", "29", "18"], ["2024", "07", "30", "26"], ["2024", "07", "31", "19"]], "08"=>[["2024", "08", "01", "13"], ["2024", "08", "02", "16"], ["2024", "08", "03", "2"], ["2024", "08", "04", "3"], ["2024", "08", "05", "18"], ["2024", "08", "06", "11"], ["2024", "08", "07", "16"], ["2024", "08", "08", "14"], ["2024", "08", "09", "8"], ["2024", "08", "10", "9"], ["2024", "08", "11", "3"], ["2024", "08", "12", "18"], ["2024", "08", "13", "41"], ["2024", "08", "14", "35"], ["2024", "08", "15", "28"], ["2024", "08", "16", "33"], ["2024", "08", "17", "8"], ["2024", "08", "18", "16"], ["2024", "08", "19", "33"], ["2024", "08", "20", "22"], ["2024", "08", "21", "25"], ["2024", "08", "22", "20"], ["2024", "08", "23", "24"], ["2024", "08", "24", "8"], ["2024", "08", "25", "14"], ["2024", "08", "26", "0"]]}
+  Rendering layout layouts/intranet.html.erb
+  Rendering intranet/dashboard/index.html.erb within layouts/intranet
+  Rendered intranet/dashboard/_dashboard_data.html.erb (Duration: 4.1ms | Allocations: 4607)
+  Rendered intranet/dashboard/index.html.erb within layouts/intranet (Duration: 199.7ms | Allocations: 4980)
+  [1m[36mKindOfPost Load (0.4ms)[0m  [1m[34mSELECT "kind_of_posts".* FROM "kind_of_posts"[0m
+  ↳ app/views/layouts/intranet.html.erb:85
+  Rendered layout layouts/intranet.html.erb (Duration: 603.4ms | Allocations: 39739)
+Completed 200 OK in 7607ms (Views: 684.8ms | ActiveRecord: 1.2ms | Allocations: 50370)
+
+
+Started GET "/intranet/dashboard" for 127.0.0.1 at 2024-08-26 13:56:28 -0300
+Processing by Intranet::DashboardController#index as */*
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/intranet/intranet_controller.rb:8:in `authorize'
+Started GET "/fav_icon_intra.ico" for 127.0.0.1 at 2024-08-26 13:56:32 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/fav_icon_intra.ico"):
+  
+{"07"=>[["2024", "07", "26", "21"], ["2024", "07", "27", "8"], ["2024", "07", "28", "13"], ["2024", "07", "29", "18"], ["2024", "07", "30", "26"], ["2024", "07", "31", "19"]], "08"=>[["2024", "08", "01", "13"], ["2024", "08", "02", "16"], ["2024", "08", "03", "2"], ["2024", "08", "04", "3"], ["2024", "08", "05", "18"], ["2024", "08", "06", "11"], ["2024", "08", "07", "16"], ["2024", "08", "08", "14"], ["2024", "08", "09", "8"], ["2024", "08", "10", "9"], ["2024", "08", "11", "3"], ["2024", "08", "12", "18"], ["2024", "08", "13", "41"], ["2024", "08", "14", "35"], ["2024", "08", "15", "28"], ["2024", "08", "16", "33"], ["2024", "08", "17", "8"], ["2024", "08", "18", "16"], ["2024", "08", "19", "33"], ["2024", "08", "20", "22"], ["2024", "08", "21", "25"], ["2024", "08", "22", "20"], ["2024", "08", "23", "24"], ["2024", "08", "24", "8"], ["2024", "08", "25", "14"], ["2024", "08", "26", "0"]]}
+  Rendering intranet/dashboard/index.html.erb
+  Rendered intranet/dashboard/_dashboard_data.html.erb (Duration: 1.7ms | Allocations: 2052)
+  Rendered intranet/dashboard/index.html.erb (Duration: 9.7ms | Allocations: 2116)
+Completed 200 OK in 4779ms (Views: 28.4ms | ActiveRecord: 0.1ms | Allocations: 116855)
+
+
+Started GET "/intranet/kind_of_posts/1/posts" for 127.0.0.1 at 2024-08-26 13:56:53 -0300
+Processing by Intranet::PostsController#index as HTML
+  Parameters: {"kind_of_post_id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/intranet/intranet_controller.rb:8:in `authorize'
+  Rendering layout layouts/intranet.html.erb
+  Rendering intranet/posts/index.html.erb within layouts/intranet
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."kind_of_post_id" = ? ORDER BY "posts"."id" DESC[0m  [["kind_of_post_id", 1]]
+  ↳ app/views/intranet/posts/index.html.erb:67
+  [1m[36mKindOfPost Load (0.2ms)[0m  [1m[34mSELECT "kind_of_posts".* FROM "kind_of_posts" WHERE "kind_of_posts"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/intranet/posts/index.html.erb:70
+  [1m[36mCategory Load (0.1ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/intranet/posts/index.html.erb:75
+  Rendered intranet/posts/index.html.erb within layouts/intranet (Duration: 946.8ms | Allocations: 24204)
+  [1m[36mKindOfPost Load (0.1ms)[0m  [1m[34mSELECT "kind_of_posts".* FROM "kind_of_posts"[0m
+  ↳ app/views/layouts/intranet.html.erb:85
+  Rendered layout layouts/intranet.html.erb (Duration: 1058.3ms | Allocations: 54311)
+Completed 200 OK in 3373ms (Views: 1059.0ms | ActiveRecord: 1.2ms | Allocations: 69863)
+
+
+Started GET "/intranet/kind_of_posts/1/posts" for 127.0.0.1 at 2024-08-26 13:56:57 -0300
+Processing by Intranet::PostsController#index as */*
+  Parameters: {"kind_of_post_id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/intranet/intranet_controller.rb:8:in `authorize'
+  Rendering layout layouts/intranet.html.erb
+  Rendering intranet/posts/index.html.erb within layouts/intranet
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."kind_of_post_id" = ? ORDER BY "posts"."id" DESC[0m  [["kind_of_post_id", 1]]
+  ↳ app/views/intranet/posts/index.html.erb:67
+  [1m[36mKindOfPost Load (0.1ms)[0m  [1m[34mSELECT "kind_of_posts".* FROM "kind_of_posts" WHERE "kind_of_posts"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/intranet/posts/index.html.erb:70
+  [1m[36mCategory Load (0.0ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/intranet/posts/index.html.erb:75
+  Rendered intranet/posts/index.html.erb within layouts/intranet (Duration: 5.3ms | Allocations: 1515)
+  [1m[36mKindOfPost Load (0.1ms)[0m  [1m[34mSELECT "kind_of_posts".* FROM "kind_of_posts"[0m
+  ↳ app/views/layouts/intranet.html.erb:85
+  Rendered layout layouts/intranet.html.erb (Duration: 131.1ms | Allocations: 30789)
+Completed 200 OK in 148ms (Views: 131.8ms | ActiveRecord: 0.4ms | Allocations: 31722)
+
+
+Started GET "/intranet/veiculos" for 127.0.0.1 at 2024-08-26 13:59:25 -0300
+Processing by Intranet::VeiculosController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering intranet/veiculos/index.html.erb within layouts/application
+  Rendered intranet/veiculos/index.html.erb within layouts/application (Duration: 10.1ms | Allocations: 1694)
+  Rendered layout layouts/application.html.erb (Duration: 10.7ms | Allocations: 1782)
+Completed 500 Internal Server Error in 417ms (ActiveRecord: 0.0ms | Allocations: 3821)
+
+
+  
+ActionView::Template::Error (undefined method `each' for nil):
+    64:               </tr>
+    65:             </thead>
+    66:             <tbody>
+    67:               <% @posts.each do |post| %>
+    68:                 <tr>
+    69:                   <td><%= post.id %></td>
+    70:                   <td><%= post.kind_of_post.name %></td>
+  
+app/views/intranet/veiculos/index.html.erb:67
+Started GET "/intranet/veiculos" for 127.0.0.1 at 2024-08-26 13:59:27 -0300
+Processing by Intranet::VeiculosController#index as */*
+  Rendering layout layouts/application.html.erb
+  Rendering intranet/veiculos/index.html.erb within layouts/application
+  Rendered intranet/veiculos/index.html.erb within layouts/application (Duration: 0.9ms | Allocations: 1211)
+  Rendered layout layouts/application.html.erb (Duration: 1.5ms | Allocations: 1296)
+Completed 500 Internal Server Error in 13ms (ActiveRecord: 0.0ms | Allocations: 1671)
+
+
+  
+ActionView::Template::Error (undefined method `each' for nil):
+    64:               </tr>
+    65:             </thead>
+    66:             <tbody>
+    67:               <% @posts.each do |post| %>
+    68:                 <tr>
+    69:                   <td><%= post.id %></td>
+    70:                   <td><%= post.kind_of_post.name %></td>
+  
+app/views/intranet/veiculos/index.html.erb:67
+Started GET "/intranet/veiculos" for 127.0.0.1 at 2024-08-26 13:59:59 -0300
+Processing by Intranet::VeiculosController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering intranet/veiculos/index.html.erb within layouts/application
+  [1m[36mIntranet::Veiculo Load (0.1ms)[0m  [1m[34mSELECT "intranet_veiculos".* FROM "intranet_veiculos"[0m
+  ↳ app/views/intranet/veiculos/index.html.erb:67
+  Rendered intranet/veiculos/index.html.erb within layouts/application (Duration: 4.8ms | Allocations: 1481)
+  Rendered layout layouts/application.html.erb (Duration: 227.6ms | Allocations: 22878)
+Completed 200 OK in 294ms (Views: 235.7ms | ActiveRecord: 2.3ms | Allocations: 24801)
+
+
+Started GET "/img/fb_circulo.svg" for 127.0.0.1 at 2024-08-26 14:00:00 -0300
+Started GET "/img/insta_circulo.svg" for 127.0.0.1 at 2024-08-26 14:00:00 -0300
+Started GET "/img/bgcapa.jpg" for 127.0.0.1 at 2024-08-26 14:00:01 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/img/fb_circulo.svg"):
+  
+  
+ActionController::RoutingError (No route matches [GET] "/img/insta_circulo.svg"):
+  
+Started GET "/intranet/veiculos" for 127.0.0.1 at 2024-08-26 14:00:01 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/img/bgcapa.jpg"):
+  
+Processing by Intranet::VeiculosController#index as */*
+  Rendering layout layouts/application.html.erb
+  Rendering intranet/veiculos/index.html.erb within layouts/application
+  [1m[36mIntranet::Veiculo Load (0.1ms)[0m  [1m[34mSELECT "intranet_veiculos".* FROM "intranet_veiculos"[0m
+  ↳ app/views/intranet/veiculos/index.html.erb:67
+  Rendered intranet/veiculos/index.html.erb within layouts/application (Duration: 4.4ms | Allocations: 594)
+  Rendered layout layouts/application.html.erb (Duration: 12.8ms | Allocations: 2688)
+Completed 200 OK in 24ms (Views: 15.0ms | ActiveRecord: 0.1ms | Allocations: 3072)
+
+
+Started GET "/intranet/posts" for 127.0.0.1 at 2024-08-26 14:13:01 -0300
+Processing by Intranet::PostsController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/intranet/intranet_controller.rb:8:in `authorize'
+  Rendering layout layouts/intranet.html.erb
+  Rendering intranet/posts/index.html.erb within layouts/intranet
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY "posts"."id" DESC[0m
+  ↳ app/views/intranet/posts/index.html.erb:67
+  [1m[36mKindOfPost Load (0.1ms)[0m  [1m[34mSELECT "kind_of_posts".* FROM "kind_of_posts" WHERE "kind_of_posts"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/intranet/posts/index.html.erb:70
+  [1m[36mCategory Load (0.1ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/intranet/posts/index.html.erb:75
+  Rendered intranet/posts/index.html.erb within layouts/intranet (Duration: 34.0ms | Allocations: 15321)
+  [1m[36mKindOfPost Load (0.4ms)[0m  [1m[34mSELECT "kind_of_posts".* FROM "kind_of_posts"[0m
+  ↳ app/views/layouts/intranet.html.erb:85
+  Rendered layout layouts/intranet.html.erb (Duration: 142.3ms | Allocations: 46270)
+Completed 200 OK in 230ms (Views: 143.5ms | ActiveRecord: 4.3ms | Allocations: 58076)
+
+
+Started GET "/intranet/posts" for 127.0.0.1 at 2024-08-26 14:13:06 -0300
+Processing by Intranet::PostsController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/intranet/intranet_controller.rb:8:in `authorize'
+  Rendering layout layouts/intranet.html.erb
+  Rendering intranet/posts/index.html.erb within layouts/intranet
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY "posts"."id" DESC[0m
+  ↳ app/views/intranet/posts/index.html.erb:67
+  [1m[36mKindOfPost Load (0.0ms)[0m  [1m[34mSELECT "kind_of_posts".* FROM "kind_of_posts" WHERE "kind_of_posts"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/intranet/posts/index.html.erb:70
+  [1m[36mCategory Load (0.1ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/intranet/posts/index.html.erb:75
+  Rendered intranet/posts/index.html.erb within layouts/intranet (Duration: 4.1ms | Allocations: 1490)
+  [1m[36mKindOfPost Load (0.1ms)[0m  [1m[34mSELECT "kind_of_posts".* FROM "kind_of_posts"[0m
+  ↳ app/views/layouts/intranet.html.erb:85
+  Rendered layout layouts/intranet.html.erb (Duration: 156.7ms | Allocations: 30972)
+Completed 200 OK in 168ms (Views: 157.1ms | ActiveRecord: 0.3ms | Allocations: 31840)
+
+
+Started GET "/intranet/posts" for 127.0.0.1 at 2024-08-26 14:13:06 -0300
+Processing by Intranet::PostsController#index as */*
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/intranet/intranet_controller.rb:8:in `authorize'
+  Rendering layout layouts/intranet.html.erb
+  Rendering intranet/posts/index.html.erb within layouts/intranet
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY "posts"."id" DESC[0m
+  ↳ app/views/intranet/posts/index.html.erb:67
+  [1m[36mKindOfPost Load (0.1ms)[0m  [1m[34mSELECT "kind_of_posts".* FROM "kind_of_posts" WHERE "kind_of_posts"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/intranet/posts/index.html.erb:70
+  [1m[36mCategory Load (0.1ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/intranet/posts/index.html.erb:75
+  Rendered intranet/posts/index.html.erb within layouts/intranet (Duration: 5.7ms | Allocations: 1489)
+  [1m[36mKindOfPost Load (0.1ms)[0m  [1m[34mSELECT "kind_of_posts".* FROM "kind_of_posts"[0m
+  ↳ app/views/layouts/intranet.html.erb:85
+  Rendered layout layouts/intranet.html.erb (Duration: 139.4ms | Allocations: 30583)
+Completed 200 OK in 156ms (Views: 140.1ms | ActiveRecord: 0.4ms | Allocations: 31507)
+
+
+Started GET "/intranet/veiculos" for 127.0.0.1 at 2024-08-26 14:13:09 -0300
+Processing by Intranet::VeiculosController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering intranet/veiculos/index.html.erb within layouts/application
+  [1m[36mIntranet::Veiculo Load (0.1ms)[0m  [1m[34mSELECT "intranet_veiculos".* FROM "intranet_veiculos"[0m
+  ↳ app/views/intranet/veiculos/index.html.erb:67
+  Rendered intranet/veiculos/index.html.erb within layouts/application (Duration: 1.4ms | Allocations: 615)
+  Rendered layout layouts/application.html.erb (Duration: 9.8ms | Allocations: 2705)
+Completed 200 OK in 20ms (Views: 10.6ms | ActiveRecord: 0.1ms | Allocations: 3055)
+
+
+Started GET "/intranet/veiculos" for 127.0.0.1 at 2024-08-26 14:13:09 -0300
+Processing by Intranet::VeiculosController#index as */*
+  Rendering layout layouts/application.html.erb
+  Rendering intranet/veiculos/index.html.erb within layouts/application
+  [1m[36mIntranet::Veiculo Load (0.1ms)[0m  [1m[34mSELECT "intranet_veiculos".* FROM "intranet_veiculos"[0m
+  ↳ app/views/intranet/veiculos/index.html.erb:67
+  Rendered intranet/veiculos/index.html.erb within layouts/application (Duration: 4.3ms | Allocations: 593)
+  Rendered layout layouts/application.html.erb (Duration: 20.6ms | Allocations: 2635)
+Completed 200 OK in 34ms (Views: 22.1ms | ActiveRecord: 0.1ms | Allocations: 3000)
+
+
+Started GET "/intranet/veiculos" for 127.0.0.1 at 2024-08-26 14:13:36 -0300
+Processing by Intranet::VeiculosController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/intranet/intranet_controller.rb:8:in `authorize'
+  Rendering layout layouts/intranet.html.erb
+  Rendering intranet/veiculos/index.html.erb within layouts/intranet
+  [1m[36mIntranet::Veiculo Load (0.1ms)[0m  [1m[34mSELECT "intranet_veiculos".* FROM "intranet_veiculos"[0m
+  ↳ app/views/intranet/veiculos/index.html.erb:67
+  Rendered intranet/veiculos/index.html.erb within layouts/intranet (Duration: 2.3ms | Allocations: 1023)
+  [1m[36mKindOfPost Load (0.1ms)[0m  [1m[34mSELECT "kind_of_posts".* FROM "kind_of_posts"[0m
+  ↳ app/views/layouts/intranet.html.erb:85
+  Rendered layout layouts/intranet.html.erb (Duration: 109.9ms | Allocations: 34694)
+Completed 200 OK in 139ms (Views: 116.2ms | ActiveRecord: 3.0ms | Allocations: 40999)
+
+
+Started GET "/intranet/veiculos" for 127.0.0.1 at 2024-08-26 14:13:37 -0300
+Processing by Intranet::VeiculosController#index as */*
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/intranet/intranet_controller.rb:8:in `authorize'
+  Rendering layout layouts/intranet.html.erb
+  Rendering intranet/veiculos/index.html.erb within layouts/intranet
+  [1m[36mIntranet::Veiculo Load (0.1ms)[0m  [1m[34mSELECT "intranet_veiculos".* FROM "intranet_veiculos"[0m
+  ↳ app/views/intranet/veiculos/index.html.erb:67
+  Rendered intranet/veiculos/index.html.erb within layouts/intranet (Duration: 1.0ms | Allocations: 425)
+  [1m[36mKindOfPost Load (0.1ms)[0m  [1m[34mSELECT "kind_of_posts".* FROM "kind_of_posts"[0m
+  ↳ app/views/layouts/intranet.html.erb:85
+  Rendered layout layouts/intranet.html.erb (Duration: 126.6ms | Allocations: 29901)
+Completed 200 OK in 139ms (Views: 127.2ms | ActiveRecord: 0.2ms | Allocations: 30859)
+
+
+Started GET "/intranet/posts/new" for 127.0.0.1 at 2024-08-26 14:15:20 -0300
+Processing by Intranet::PostsController#new as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/intranet/intranet_controller.rb:8:in `authorize'
+  Rendering layout layouts/intranet.html.erb
+  Rendering intranet/posts/new.html.erb within layouts/intranet
+  [1m[36mKindOfPost Load (0.1ms)[0m  [1m[34mSELECT "kind_of_posts".* FROM "kind_of_posts"[0m
+  ↳ app/views/intranet/posts/_form.html.erb:74
+  [1m[36mCategory Load (0.1ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."inativar" = ?[0m  [["inativar", 0]]
+  ↳ app/views/intranet/posts/_form.html.erb:103
+  Rendered intranet/posts/_image_cropping.html.erb (Duration: 89.8ms | Allocations: 3794)
+  Rendered intranet/posts/_image_cropping.html.erb (Duration: 1.1ms | Allocations: 491)
+  Rendered intranet/posts/_docs_preview.html.erb (Duration: 0.8ms | Allocations: 92)
+  Rendered intranet/posts/_form.html.erb (Duration: 882.9ms | Allocations: 17896)
+  Rendered intranet/posts/new.html.erb within layouts/intranet (Duration: 1003.0ms | Allocations: 18134)
+  [1m[36mCACHE KindOfPost Load (0.0ms)[0m  [1m[34mSELECT "kind_of_posts".* FROM "kind_of_posts"[0m
+  ↳ app/views/layouts/intranet.html.erb:85
+  Rendered layout layouts/intranet.html.erb (Duration: 1110.6ms | Allocations: 47764)
+Completed 200 OK in 1639ms (Views: 1110.8ms | ActiveRecord: 1.5ms | Allocations: 68942)
+
+
+Started GET "/images/missing.png" for 127.0.0.1 at 2024-08-26 14:15:22 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/images/missing.png"):
+  
+Started GET "/intranet/posts/new" for 127.0.0.1 at 2024-08-26 14:15:23 -0300
+Started GET "/images/missing.png" for 127.0.0.1 at 2024-08-26 14:15:23 -0300
+Processing by Intranet::PostsController#new as */*
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/intranet/intranet_controller.rb:8:in `authorize'
+  Rendering layout layouts/intranet.html.erb
+  Rendering intranet/posts/new.html.erb within layouts/intranet
+  [1m[36mKindOfPost Load (0.2ms)[0m  [1m[34mSELECT "kind_of_posts".* FROM "kind_of_posts"[0m
+  ↳ app/views/intranet/posts/_form.html.erb:74
+  [1m[36mCategory Load (0.1ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."inativar" = ?[0m  [["inativar", 0]]
+  ↳ app/views/intranet/posts/_form.html.erb:103
+  Rendered intranet/posts/_image_cropping.html.erb (Duration: 0.2ms | Allocations: 49)
+  Rendered intranet/posts/_image_cropping.html.erb (Duration: 0.2ms | Allocations: 44)
+  Rendered intranet/posts/_docs_preview.html.erb (Duration: 0.2ms | Allocations: 8)
+  Rendered intranet/posts/_form.html.erb (Duration: 16.7ms | Allocations: 4730)
+  Rendered intranet/posts/new.html.erb within layouts/intranet (Duration: 17.1ms | Allocations: 4796)
+  
+ActionController::RoutingError (No route matches [GET] "/images/missing.png"):
+  
+Started GET "/images/missing.png" for 127.0.0.1 at 2024-08-26 14:15:23 -0300
+  [1m[36mCACHE KindOfPost Load (0.0ms)[0m  [1m[34mSELECT "kind_of_posts".* FROM "kind_of_posts"[0m
+  ↳ app/views/layouts/intranet.html.erb:85
+  Rendered layout layouts/intranet.html.erb (Duration: 316.1ms | Allocations: 136965)
+Completed 200 OK in 339ms (Views: 318.2ms | ActiveRecord: 0.4ms | Allocations: 138142)
+
+
+  
+ActionController::RoutingError (No route matches [GET] "/images/missing.png"):
+  
+Started GET "/intranet/veiculos" for 127.0.0.1 at 2024-08-26 14:31:43 -0300
+Processing by Intranet::VeiculosController#index as HTML
+  [1m[36mUser Load (2.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/intranet/intranet_controller.rb:8:in `authorize'
+  Rendering layout layouts/intranet.html.erb
+  Rendering intranet/veiculos/index.html.erb within layouts/intranet
+  [1m[36mIntranet::Veiculo Load (0.1ms)[0m  [1m[34mSELECT "intranet_veiculos".* FROM "intranet_veiculos"[0m
+  ↳ app/views/intranet/veiculos/index.html.erb:67
+  Rendered intranet/veiculos/index.html.erb within layouts/intranet (Duration: 2.5ms | Allocations: 1023)
+  [1m[36mKindOfPost Load (0.2ms)[0m  [1m[34mSELECT "kind_of_posts".* FROM "kind_of_posts"[0m
+  ↳ app/views/layouts/intranet.html.erb:85
+  Rendered layout layouts/intranet.html.erb (Duration: 111.5ms | Allocations: 34662)
+Completed 200 OK in 187ms (Views: 114.9ms | ActiveRecord: 4.0ms | Allocations: 40541)
+
+
+Started GET "/intranet/veiculos" for 127.0.0.1 at 2024-08-26 14:31:44 -0300
+Processing by Intranet::VeiculosController#index as */*
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/intranet/intranet_controller.rb:8:in `authorize'
+  Rendering layout layouts/intranet.html.erb
+  Rendering intranet/veiculos/index.html.erb within layouts/intranet
+  [1m[36mIntranet::Veiculo Load (0.1ms)[0m  [1m[34mSELECT "intranet_veiculos".* FROM "intranet_veiculos"[0m
+  ↳ app/views/intranet/veiculos/index.html.erb:67
+  Rendered intranet/veiculos/index.html.erb within layouts/intranet (Duration: 1.5ms | Allocations: 425)
+  [1m[36mKindOfPost Load (0.2ms)[0m  [1m[34mSELECT "kind_of_posts".* FROM "kind_of_posts"[0m
+  ↳ app/views/layouts/intranet.html.erb:85
+  Rendered layout layouts/intranet.html.erb (Duration: 317.1ms | Allocations: 30532)
+Completed 200 OK in 338ms (Views: 325.1ms | ActiveRecord: 0.3ms | Allocations: 31484)
+
+
+Started GET "/intranet/veiculos/new" for 127.0.0.1 at 2024-08-26 14:31:53 -0300
+Processing by Intranet::VeiculosController#new as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/intranet/intranet_controller.rb:8:in `authorize'
+  Rendering layout layouts/intranet.html.erb
+  Rendering intranet/veiculos/new.html.erb within layouts/intranet
+  Rendered intranet/veiculos/_form.html.erb (Duration: 6.9ms | Allocations: 2421)
+  Rendered intranet/veiculos/new.html.erb within layouts/intranet (Duration: 144.9ms | Allocations: 2658)
+  Rendered layout layouts/intranet.html.erb (Duration: 145.4ms | Allocations: 2743)
+Completed 500 Internal Server Error in 181ms (ActiveRecord: 0.5ms | Allocations: 7740)
+
+
+  
+ActionView::Template::Error (First argument in form cannot contain nil or be empty):
+    29: <div class="col-md-12 col-xs-12">
+    30:   <div class="x_panel">
+    31: 
+    32:     <%= form_for [:intranet, @post], html: { :multipart=> true , :novalidate=>"novalidate", :data=>{"parsley-validate"=>"true"},:class=>"form-horizontal form-label-left", :id=>"form_post" } do |f| %>
+    33:     <div class="x_title">
+    34:       <h2>Postagem</h2>
+    35:       <ul class="nav navbar-right panel_toolbox">
+  
+app/views/intranet/veiculos/_form.html.erb:32
+app/views/intranet/veiculos/new.html.erb:3
+Started GET "/intranet/veiculos/new" for 127.0.0.1 at 2024-08-26 14:31:54 -0300
+Processing by Intranet::VeiculosController#new as */*
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/intranet/intranet_controller.rb:8:in `authorize'
+  Rendering layout layouts/intranet.html.erb
+  Rendering intranet/veiculos/new.html.erb within layouts/intranet
+  Rendered intranet/veiculos/_form.html.erb (Duration: 0.5ms | Allocations: 1132)
+  Rendered intranet/veiculos/new.html.erb within layouts/intranet (Duration: 1.9ms | Allocations: 1196)
+  Rendered layout layouts/intranet.html.erb (Duration: 2.6ms | Allocations: 1281)
+Completed 500 Internal Server Error in 14ms (ActiveRecord: 0.1ms | Allocations: 2110)
+
+
+  
+ActionView::Template::Error (First argument in form cannot contain nil or be empty):
+    29: <div class="col-md-12 col-xs-12">
+    30:   <div class="x_panel">
+    31: 
+    32:     <%= form_for [:intranet, @post], html: { :multipart=> true , :novalidate=>"novalidate", :data=>{"parsley-validate"=>"true"},:class=>"form-horizontal form-label-left", :id=>"form_post" } do |f| %>
+    33:     <div class="x_title">
+    34:       <h2>Postagem</h2>
+    35:       <ul class="nav navbar-right panel_toolbox">
+  
+app/views/intranet/veiculos/_form.html.erb:32
+app/views/intranet/veiculos/new.html.erb:3
+Started GET "/intranet/veiculos/new" for 127.0.0.1 at 2024-08-26 14:32:53 -0300
+Processing by Intranet::VeiculosController#new as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/intranet/intranet_controller.rb:8:in `authorize'
+  Rendering layout layouts/intranet.html.erb
+  Rendering intranet/veiculos/new.html.erb within layouts/intranet
+  Rendered intranet/veiculos/_form.html.erb (Duration: 2.1ms | Allocations: 2374)
+  Rendered intranet/veiculos/new.html.erb within layouts/intranet (Duration: 112.4ms | Allocations: 2612)
+  Rendered layout layouts/intranet.html.erb (Duration: 112.7ms | Allocations: 2698)
+Completed 500 Internal Server Error in 142ms (ActiveRecord: 2.6ms | Allocations: 11302)
+
+
+  
+ActionView::Template::Error (undefined method `intranet_intranet_veiculos_path' for an instance of #<Class:0x000002583b7af0b8>):
+    29: <div class="col-md-12 col-xs-12">
+    30:   <div class="x_panel">
+    31: 
+    32:     <%= form_for [:intranet, @intranet_veiculo], html: { :multipart=> true , :novalidate=>"novalidate", :data=>{"parsley-validate"=>"true"},:class=>"form-horizontal form-label-left", :id=>"form_post" } do |f| %>
+    33:     <div class="x_title">
+    34:       <h2>Postagem</h2>
+    35:       <ul class="nav navbar-right panel_toolbox">
+  
+app/views/intranet/veiculos/_form.html.erb:32
+app/views/intranet/veiculos/new.html.erb:3
+Started GET "/intranet/veiculos/new" for 127.0.0.1 at 2024-08-26 14:32:54 -0300
+Processing by Intranet::VeiculosController#new as */*
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/intranet/intranet_controller.rb:8:in `authorize'
+  Rendering layout layouts/intranet.html.erb
+  Rendering intranet/veiculos/new.html.erb within layouts/intranet
+  Rendered intranet/veiculos/_form.html.erb (Duration: 0.4ms | Allocations: 1176)
+  Rendered intranet/veiculos/new.html.erb within layouts/intranet (Duration: 0.9ms | Allocations: 1240)
+  Rendered layout layouts/intranet.html.erb (Duration: 1.9ms | Allocations: 1325)
+Completed 500 Internal Server Error in 13ms (ActiveRecord: 0.1ms | Allocations: 2156)
+
+
+  
+ActionView::Template::Error (undefined method `intranet_intranet_veiculos_path' for an instance of #<Class:0x000002583b7af0b8>):
+    29: <div class="col-md-12 col-xs-12">
+    30:   <div class="x_panel">
+    31: 
+    32:     <%= form_for [:intranet, @intranet_veiculo], html: { :multipart=> true , :novalidate=>"novalidate", :data=>{"parsley-validate"=>"true"},:class=>"form-horizontal form-label-left", :id=>"form_post" } do |f| %>
+    33:     <div class="x_title">
+    34:       <h2>Postagem</h2>
+    35:       <ul class="nav navbar-right panel_toolbox">
+  
+app/views/intranet/veiculos/_form.html.erb:32
+app/views/intranet/veiculos/new.html.erb:3
+Started GET "/intranet/veiculos/new" for 127.0.0.1 at 2024-08-26 14:33:55 -0300
+  
+Zeitwerk::NameError (expected file G:/@criativitta/portal-carros/intra_v7_update/app/controllers/intranet/veiculos_controller.rb to define constant Intranet::VeiculosController, but didn't):
+  
+zeitwerk (2.6.17) lib/zeitwerk/loader/callbacks.rb:32:in `on_file_autoloaded'
+zeitwerk (2.6.17) lib/zeitwerk/kernel.rb:27:in `require'
+activesupport (7.1.3.4) lib/active_support/inflector/methods.rb:290:in `const_get'
+activesupport (7.1.3.4) lib/active_support/inflector/methods.rb:290:in `constantize'
+activesupport (7.1.3.4) lib/active_support/core_ext/string/inflections.rb:74:in `constantize'
+actionpack (7.1.3.4) lib/action_dispatch/http/request.rb:90:in `controller_class_for'
+actionpack (7.1.3.4) lib/action_dispatch/request/utils.rb:100:in `action_encoding_template'
+actionpack (7.1.3.4) lib/action_dispatch/request/utils.rb:85:in `encode'
+actionpack (7.1.3.4) lib/action_dispatch/request/utils.rb:45:in `set_binary_encoding'
+actionpack (7.1.3.4) lib/action_dispatch/http/parameters.rb:68:in `path_parameters='
+actionpack (7.1.3.4) lib/action_dispatch/journey/router.rb:48:in `block in serve'
+actionpack (7.1.3.4) lib/action_dispatch/journey/router.rb:131:in `block in find_routes'
+actionpack (7.1.3.4) lib/action_dispatch/journey/router.rb:124:in `each'
+actionpack (7.1.3.4) lib/action_dispatch/journey/router.rb:124:in `find_routes'
+actionpack (7.1.3.4) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (7.1.3.4) lib/action_dispatch/routing/route_set.rb:882:in `call'
+rack (3.1.7) lib/rack/tempfile_reaper.rb:20:in `call'
+rack (3.1.7) lib/rack/etag.rb:29:in `call'
+rack (3.1.7) lib/rack/conditional_get.rb:31:in `call'
+rack (3.1.7) lib/rack/head.rb:15:in `call'
+actionpack (7.1.3.4) lib/action_dispatch/http/permissions_policy.rb:36:in `call'
+actionpack (7.1.3.4) lib/action_dispatch/http/content_security_policy.rb:33:in `call'
+rack-session (2.0.0) lib/rack/session/abstract/id.rb:272:in `context'
+rack-session (2.0.0) lib/rack/session/abstract/id.rb:266:in `call'
+actionpack (7.1.3.4) lib/action_dispatch/middleware/cookies.rb:689:in `call'
+activerecord (7.1.3.4) lib/active_record/migration.rb:655:in `call'
+actionpack (7.1.3.4) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+activesupport (7.1.3.4) lib/active_support/callbacks.rb:101:in `run_callbacks'
+actionpack (7.1.3.4) lib/action_dispatch/middleware/callbacks.rb:28:in `call'
+actionpack (7.1.3.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.1.3.4) lib/action_dispatch/middleware/actionable_exceptions.rb:16:in `call'
+actionpack (7.1.3.4) lib/action_dispatch/middleware/debug_exceptions.rb:29:in `call'
+web-console (4.2.1) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.2.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in `call'
+actionpack (7.1.3.4) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (7.1.3.4) lib/rails/rack/logger.rb:37:in `call_app'
+railties (7.1.3.4) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (7.1.3.4) lib/active_support/tagged_logging.rb:135:in `block in tagged'
+activesupport (7.1.3.4) lib/active_support/tagged_logging.rb:39:in `tagged'
+activesupport (7.1.3.4) lib/active_support/tagged_logging.rb:135:in `tagged'
+activesupport (7.1.3.4) lib/active_support/broadcast_logger.rb:240:in `method_missing'
+railties (7.1.3.4) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.5.2) lib/sprockets/rails/quiet_assets.rb:17:in `call'
+actionpack (7.1.3.4) lib/action_dispatch/middleware/remote_ip.rb:92:in `call'
+actionpack (7.1.3.4) lib/action_dispatch/middleware/request_id.rb:28:in `call'
+rack (3.1.7) lib/rack/method_override.rb:28:in `call'
+rack (3.1.7) lib/rack/runtime.rb:24:in `call'
+activesupport (7.1.3.4) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (7.1.3.4) lib/action_dispatch/middleware/server_timing.rb:59:in `block in call'
+actionpack (7.1.3.4) lib/action_dispatch/middleware/server_timing.rb:24:in `collect_events'
+actionpack (7.1.3.4) lib/action_dispatch/middleware/server_timing.rb:58:in `call'
+actionpack (7.1.3.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.1.3.4) lib/action_dispatch/middleware/static.rb:25:in `call'
+rack (3.1.7) lib/rack/sendfile.rb:114:in `call'
+actionpack (7.1.3.4) lib/action_dispatch/middleware/host_authorization.rb:141:in `call'
+railties (7.1.3.4) lib/rails/engine.rb:536:in `call'
+puma (6.4.2) lib/puma/configuration.rb:272:in `call'
+puma (6.4.2) lib/puma/request.rb:100:in `block in handle_request'
+puma (6.4.2) lib/puma/thread_pool.rb:378:in `with_force_shutdown'
+puma (6.4.2) lib/puma/request.rb:99:in `handle_request'
+puma (6.4.2) lib/puma/server.rb:464:in `process_client'
+puma (6.4.2) lib/puma/server.rb:245:in `block in run'
+puma (6.4.2) lib/puma/thread_pool.rb:155:in `block in spawn_thread'
+Started GET "/intranet/veiculos/new" for 127.0.0.1 at 2024-08-26 14:33:56 -0300
+  
+ActionController::RoutingError (uninitialized constant Intranet::VeiculosController):
+  
+Started GET "/intranet/veiculos/new" for 127.0.0.1 at 2024-08-26 14:34:08 -0300
+Processing by Intranet::VeiculosController#new as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/intranet/intranet_controller.rb:8:in `authorize'
+  Rendering layout layouts/intranet.html.erb
+  Rendering intranet/veiculos/new.html.erb within layouts/intranet
+  Rendered intranet/veiculos/_form.html.erb (Duration: 2.2ms | Allocations: 2428)
+  Rendered intranet/veiculos/new.html.erb within layouts/intranet (Duration: 110.9ms | Allocations: 2666)
+  Rendered layout layouts/intranet.html.erb (Duration: 111.3ms | Allocations: 2752)
+Completed 500 Internal Server Error in 140ms (ActiveRecord: 2.8ms | Allocations: 11355)
+
+
+  
+ActionView::Template::Error (undefined method `errors' for nil):
+    42:         <br />
+    43: 
+    44:         <div class="text-center">
+    45:           <% if @post.errors.any? %>
+    46:           <div id="error_explanation">
+    47:             <h2><%= pluralize(@post.errors.count, "erro") %> no preenchimento do fomulário:</h2>
+    48: 
+  
+app/views/intranet/veiculos/_form.html.erb:45
+app/views/intranet/veiculos/_form.html.erb:32
+app/views/intranet/veiculos/new.html.erb:3
+Started GET "/intranet/veiculos/new" for 127.0.0.1 at 2024-08-26 14:34:09 -0300
+Processing by Intranet::VeiculosController#new as */*
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/intranet/intranet_controller.rb:8:in `authorize'
+  Rendering layout layouts/intranet.html.erb
+  Rendering intranet/veiculos/new.html.erb within layouts/intranet
+  Rendered intranet/veiculos/_form.html.erb (Duration: 4.1ms | Allocations: 1207)
+  Rendered intranet/veiculos/new.html.erb within layouts/intranet (Duration: 4.9ms | Allocations: 1271)
+  Rendered layout layouts/intranet.html.erb (Duration: 5.5ms | Allocations: 1356)
+Completed 500 Internal Server Error in 33ms (ActiveRecord: 0.1ms | Allocations: 2187)
+
+
+  
+ActionView::Template::Error (undefined method `errors' for nil):
+    42:         <br />
+    43: 
+    44:         <div class="text-center">
+    45:           <% if @post.errors.any? %>
+    46:           <div id="error_explanation">
+    47:             <h2><%= pluralize(@post.errors.count, "erro") %> no preenchimento do fomulário:</h2>
+    48: 
+  
+app/views/intranet/veiculos/_form.html.erb:45
+app/views/intranet/veiculos/_form.html.erb:32
+app/views/intranet/veiculos/new.html.erb:3
+Started GET "/intranet/veiculos/new" for 127.0.0.1 at 2024-08-26 14:34:26 -0300
+Processing by Intranet::VeiculosController#new as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/intranet/intranet_controller.rb:8:in `authorize'
+  Rendering layout layouts/intranet.html.erb
+  Rendering intranet/veiculos/new.html.erb within layouts/intranet
+  Rendered intranet/veiculos/_form.html.erb (Duration: 2.5ms | Allocations: 2513)
+  Rendered intranet/veiculos/new.html.erb within layouts/intranet (Duration: 114.5ms | Allocations: 2749)
+  Rendered layout layouts/intranet.html.erb (Duration: 115.2ms | Allocations: 2835)
+Completed 500 Internal Server Error in 144ms (ActiveRecord: 2.6ms | Allocations: 11426)
+
+
+  
+ActionView::Template::Error (undefined method `inativar' for an instance of Intranet::Veiculo):
+    60:           <div class="col-md-9 col-sm-9 col-xs-12">
+    61:             <div class="">
+    62:               <div class="checkbox">
+    63:                 <%= f.check_box :inativar, :class=>"js-switch" %>
+    64:               </div>
+    65:             </div>
+    66:           </div>
+  
+app/views/intranet/veiculos/_form.html.erb:63
+app/views/intranet/veiculos/_form.html.erb:32
+app/views/intranet/veiculos/new.html.erb:3
+Started GET "/intranet/veiculos/new" for 127.0.0.1 at 2024-08-26 14:34:27 -0300
+Processing by Intranet::VeiculosController#new as */*
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/intranet/intranet_controller.rb:8:in `authorize'
+  Rendering layout layouts/intranet.html.erb
+  Rendering intranet/veiculos/new.html.erb within layouts/intranet
+  Rendered intranet/veiculos/_form.html.erb (Duration: 0.6ms | Allocations: 1259)
+  Rendered intranet/veiculos/new.html.erb within layouts/intranet (Duration: 0.9ms | Allocations: 1323)
+  Rendered layout layouts/intranet.html.erb (Duration: 2.9ms | Allocations: 1408)
+Completed 500 Internal Server Error in 17ms (ActiveRecord: 0.1ms | Allocations: 2239)
+
+
+  
+ActionView::Template::Error (undefined method `inativar' for an instance of Intranet::Veiculo):
+    60:           <div class="col-md-9 col-sm-9 col-xs-12">
+    61:             <div class="">
+    62:               <div class="checkbox">
+    63:                 <%= f.check_box :inativar, :class=>"js-switch" %>
+    64:               </div>
+    65:             </div>
+    66:           </div>
+  
+app/views/intranet/veiculos/_form.html.erb:63
+app/views/intranet/veiculos/_form.html.erb:32
+app/views/intranet/veiculos/new.html.erb:3
+Started GET "/intranet/veiculos/new" for 127.0.0.1 at 2024-08-26 14:34:47 -0300
+Processing by Intranet::VeiculosController#new as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/intranet/intranet_controller.rb:8:in `authorize'
+  Rendering layout layouts/intranet.html.erb
+  Rendering intranet/veiculos/new.html.erb within layouts/intranet
+  Rendered intranet/veiculos/_form.html.erb (Duration: 2.3ms | Allocations: 2510)
+  Rendered intranet/veiculos/new.html.erb within layouts/intranet (Duration: 112.5ms | Allocations: 2746)
+  Rendered layout layouts/intranet.html.erb (Duration: 112.9ms | Allocations: 2832)
+Completed 500 Internal Server Error in 145ms (ActiveRecord: 2.8ms | Allocations: 11423)
+
+
+  
+ActionView::Template::Error (undefined method `inativo' for an instance of Intranet::Veiculo):
+    60:           <div class="col-md-9 col-sm-9 col-xs-12">
+    61:             <div class="">
+    62:               <div class="checkbox">
+    63:                 <%= f.check_box :inativo, :class=>"js-switch" %>
+    64:               </div>
+    65:             </div>
+    66:           </div>
+  
+app/views/intranet/veiculos/_form.html.erb:63
+app/views/intranet/veiculos/_form.html.erb:32
+app/views/intranet/veiculos/new.html.erb:3
+Started GET "/intranet/veiculos/new" for 127.0.0.1 at 2024-08-26 14:34:48 -0300
+Processing by Intranet::VeiculosController#new as */*
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/intranet/intranet_controller.rb:8:in `authorize'
+  Rendering layout layouts/intranet.html.erb
+  Rendering intranet/veiculos/new.html.erb within layouts/intranet
+  Rendered intranet/veiculos/_form.html.erb (Duration: 0.7ms | Allocations: 1259)
+  Rendered intranet/veiculos/new.html.erb within layouts/intranet (Duration: 1.1ms | Allocations: 1323)
+  Rendered layout layouts/intranet.html.erb (Duration: 1.5ms | Allocations: 1408)
+Completed 500 Internal Server Error in 12ms (ActiveRecord: 0.1ms | Allocations: 2239)
+
+
+  
+ActionView::Template::Error (undefined method `inativo' for an instance of Intranet::Veiculo):
+    60:           <div class="col-md-9 col-sm-9 col-xs-12">
+    61:             <div class="">
+    62:               <div class="checkbox">
+    63:                 <%= f.check_box :inativo, :class=>"js-switch" %>
+    64:               </div>
+    65:             </div>
+    66:           </div>
+  
+app/views/intranet/veiculos/_form.html.erb:63
+app/views/intranet/veiculos/_form.html.erb:32
+app/views/intranet/veiculos/new.html.erb:3
+  [1m[36mActiveRecord::InternalMetadata Load (25.6ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/intranet/veiculos/new" for 127.0.0.1 at 2024-08-26 14:37:30 -0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Intranet::VeiculosController#new as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/intranet/intranet_controller.rb:8:in `authorize'
+  Rendering layout layouts/intranet.html.erb
+  Rendering intranet/veiculos/new.html.erb within layouts/intranet
+  Rendered intranet/veiculos/_form.html.erb (Duration: 21.4ms | Allocations: 3391)
+  Rendered intranet/veiculos/new.html.erb within layouts/intranet (Duration: 23.7ms | Allocations: 3772)
+  Rendered layout layouts/intranet.html.erb (Duration: 24.0ms | Allocations: 3883)
+Completed 500 Internal Server Error in 157ms (ActiveRecord: 3.1ms | Allocations: 33583)
+
+
+  
+ActionView::Template::Error (undefined method `inativo' for an instance of Intranet::Veiculo):
+    60:           <div class="col-md-9 col-sm-9 col-xs-12">
+    61:             <div class="">
+    62:               <div class="checkbox">
+    63:                 <%= f.check_box :inativo, :class=>"js-switch" %>
+    64:               </div>
+    65:             </div>
+    66:           </div>
+  
+app/views/intranet/veiculos/_form.html.erb:63
+app/views/intranet/veiculos/_form.html.erb:32
+app/views/intranet/veiculos/new.html.erb:3
+Started GET "/intranet/veiculos/new" for 127.0.0.1 at 2024-08-26 14:37:31 -0300
+Processing by Intranet::VeiculosController#new as */*
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/intranet/intranet_controller.rb:8:in `authorize'
+  Rendering layout layouts/intranet.html.erb
+  Rendering intranet/veiculos/new.html.erb within layouts/intranet
+  Rendered intranet/veiculos/_form.html.erb (Duration: 0.6ms | Allocations: 1263)
+  Rendered intranet/veiculos/new.html.erb within layouts/intranet (Duration: 1.3ms | Allocations: 1327)
+  Rendered layout layouts/intranet.html.erb (Duration: 2.4ms | Allocations: 1412)
+Completed 500 Internal Server Error in 21ms (ActiveRecord: 0.1ms | Allocations: 2264)
+
+
+  
+ActionView::Template::Error (undefined method `inativo' for an instance of Intranet::Veiculo):
+    60:           <div class="col-md-9 col-sm-9 col-xs-12">
+    61:             <div class="">
+    62:               <div class="checkbox">
+    63:                 <%= f.check_box :inativo, :class=>"js-switch" %>
+    64:               </div>
+    65:             </div>
+    66:           </div>
+  
+app/views/intranet/veiculos/_form.html.erb:63
+app/views/intranet/veiculos/_form.html.erb:32
+app/views/intranet/veiculos/new.html.erb:3
+Started GET "/intranet/veiculos/new" for 127.0.0.1 at 2024-08-26 14:39:17 -0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Intranet::VeiculosController#new as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/intranet/intranet_controller.rb:8:in `authorize'
+Redirected to http://127.0.0.1:3000/intranet/login
+Filter chain halted as :authorize rendered or redirected
+Completed 302 Found in 11ms (ActiveRecord: 0.1ms | Allocations: 970)
+
+
+Started GET "/intranet/login" for 127.0.0.1 at 2024-08-26 14:39:17 -0300
+Processing by Intranet::SessionsController#new as HTML
+  Rendering layout layouts/intranet_login.html.erb
+  Rendering intranet/sessions/new.html.erb within layouts/intranet_login
+  Rendered intranet/sessions/new.html.erb within layouts/intranet_login (Duration: 363.7ms | Allocations: 81568)
+  Rendered layout layouts/intranet_login.html.erb (Duration: 448.6ms | Allocations: 106624)
+Completed 200 OK in 465ms (Views: 451.6ms | ActiveRecord: 0.0ms | Allocations: 107199)
+
+
+Started GET "/criativitta-rodape.svg" for 127.0.0.1 at 2024-08-26 14:39:18 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/criativitta-rodape.svg"):
+  
+Started POST "/intranet/login" for 127.0.0.1 at 2024-08-26 14:39:26 -0300
+Processing by Intranet::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "name"=>"criativitta", "password"=>"[FILTERED]", "commit"=>"Entrar"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."name" = ? LIMIT ?[0m  [["name", "criativitta"], ["LIMIT", 1]]
+  ↳ app/controllers/intranet/sessions_controller.rb:14:in `create'
+Redirected to http://127.0.0.1:3000/intranet/dashboard
+Completed 302 Found in 199ms (ActiveRecord: 0.2ms | Allocations: 1036)
+
+
+Started GET "/intranet/dashboard" for 127.0.0.1 at 2024-08-26 14:39:26 -0300
+Processing by Intranet::DashboardController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/intranet/intranet_controller.rb:8:in `authorize'
+{"07"=>[["2024", "07", "26", "21"], ["2024", "07", "27", "8"], ["2024", "07", "28", "13"], ["2024", "07", "29", "18"], ["2024", "07", "30", "26"], ["2024", "07", "31", "19"]], "08"=>[["2024", "08", "01", "13"], ["2024", "08", "02", "16"], ["2024", "08", "03", "2"], ["2024", "08", "04", "3"], ["2024", "08", "05", "18"], ["2024", "08", "06", "11"], ["2024", "08", "07", "16"], ["2024", "08", "08", "14"], ["2024", "08", "09", "8"], ["2024", "08", "10", "9"], ["2024", "08", "11", "3"], ["2024", "08", "12", "18"], ["2024", "08", "13", "41"], ["2024", "08", "14", "35"], ["2024", "08", "15", "28"], ["2024", "08", "16", "33"], ["2024", "08", "17", "8"], ["2024", "08", "18", "16"], ["2024", "08", "19", "33"], ["2024", "08", "20", "22"], ["2024", "08", "21", "25"], ["2024", "08", "22", "20"], ["2024", "08", "23", "24"], ["2024", "08", "24", "8"], ["2024", "08", "25", "14"], ["2024", "08", "26", "0"]]}
+  Rendering layout layouts/intranet.html.erb
+  Rendering intranet/dashboard/index.html.erb within layouts/intranet
+  Rendered intranet/dashboard/_dashboard_data.html.erb (Duration: 4.2ms | Allocations: 4607)
+  Rendered intranet/dashboard/index.html.erb within layouts/intranet (Duration: 10.8ms | Allocations: 4973)
+  [1m[36mKindOfPost Load (0.1ms)[0m  [1m[34mSELECT "kind_of_posts".* FROM "kind_of_posts"[0m
+  ↳ app/views/layouts/intranet.html.erb:85
+  Rendered layout layouts/intranet.html.erb (Duration: 154.1ms | Allocations: 39296)
+Completed 200 OK in 7170ms (Views: 156.4ms | ActiveRecord: 0.5ms | Allocations: 49313)
+
+
+Started GET "/fav_icon_intra.ico" for 127.0.0.1 at 2024-08-26 14:39:35 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/fav_icon_intra.ico"):
+  
+Started GET "/intranet/veiculos" for 127.0.0.1 at 2024-08-26 14:41:00 -0300
+Processing by Intranet::VeiculosController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/intranet/intranet_controller.rb:8:in `authorize'
+  Rendering layout layouts/intranet.html.erb
+  Rendering intranet/veiculos/index.html.erb within layouts/intranet
+  [1m[36mIntranet::Veiculo Load (0.1ms)[0m  [1m[34mSELECT "intranet_veiculos".* FROM "intranet_veiculos"[0m
+  ↳ app/views/intranet/veiculos/index.html.erb:67
+  Rendered intranet/veiculos/index.html.erb within layouts/intranet (Duration: 2.4ms | Allocations: 1095)
+  [1m[36mKindOfPost Load (0.3ms)[0m  [1m[34mSELECT "kind_of_posts".* FROM "kind_of_posts"[0m
+  ↳ app/views/layouts/intranet.html.erb:85
+  Rendered layout layouts/intranet.html.erb (Duration: 116.4ms | Allocations: 34975)
+Completed 200 OK in 142ms (Views: 118.7ms | ActiveRecord: 3.9ms | Allocations: 41332)
+
+
+Started GET "/intranet/veiculos/new" for 127.0.0.1 at 2024-08-26 14:41:02 -0300
+Processing by Intranet::VeiculosController#new as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/intranet/intranet_controller.rb:8:in `authorize'
+  Rendering layout layouts/intranet.html.erb
+  Rendering intranet/veiculos/new.html.erb within layouts/intranet
+  Rendered intranet/veiculos/_form.html.erb (Duration: 2.3ms | Allocations: 2577)
+  Rendered intranet/veiculos/new.html.erb within layouts/intranet (Duration: 5.1ms | Allocations: 2811)
+  Rendered layout layouts/intranet.html.erb (Duration: 5.6ms | Allocations: 2896)
+Completed 500 Internal Server Error in 21ms (ActiveRecord: 0.3ms | Allocations: 6204)
+
+
+  
+ActionView::Template::Error (undefined method `inativo' for an instance of Intranet::Veiculo):
+    60:           <div class="col-md-9 col-sm-9 col-xs-12">
+    61:             <div class="">
+    62:               <div class="checkbox">
+    63:                 <%= f.check_box :inativo, :class=>"js-switch" %>
+    64:               </div>
+    65:             </div>
+    66:           </div>
+  
+app/views/intranet/veiculos/_form.html.erb:63
+app/views/intranet/veiculos/_form.html.erb:32
+app/views/intranet/veiculos/new.html.erb:3
+Started GET "/intranet/veiculos/new" for 127.0.0.1 at 2024-08-26 14:41:49 -0300
+Processing by Intranet::VeiculosController#new as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/intranet/intranet_controller.rb:8:in `authorize'
+  Rendering layout layouts/intranet.html.erb
+  Rendering intranet/veiculos/new.html.erb within layouts/intranet
+  Rendered intranet/veiculos/_form.html.erb (Duration: 3.1ms | Allocations: 2476)
+  Rendered intranet/veiculos/new.html.erb within layouts/intranet (Duration: 124.3ms | Allocations: 2714)
+  Rendered layout layouts/intranet.html.erb (Duration: 124.9ms | Allocations: 2800)
+Completed 500 Internal Server Error in 162ms (ActiveRecord: 3.0ms | Allocations: 11441)
+
+
+  
+ActionView::Template::Error (undefined method `inativo' for an instance of Intranet::Veiculo):
+    60:           <div class="col-md-9 col-sm-9 col-xs-12">
+    61:             <div class="">
+    62:               <div class="checkbox">
+    63:                 <%= f.check_box :inativo, :class=>"js-switch" %>
+    64:               </div>
+    65:             </div>
+    66:           </div>
+  
+app/views/intranet/veiculos/_form.html.erb:63
+app/views/intranet/veiculos/_form.html.erb:32
+app/views/intranet/veiculos/new.html.erb:3
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.0ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.0ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.0ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.0ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[35m (49.0ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::InternalMetadata Create (0.1ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ('environment', 'development', '2024-08-26 17:45:50.128447', '2024-08-26 17:45:50.128450') RETURNING "key"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateUsers (20170523113534)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (1.3ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "password_digest" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20170523113534') RETURNING "version"[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateKindOfPosts (20170523123049)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (1.2ms)[0m  [1m[35mCREATE TABLE "kind_of_posts" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20170523123049') RETURNING "version"[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreatePosts (20170523142105)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.8ms)[0m  [1m[35mCREATE TABLE "posts" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "titulo" varchar, "subtitulo" varchar, "descricao" text, "data" date, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20170523142105') RETURNING "version"[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+Migrating to AddInativarToPost (20170524111813)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (1.4ms)[0m  [1m[35mALTER TABLE "posts" ADD "inativar" boolean[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20170524111813') RETURNING "version"[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+Migrating to AddKindOfPostIdToPosts (20170524124949)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (1.5ms)[0m  [1m[35mALTER TABLE "posts" ADD "kind_of_post_id" integer[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20170524124949') RETURNING "version"[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateCategories (20170524134705)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.9ms)[0m  [1m[35mCREATE TABLE "categories" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20170524134705') RETURNING "version"[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+Migrating to AddNameToCategories (20170524134907)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.9ms)[0m  [1m[35mALTER TABLE "categories" ADD "name" varchar[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20170524134907') RETURNING "version"[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+Migrating to AddCategoryRefToPosts (20170524141038)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.9ms)[0m  [1m[35mALTER TABLE "posts" ADD "category_id" integer[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE INDEX "index_posts_on_category_id" ON "posts" ("category_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TEMPORARY TABLE "aposts" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "titulo" varchar DEFAULT NULL, "subtitulo" varchar DEFAULT NULL, "descricao" text DEFAULT NULL, "data" date DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "inativar" boolean DEFAULT NULL, "kind_of_post_id" integer DEFAULT NULL, "category_id" integer DEFAULT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "tindex_aposts_on_category_id" ON "aposts" ("category_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[32mINSERT INTO "aposts" ("id","titulo","subtitulo","descricao","data","created_at","updated_at","inativar","kind_of_post_id","category_id")
+                     SELECT "id","titulo","subtitulo","descricao","data","created_at","updated_at","inativar","kind_of_post_id","category_id" FROM "posts"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "posts"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "posts" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "titulo" varchar DEFAULT NULL, "subtitulo" varchar DEFAULT NULL, "descricao" text DEFAULT NULL, "data" date DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "inativar" boolean DEFAULT NULL, "kind_of_post_id" integer DEFAULT NULL, "category_id" integer DEFAULT NULL, CONSTRAINT "fk_rails_9b1b26f040"
+FOREIGN KEY ("category_id")
+  REFERENCES "categories" ("id")
+)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_posts_on_category_id" ON "posts" ("category_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "posts" ("id","titulo","subtitulo","descricao","data","created_at","updated_at","inativar","kind_of_post_id","category_id")
+                     SELECT "id","titulo","subtitulo","descricao","data","created_at","updated_at","inativar","kind_of_post_id","category_id" FROM "aposts"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE "aposts"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20170524141038') RETURNING "version"[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateGalleries (20170612123452)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE TABLE "galleries" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20170612123452') RETURNING "version"[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+Migrating to AddPostRefToGalleries (20170612124103)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.9ms)[0m  [1m[35mALTER TABLE "galleries" ADD "post_id" integer[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_galleries_on_post_id" ON "galleries" ("post_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TEMPORARY TABLE "agalleries" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "post_id" integer DEFAULT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "tindex_agalleries_on_post_id" ON "agalleries" ("post_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[32mINSERT INTO "agalleries" ("id","created_at","updated_at","post_id")
+                     SELECT "id","created_at","updated_at","post_id" FROM "galleries"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "galleries"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "galleries" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "post_id" integer DEFAULT NULL, CONSTRAINT "fk_rails_a79dc8e6eb"
+FOREIGN KEY ("post_id")
+  REFERENCES "posts" ("id")
+)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_galleries_on_post_id" ON "galleries" ("post_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[32mINSERT INTO "galleries" ("id","created_at","updated_at","post_id")
+                     SELECT "id","created_at","updated_at","post_id" FROM "agalleries"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "agalleries"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20170612124103') RETURNING "version"[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateFolhetos (20170614175659)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.9ms)[0m  [1m[35mCREATE TABLE "folhetos" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "link_video" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20170614175659') RETURNING "version"[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateClientes (20170724120139)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.9ms)[0m  [1m[35mCREATE TABLE "clientes" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "nome" varchar, "email" varchar, "telefone" varchar, "curso" varchar, "mensagem" text, "status" integer, "atendido_por" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20170724120139') RETURNING "version"[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+Migrating to FixColumnName (20170724165148)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TEMPORARY TABLE "aclientes" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "nome" varchar DEFAULT NULL, "email" varchar DEFAULT NULL, "telefone" varchar DEFAULT NULL, "interesse" varchar DEFAULT NULL, "mensagem" text DEFAULT NULL, "status" integer DEFAULT NULL, "atendido_por" varchar DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "aclientes" ("id","nome","email","telefone","interesse","mensagem","status","atendido_por","created_at","updated_at")
+                     SELECT "id","nome","email","telefone","curso","mensagem","status","atendido_por","created_at","updated_at" FROM "clientes"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "clientes"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "clientes" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "nome" varchar DEFAULT NULL, "email" varchar DEFAULT NULL, "telefone" varchar DEFAULT NULL, "interesse" varchar DEFAULT NULL, "mensagem" text DEFAULT NULL, "status" integer DEFAULT NULL, "atendido_por" varchar DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.0ms)[0m  [1m[32mINSERT INTO "clientes" ("id","nome","email","telefone","interesse","mensagem","status","atendido_por","created_at","updated_at")
+                     SELECT "id","nome","email","telefone","interesse","mensagem","status","atendido_por","created_at","updated_at" FROM "aclientes"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "aclientes"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20170724165148') RETURNING "version"[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+Migrating to AddKeywordsToPost (20180112111549)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (7.1ms)[0m  [1m[35mALTER TABLE "posts" ADD "keywords" varchar[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20180112111549') RETURNING "version"[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+Migrating to AddSlugToPost (20190322115408)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (1.0ms)[0m  [1m[35mALTER TABLE "posts" ADD "slug" varchar[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_posts_on_slug" ON "posts" ("slug")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20190322115408') RETURNING "version"[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+Migrating to ChangeColumnSubtitulo (20190612105100)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TEMPORARY TABLE "aposts" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "titulo" varchar DEFAULT NULL, "subtitulo" varchar DEFAULT NULL, "descricao" text DEFAULT NULL, "data" date DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "inativar" boolean DEFAULT NULL, "kind_of_post_id" integer DEFAULT NULL, "category_id" integer DEFAULT NULL, "keywords" varchar DEFAULT NULL, "slug" varchar DEFAULT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE UNIQUE INDEX "tindex_aposts_on_slug" ON "aposts" ("slug")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "tindex_aposts_on_category_id" ON "aposts" ("category_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "aposts" ("id","titulo","subtitulo","descricao","data","created_at","updated_at","inativar","kind_of_post_id","category_id","keywords","slug")
+                     SELECT "id","titulo","subtitulo","descricao","data","created_at","updated_at","inativar","kind_of_post_id","category_id","keywords","slug" FROM "posts"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE "posts"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "posts" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "titulo" varchar DEFAULT NULL, "subtitulo" text, "descricao" text DEFAULT NULL, "data" date DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "inativar" boolean DEFAULT NULL, "kind_of_post_id" integer DEFAULT NULL, "category_id" integer DEFAULT NULL, "keywords" varchar DEFAULT NULL, "slug" varchar DEFAULT NULL, CONSTRAINT "fk_rails_9b1b26f040"
+FOREIGN KEY ("category_id")
+  REFERENCES "categories" ("id")
+)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_posts_on_category_id" ON "posts" ("category_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_posts_on_slug" ON "posts" ("slug")[0m
+  [1m[35m (0.0ms)[0m  [1m[32mINSERT INTO "posts" ("id","titulo","subtitulo","descricao","data","created_at","updated_at","inativar","kind_of_post_id","category_id","keywords","slug")
+                     SELECT "id","titulo","subtitulo","descricao","data","created_at","updated_at","inativar","kind_of_post_id","category_id","keywords","slug" FROM "aposts"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "aposts"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20190612105100') RETURNING "version"[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateFriendlyIdSlugs (20190711130420)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.8ms)[0m  [1m[35mCREATE TABLE "friendly_id_slugs" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "slug" varchar NOT NULL, "sluggable_id" integer NOT NULL, "sluggable_type" varchar(50), "scope" varchar, "created_at" datetime(6))[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE INDEX "index_friendly_id_slugs_on_sluggable_type_and_sluggable_id" ON "friendly_id_slugs" ("sluggable_type", "sluggable_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_friendly_id_slugs_on_slug_and_sluggable_type" ON "friendly_id_slugs" ("slug", "sluggable_type")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_friendly_id_slugs_on_slug_and_sluggable_type_and_scope" ON "friendly_id_slugs" ("slug", "sluggable_type", "scope")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20190711130420') RETURNING "version"[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+Migrating to AddKindOfPostIdToCategories (20200612124103)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (1.6ms)[0m  [1m[35mALTER TABLE "categories" ADD "kind_of_posts_id" integer[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20200612124103') RETURNING "version"[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+Migrating to AddInativarToCategories (20200825501310)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.9ms)[0m  [1m[35mALTER TABLE "categories" ADD "inativar" boolean[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20200825501310') RETURNING "version"[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateProperties (20230810180223)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.9ms)[0m  [1m[35mCREATE TABLE "properties" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "client" varchar, "code" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20230810180223') RETURNING "version"[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateActiveStorageTables (20240808140904)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (1.4ms)[0m  [1m[35mCREATE TABLE "active_storage_blobs" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "key" varchar NOT NULL, "filename" varchar NOT NULL, "content_type" varchar, "metadata" text, "service_name" varchar NOT NULL, "byte_size" bigint NOT NULL, "checksum" varchar, "created_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_active_storage_blobs_on_key" ON "active_storage_blobs" ("key")[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "active_storage_attachments" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar NOT NULL, "record_type" varchar NOT NULL, "record_id" bigint NOT NULL, "blob_id" bigint NOT NULL, "created_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_c3b3935057"
+FOREIGN KEY ("blob_id")
+  REFERENCES "active_storage_blobs" ("id")
+)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_active_storage_attachments_on_blob_id" ON "active_storage_attachments" ("blob_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_active_storage_attachments_uniqueness" ON "active_storage_attachments" ("record_type", "record_id", "name", "blob_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "active_storage_variant_records" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "blob_id" bigint NOT NULL, "variation_digest" varchar NOT NULL, CONSTRAINT "fk_rails_993965df05"
+FOREIGN KEY ("blob_id")
+  REFERENCES "active_storage_blobs" ("id")
+)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_active_storage_variant_records_uniqueness" ON "active_storage_variant_records" ("blob_id", "variation_digest")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20240808140904') RETURNING "version"[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateCkeditorAssets (20240814142718)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.9ms)[0m  [1m[35mCREATE TABLE "ckeditor_assets" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "data_file_name" varchar NOT NULL, "data_content_type" varchar, "data_file_size" integer, "data_fingerprint" varchar, "type" varchar(30), "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_ckeditor_assets_on_type" ON "ckeditor_assets" ("type")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20240814142718') RETURNING "version"[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+Migrating to AddPositionToGalleries (20240822135230)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (1.1ms)[0m  [1m[35mALTER TABLE "galleries" ADD "position" integer[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20240822135230') RETURNING "version"[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateIntranetVeiculos (20240823190123)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.9ms)[0m  [1m[35mCREATE TABLE "intranet_veiculos" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "ano" integer, "modelo" varchar, "preco" decimal(12,2), "observacao" text, "descricao" text, "quilometragem" integer, "cor" varchar, "anofab" varchar, "combustivel" varchar, "procedencia" varchar, "inativo" boolean, "destaque" boolean, "codigo" integer, "versao" varchar, "placa" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20240823190123') RETURNING "version"[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.9ms)[0m  [1m[32mINSERT INTO "users" ("name", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?) RETURNING "id"[0m  [["name", "criativitta"], ["password_digest", "[FILTERED]"], ["created_at", "2024-08-26 17:46:08.200119"], ["updated_at", "2024-08-26 17:46:08.200119"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFolheto Create (0.9ms)[0m  [1m[32mINSERT INTO "folhetos" ("id", "link_video", "created_at", "updated_at") VALUES (?, ?, ?, ?) RETURNING "id"[0m  [["id", 1], ["link_video", nil], ["created_at", "2024-08-26 17:46:08.253192"], ["updated_at", "2024-08-26 17:46:08.253192"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mcommit transaction[0m
+Started GET "/intranet/veiculos/new" for 127.0.0.1 at 2024-08-26 14:46:18 -0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Intranet::VeiculosController#new as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/intranet/intranet_controller.rb:8:in `authorize'
+  Rendering layout layouts/intranet.html.erb
+  Rendering intranet/veiculos/new.html.erb within layouts/intranet
+  [1m[36mKindOfPost Load (0.1ms)[0m  [1m[34mSELECT "kind_of_posts".* FROM "kind_of_posts"[0m
+  ↳ app/views/intranet/veiculos/_form.html.erb:74
+  Rendered intranet/veiculos/_form.html.erb (Duration: 21.6ms | Allocations: 5795)
+  Rendered intranet/veiculos/new.html.erb within layouts/intranet (Duration: 24.6ms | Allocations: 6176)
+  Rendered layout layouts/intranet.html.erb (Duration: 25.5ms | Allocations: 6287)
+Completed 500 Internal Server Error in 208ms (ActiveRecord: 3.7ms | Allocations: 50937)
+
+
+  
+ActionView::Template::Error (undefined method `titulo' for an instance of Intranet::Veiculo):
+    82:             Título <span class="required">*</span>
+    83:           </label>
+    84:           <div class="col-md-9 col-sm-9 col-xs-12">
+    85:             <%= f.text_field :titulo , :class=>"form-control col-md-7 col-xs-12", :data=> {"validate-length-range"=>"3", "validate-words"=>"1"}, :placeholder=>"Digite o título (obrigatório)", :required=> true %>
+    86:           </div>
+    87:         </div>
+    88: 
+  
+app/views/intranet/veiculos/_form.html.erb:85
+app/views/intranet/veiculos/_form.html.erb:32
+app/views/intranet/veiculos/new.html.erb:3
+Started GET "/intranet/veiculos/new" for 127.0.0.1 at 2024-08-26 15:01:44 -0300
+Processing by Intranet::VeiculosController#new as HTML
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/intranet/intranet_controller.rb:8:in `authorize'
+  Rendering layout layouts/intranet.html.erb
+  Rendering intranet/veiculos/new.html.erb within layouts/intranet
+  Rendered intranet/veiculos/_form.html.erb (Duration: 14.1ms | Allocations: 3934)
+  Rendered intranet/veiculos/new.html.erb within layouts/intranet (Duration: 148.4ms | Allocations: 4172)
+  Rendered layout layouts/intranet.html.erb (Duration: 148.9ms | Allocations: 4258)
+Completed 500 Internal Server Error in 183ms (ActiveRecord: 2.4ms | Allocations: 15934)
+
+
+  
+ActionView::Template::Error (undefined method `foto_principal' for an instance of Intranet::Veiculo):
+    173:             <div id="result_hidden_field" class="hidden-field"></div>
+    174:             <script type="text/javascript">
+    175:             function change_file(){
+    176:               var data = '<%= f.hidden_field :foto_principal %>';
+    177:               // hidden field recebe a image escolhida, para poder salvar todas as imagens em canvas
+    178:               document.getElementById('result_hidden_field').innerHTML += data;
+    179:             }
+  
+app/views/intranet/veiculos/_form.html.erb:176
+app/views/intranet/veiculos/_form.html.erb:32
+app/views/intranet/veiculos/new.html.erb:3
+Started GET "/intranet/veiculos/new" for 127.0.0.1 at 2024-08-26 15:02:22 -0300
+Processing by Intranet::VeiculosController#new as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/intranet/intranet_controller.rb:8:in `authorize'
+  Rendering layout layouts/intranet.html.erb
+  Rendering intranet/veiculos/new.html.erb within layouts/intranet
+  Rendered intranet/veiculos/_form.html.erb (Duration: 9.8ms | Allocations: 3523)
+  Rendered intranet/veiculos/new.html.erb within layouts/intranet (Duration: 13.2ms | Allocations: 3761)
+  Rendered layout layouts/intranet.html.erb (Duration: 13.9ms | Allocations: 3847)
+Completed 500 Internal Server Error in 62ms (ActiveRecord: 3.1ms | Allocations: 16564)
+
+
+  
+ActionView::Template::Error (undefined method `foto_principal' for an instance of Intranet::Veiculo):
+    173:             <div id="result_hidden_field" class="hidden-field"></div>
+    174:             <script type="text/javascript">
+    175:             function change_file(){
+    176:               var data = '<%= f.hidden_field :foto_principal %>';
+    177:               // hidden field recebe a image escolhida, para poder salvar todas as imagens em canvas
+    178:               document.getElementById('result_hidden_field').innerHTML += data;
+    179:             }
+  
+app/views/intranet/veiculos/_form.html.erb:176
+app/views/intranet/veiculos/_form.html.erb:32
+app/views/intranet/veiculos/new.html.erb:3
+Started GET "/intranet/veiculos/new" for 127.0.0.1 at 2024-08-26 15:03:14 -0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Intranet::VeiculosController#new as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/intranet/intranet_controller.rb:8:in `authorize'
+  Rendering layout layouts/intranet.html.erb
+  Rendering intranet/veiculos/new.html.erb within layouts/intranet
+  Rendered intranet/veiculos/_form.html.erb (Duration: 13.4ms | Allocations: 4911)
+  Rendered intranet/veiculos/new.html.erb within layouts/intranet (Duration: 15.8ms | Allocations: 5292)
+  Rendered layout layouts/intranet.html.erb (Duration: 16.4ms | Allocations: 5403)
+Completed 500 Internal Server Error in 196ms (ActiveRecord: 2.7ms | Allocations: 50053)
+
+
+  
+ActionView::Template::Error (undefined method `foto_principal' for an instance of Intranet::Veiculo):
+    173:             <div id="result_hidden_field" class="hidden-field"></div>
+    174:             <script type="text/javascript">
+    175:             function change_file(){
+    176:               var data = '<%= f.hidden_field :foto_principal %>';
+    177:               // hidden field recebe a image escolhida, para poder salvar todas as imagens em canvas
+    178:               document.getElementById('result_hidden_field').innerHTML += data;
+    179:             }
+  
+app/views/intranet/veiculos/_form.html.erb:176
+app/views/intranet/veiculos/_form.html.erb:32
+app/views/intranet/veiculos/new.html.erb:3
+Started GET "/intranet/veiculos/new" for 127.0.0.1 at 2024-08-26 15:06:59 -0300
+Processing by Intranet::VeiculosController#new as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/intranet/intranet_controller.rb:8:in `authorize'
+  Rendering layout layouts/intranet.html.erb
+  Rendering intranet/veiculos/new.html.erb within layouts/intranet
+  Rendered intranet/veiculos/_image_cropping.html.erb (Duration: 1.9ms | Allocations: 1840)
+  Rendered intranet/veiculos/_form.html.erb (Duration: 47.9ms | Allocations: 4527)
+  Rendered intranet/veiculos/new.html.erb within layouts/intranet (Duration: 50.3ms | Allocations: 4764)
+  Rendered layout layouts/intranet.html.erb (Duration: 50.7ms | Allocations: 4850)
+Completed 500 Internal Server Error in 129ms (ActiveRecord: 2.7ms | Allocations: 25305)
+
+
+  
+ActionView::Template::Error (undefined method `foto_principal' for nil):
+    15:     </label>
+    16: 
+    17:     <div class="col-md-3 object_image_preview image_current">
+    18:       <% if f.object.foto_principal.attached? %>
+    19:       <%= image_tag f.object.foto_principal.url(:medium) %>
+    20:       <% else %>
+    21:         <label class="">
+  
+app/views/intranet/veiculos/_image_cropping.html.erb:18
+app/views/intranet/veiculos/_image_cropping.html.erb:1
+app/views/intranet/veiculos/_form.html.erb:203
+app/views/intranet/veiculos/_form.html.erb:32
+app/views/intranet/veiculos/new.html.erb:3
+Started GET "/intranet/veiculos/new" for 127.0.0.1 at 2024-08-26 15:07:38 -0300
+Processing by Intranet::VeiculosController#new as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/intranet/intranet_controller.rb:8:in `authorize'
+  Rendering layout layouts/intranet.html.erb
+  Rendering intranet/veiculos/new.html.erb within layouts/intranet
+  Rendered intranet/veiculos/_image_cropping.html.erb (Duration: 1.5ms | Allocations: 1800)
+  Rendered intranet/veiculos/_form.html.erb (Duration: 25.5ms | Allocations: 4338)
+  Rendered intranet/veiculos/new.html.erb within layouts/intranet (Duration: 27.5ms | Allocations: 4571)
+  Rendered layout layouts/intranet.html.erb (Duration: 27.9ms | Allocations: 4657)
+Completed 500 Internal Server Error in 79ms (ActiveRecord: 2.9ms | Allocations: 22642)
+
+
+  
+ActionView::Template::Error (undefined method `foto_principal' for an instance of ActionView::Helpers::FormBuilder):
+    15:     </label>
+    16: 
+    17:     <div class="col-md-3 object_image_preview image_current">
+    18:       <% if f.foto_principal.attached? %>
+    19:       <%= image_tag f.foto_principal.url(:medium) %>
+    20:       <% else %>
+    21:         <label class="">
+  
+app/views/intranet/veiculos/_image_cropping.html.erb:18
+app/views/intranet/veiculos/_image_cropping.html.erb:1
+app/views/intranet/veiculos/_form.html.erb:203
+app/views/intranet/veiculos/_form.html.erb:32
+app/views/intranet/veiculos/new.html.erb:3
+Started GET "/intranet/veiculos/new" for 127.0.0.1 at 2024-08-26 15:07:46 -0300
+Processing by Intranet::VeiculosController#new as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/intranet/intranet_controller.rb:8:in `authorize'
+  Rendering layout layouts/intranet.html.erb
+  Rendering intranet/veiculos/new.html.erb within layouts/intranet
+  Rendered intranet/veiculos/_image_cropping.html.erb (Duration: 4.1ms | Allocations: 1798)
+  Rendered intranet/veiculos/_form.html.erb (Duration: 39.0ms | Allocations: 4336)
+  Rendered intranet/veiculos/new.html.erb within layouts/intranet (Duration: 41.9ms | Allocations: 4573)
+  Rendered layout layouts/intranet.html.erb (Duration: 42.2ms | Allocations: 4659)
+Completed 500 Internal Server Error in 96ms (ActiveRecord: 2.8ms | Allocations: 22636)
+
+
+  
+ActionView::Template::Error (undefined method `foto_principal' for nil):
+    15:     </label>
+    16: 
+    17:     <div class="col-md-3 object_image_preview image_current">
+    18:       <% if f.object.foto_principal.attached? %>
+    19:       <%= image_tag f.object.foto_principal.url(:medium) %>
+    20:       <% else %>
+    21:         <label class="">
+  
+app/views/intranet/veiculos/_image_cropping.html.erb:18
+app/views/intranet/veiculos/_image_cropping.html.erb:1
+app/views/intranet/veiculos/_form.html.erb:203
+app/views/intranet/veiculos/_form.html.erb:32
+app/views/intranet/veiculos/new.html.erb:3
+Started GET "/intranet/veiculos/new" for 127.0.0.1 at 2024-08-26 15:07:57 -0300
+Processing by Intranet::VeiculosController#new as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/intranet/intranet_controller.rb:8:in `authorize'
+  Rendering layout layouts/intranet.html.erb
+  Rendering intranet/veiculos/new.html.erb within layouts/intranet
+  Rendered intranet/veiculos/_image_cropping.html.erb (Duration: 16.7ms | Allocations: 4559)
+  Rendered intranet/veiculos/_form.html.erb (Duration: 47.0ms | Allocations: 8177)
+  Rendered intranet/veiculos/new.html.erb within layouts/intranet (Duration: 49.0ms | Allocations: 8413)
+  Rendered layout layouts/intranet.html.erb (Duration: 49.4ms | Allocations: 8499)
+Completed 500 Internal Server Error in 100ms (ActiveRecord: 3.0ms | Allocations: 26483)
+
+
+  
+ActionView::Template::Error (undefined method `new_record?' for nil):
+    223: 
+    224:           <div id="sortable-gallery" class="row">
+    225:   <%= f.fields_for :galleries, @galleries do |galleries| %>
+    226:     <% unless galleries.object.new_record? %>
+    227:       <div class="col-md-55 sortable-item" data-id="<%= galleries.object.id %>">
+    228:         <div class="thumbnail">
+    229:           <div class="image view">
+  
+app/views/intranet/veiculos/_form.html.erb:226
+app/views/intranet/veiculos/_form.html.erb:225
+app/views/intranet/veiculos/_form.html.erb:32
+app/views/intranet/veiculos/new.html.erb:3
+Started GET "/intranet/veiculos/new" for 127.0.0.1 at 2024-08-26 15:08:50 -0300
+Processing by Intranet::VeiculosController#new as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/intranet/intranet_controller.rb:8:in `authorize'
+  Rendering layout layouts/intranet.html.erb
+  Rendering intranet/veiculos/new.html.erb within layouts/intranet
+  Rendered intranet/veiculos/_image_cropping.html.erb (Duration: 6.7ms | Allocations: 3423)
+  Rendered intranet/veiculos/_form.html.erb (Duration: 11.5ms | Allocations: 7035)
+  Rendered intranet/veiculos/new.html.erb within layouts/intranet (Duration: 139.1ms | Allocations: 7273)
+  Rendered layout layouts/intranet.html.erb (Duration: 139.5ms | Allocations: 7359)
+Completed 500 Internal Server Error in 210ms (ActiveRecord: 4.5ms | Allocations: 25354)
+
+
+  
+ActionView::Template::Error (undefined method `new_record?' for nil):
+    223: 
+    224:           <div id="sortable-gallery" class="row">
+    225:   <%= f.fields_for :fotos do |galleries| %>
+    226:     <% unless galleries.object.new_record? %>
+    227:       <div class="col-md-55 sortable-item" data-id="<%= galleries.object.id %>">
+    228:         <div class="thumbnail">
+    229:           <div class="image view">
+  
+app/views/intranet/veiculos/_form.html.erb:226
+app/views/intranet/veiculos/_form.html.erb:225
+app/views/intranet/veiculos/_form.html.erb:32
+app/views/intranet/veiculos/new.html.erb:3
+Started GET "/intranet/veiculos/new" for 127.0.0.1 at 2024-08-26 15:10:31 -0300
+Processing by Intranet::VeiculosController#new as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/intranet/intranet_controller.rb:8:in `authorize'
+  Rendering layout layouts/intranet.html.erb
+  Rendering intranet/veiculos/new.html.erb within layouts/intranet
+  Rendered intranet/veiculos/_image_cropping.html.erb (Duration: 6.9ms | Allocations: 3426)
+  Rendered intranet/veiculos/_form.html.erb (Duration: 15.7ms | Allocations: 7036)
+  Rendered intranet/veiculos/new.html.erb within layouts/intranet (Duration: 19.5ms | Allocations: 7274)
+  Rendered layout layouts/intranet.html.erb (Duration: 20.1ms | Allocations: 7360)
+Completed 500 Internal Server Error in 110ms (ActiveRecord: 4.8ms | Allocations: 25334)
+
+
+  
+ActionView::Template::Error (undefined method `new_record?' for nil):
+    223: 
+    224:           <div id="sortable-gallery" class="row">
+    225:   <%= f.fields_for :fotos do |galleries| %>
+    226:     <% unless galleries.object.new_record? %>
+    227:       <div class="col-md-55 sortable-item" data-id="<%= galleries.object.id %>">
+    228:         <div class="thumbnail">
+    229:           <div class="image view">
+  
+app/views/intranet/veiculos/_form.html.erb:226
+app/views/intranet/veiculos/_form.html.erb:225
+app/views/intranet/veiculos/_form.html.erb:32
+app/views/intranet/veiculos/new.html.erb:3
+Started GET "/intranet/veiculos/new" for 127.0.0.1 at 2024-08-26 15:10:52 -0300
+Processing by Intranet::VeiculosController#new as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/intranet/intranet_controller.rb:8:in `authorize'
+  Rendering layout layouts/intranet.html.erb
+  Rendering intranet/veiculos/new.html.erb within layouts/intranet
+  Rendered intranet/veiculos/_image_cropping.html.erb (Duration: 6.3ms | Allocations: 3422)
+  Rendered intranet/veiculos/_form.html.erb (Duration: 11.3ms | Allocations: 7032)
+  Rendered intranet/veiculos/new.html.erb within layouts/intranet (Duration: 135.6ms | Allocations: 7270)
+  Rendered layout layouts/intranet.html.erb (Duration: 135.9ms | Allocations: 7356)
+Completed 500 Internal Server Error in 186ms (ActiveRecord: 4.0ms | Allocations: 25348)
+
+
+  
+ActionView::Template::Error (undefined method `new_record?' for an instance of ActionView::Helpers::FormBuilder):
+    223: 
+    224:           <div id="sortable-gallery" class="row">
+    225:   <%= f.fields_for :fotos do |galleries| %>
+    226:     <% unless galleries.new_record? %>
+    227:       <div class="col-md-55 sortable-item" data-id="<%= galleries.object.id %>">
+    228:         <div class="thumbnail">
+    229:           <div class="image view">
+  
+app/views/intranet/veiculos/_form.html.erb:226
+app/views/intranet/veiculos/_form.html.erb:225
+app/views/intranet/veiculos/_form.html.erb:32
+app/views/intranet/veiculos/new.html.erb:3
+Started GET "/intranet/veiculos/new" for 127.0.0.1 at 2024-08-26 15:11:07 -0300
+Processing by Intranet::VeiculosController#new as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/intranet/intranet_controller.rb:8:in `authorize'
+  Rendering layout layouts/intranet.html.erb
+  Rendering intranet/veiculos/new.html.erb within layouts/intranet
+  Rendered intranet/veiculos/_image_cropping.html.erb (Duration: 6.2ms | Allocations: 3422)
+  Rendered intranet/veiculos/_form.html.erb (Duration: 11.4ms | Allocations: 7032)
+  Rendered intranet/veiculos/new.html.erb within layouts/intranet (Duration: 131.1ms | Allocations: 7270)
+  Rendered layout layouts/intranet.html.erb (Duration: 131.4ms | Allocations: 7356)
+Completed 500 Internal Server Error in 182ms (ActiveRecord: 3.3ms | Allocations: 25337)
+
+
+  
+ActionView::Template::Error (undefined method `id' for nil):
+    224:           <div id="sortable-gallery" class="row">
+    225:   <%= f.fields_for :fotos do |galleries| %>
+    226:     <% unless galleries.object %>
+    227:       <div class="col-md-55 sortable-item" data-id="<%= galleries.object.id %>">
+    228:         <div class="thumbnail">
+    229:           <div class="image view">
+    230:             <% unless galleries.object.nil? %>
+  
+app/views/intranet/veiculos/_form.html.erb:227
+app/views/intranet/veiculos/_form.html.erb:225
+app/views/intranet/veiculos/_form.html.erb:32
+app/views/intranet/veiculos/new.html.erb:3
+Started GET "/intranet/veiculos/new" for 127.0.0.1 at 2024-08-26 15:12:44 -0300
+Processing by Intranet::VeiculosController#new as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/intranet/intranet_controller.rb:8:in `authorize'
+  Rendering layout layouts/intranet.html.erb
+  Rendering intranet/veiculos/new.html.erb within layouts/intranet
+  Rendered intranet/veiculos/_image_cropping.html.erb (Duration: 8.0ms | Allocations: 3425)
+  Rendered intranet/veiculos/_form.html.erb (Duration: 15.2ms | Allocations: 7036)
+  Rendered intranet/veiculos/new.html.erb within layouts/intranet (Duration: 156.2ms | Allocations: 7274)
+  Rendered layout layouts/intranet.html.erb (Duration: 156.5ms | Allocations: 7360)
+Completed 500 Internal Server Error in 252ms (ActiveRecord: 4.6ms | Allocations: 25333)
+
+
+  
+ActionView::Template::Error (undefined method `previously_persisted?' for an instance of ActionView::Helpers::FormBuilder):
+    223: 
+    224:           <div id="sortable-gallery" class="row">
+    225:   <%= f.fields_for :fotos do |galleries| %>
+    226:     <% if galleries.previously_persisted? %>
+    227:       <div class="col-md-55 sortable-item" data-id="<%= galleries.object.id %>">
+    228:         <div class="thumbnail">
+    229:           <div class="image view">
+  
+app/views/intranet/veiculos/_form.html.erb:226
+app/views/intranet/veiculos/_form.html.erb:225
+app/views/intranet/veiculos/_form.html.erb:32
+app/views/intranet/veiculos/new.html.erb:3
+Started GET "/intranet/veiculos/new" for 127.0.0.1 at 2024-08-26 15:12:52 -0300
+Processing by Intranet::VeiculosController#new as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/intranet/intranet_controller.rb:8:in `authorize'
+  Rendering layout layouts/intranet.html.erb
+  Rendering intranet/veiculos/new.html.erb within layouts/intranet
+  Rendered intranet/veiculos/_image_cropping.html.erb (Duration: 11.0ms | Allocations: 3423)
+  Rendered intranet/veiculos/_form.html.erb (Duration: 15.9ms | Allocations: 7033)
+  Rendered intranet/veiculos/new.html.erb within layouts/intranet (Duration: 141.2ms | Allocations: 7267)
+  Rendered layout layouts/intranet.html.erb (Duration: 142.0ms | Allocations: 7353)
+Completed 500 Internal Server Error in 194ms (ActiveRecord: 3.1ms | Allocations: 25323)
+
+
+  
+ActionView::Template::Error (undefined method `previously_persisted?' for nil):
+    223: 
+    224:           <div id="sortable-gallery" class="row">
+    225:   <%= f.fields_for :fotos do |galleries| %>
+    226:     <% if galleries.object.previously_persisted? %>
+    227:       <div class="col-md-55 sortable-item" data-id="<%= galleries.object.id %>">
+    228:         <div class="thumbnail">
+    229:           <div class="image view">
+  
+app/views/intranet/veiculos/_form.html.erb:226
+app/views/intranet/veiculos/_form.html.erb:225
+app/views/intranet/veiculos/_form.html.erb:32
+app/views/intranet/veiculos/new.html.erb:3
+Started GET "/intranet/veiculos/new" for 127.0.0.1 at 2024-08-26 15:13:49 -0300
+Processing by Intranet::VeiculosController#new as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/intranet/intranet_controller.rb:8:in `authorize'
+  Rendering layout layouts/intranet.html.erb
+  Rendering intranet/veiculos/new.html.erb within layouts/intranet
+  Rendered intranet/veiculos/_image_cropping.html.erb (Duration: 7.5ms | Allocations: 3422)
+  Rendered intranet/veiculos/_form.html.erb (Duration: 12.6ms | Allocations: 7033)
+  Rendered intranet/veiculos/new.html.erb within layouts/intranet (Duration: 142.0ms | Allocations: 7271)
+  Rendered layout layouts/intranet.html.erb (Duration: 142.3ms | Allocations: 7357)
+Completed 500 Internal Server Error in 196ms (ActiveRecord: 3.6ms | Allocations: 25349)
+
+
+  
+ActionView::Template::Error (undefined method `attached?' for nil):
+    223: 
+    224:           <div id="sortable-gallery" class="row">
+    225:   <%= f.fields_for :fotos do |galleries| %>
+    226:     <% if galleries.object.attached? %>
+    227:       <div class="col-md-55 sortable-item" data-id="<%= galleries.object.id %>">
+    228:         <div class="thumbnail">
+    229:           <div class="image view">
+  
+app/views/intranet/veiculos/_form.html.erb:226
+app/views/intranet/veiculos/_form.html.erb:225
+app/views/intranet/veiculos/_form.html.erb:32
+app/views/intranet/veiculos/new.html.erb:3
+Started GET "/intranet/veiculos/new" for 127.0.0.1 at 2024-08-26 15:14:02 -0300
+Processing by Intranet::VeiculosController#new as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/intranet/intranet_controller.rb:8:in `authorize'
+  Rendering layout layouts/intranet.html.erb
+  Rendering intranet/veiculos/new.html.erb within layouts/intranet
+  Rendered intranet/veiculos/_image_cropping.html.erb (Duration: 7.3ms | Allocations: 3422)
+  Rendered intranet/veiculos/_form.html.erb (Duration: 13.0ms | Allocations: 7032)
+  Rendered intranet/veiculos/new.html.erb within layouts/intranet (Duration: 153.5ms | Allocations: 7268)
+  Rendered layout layouts/intranet.html.erb (Duration: 154.0ms | Allocations: 7354)
+Completed 500 Internal Server Error in 212ms (ActiveRecord: 3.1ms | Allocations: 25327)
+
+
+  
+ActionView::Template::Error (undefined method `attached?' for an instance of ActionView::Helpers::FormBuilder):
+    223: 
+    224:           <div id="sortable-gallery" class="row">
+    225:   <%= f.fields_for :fotos do |galleries| %>
+    226:     <% if galleries.attached? %>
+    227:       <div class="col-md-55 sortable-item" data-id="<%= galleries.object.id %>">
+    228:         <div class="thumbnail">
+    229:           <div class="image view">
+  
+app/views/intranet/veiculos/_form.html.erb:226
+app/views/intranet/veiculos/_form.html.erb:225
+app/views/intranet/veiculos/_form.html.erb:32
+app/views/intranet/veiculos/new.html.erb:3
+Started GET "/intranet/veiculos/new" for 127.0.0.1 at 2024-08-26 15:14:22 -0300
+Processing by Intranet::VeiculosController#new as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/intranet/intranet_controller.rb:8:in `authorize'
+  Rendering layout layouts/intranet.html.erb
+  Rendering intranet/veiculos/new.html.erb within layouts/intranet
+  Rendered intranet/veiculos/_image_cropping.html.erb (Duration: 6.4ms | Allocations: 3424)
+  Rendered intranet/veiculos/_form.html.erb (Duration: 11.9ms | Allocations: 7034)
+  Rendered intranet/veiculos/new.html.erb within layouts/intranet (Duration: 131.2ms | Allocations: 7270)
+  Rendered layout layouts/intranet.html.erb (Duration: 131.6ms | Allocations: 7356)
+Completed 500 Internal Server Error in 185ms (ActiveRecord: 2.8ms | Allocations: 25329)
+
+
+  
+ActionView::Template::Error (undefined method `attached?' for nil):
+    223: 
+    224:           <div id="sortable-gallery" class="row">
+    225:   <%= f.fields_for :fotos do |galleries| %>
+    226:     <% if galleries.object.attached? %>
+    227:       <div class="col-md-55 sortable-item" data-id="<%= galleries.object.id %>">
+    228:         <div class="thumbnail">
+    229:           <div class="image view">
+  
+app/views/intranet/veiculos/_form.html.erb:226
+app/views/intranet/veiculos/_form.html.erb:225
+app/views/intranet/veiculos/_form.html.erb:32
+app/views/intranet/veiculos/new.html.erb:3
+Started GET "/intranet/veiculos/new" for 127.0.0.1 at 2024-08-26 15:15:40 -0300
+Processing by Intranet::VeiculosController#new as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/intranet/intranet_controller.rb:8:in `authorize'
+  Rendering layout layouts/intranet.html.erb
+  Rendering intranet/veiculos/new.html.erb within layouts/intranet
+  Rendered intranet/veiculos/_image_cropping.html.erb (Duration: 6.8ms | Allocations: 3422)
+  Rendered intranet/veiculos/_form.html.erb (Duration: 12.1ms | Allocations: 7032)
+  Rendered intranet/veiculos/new.html.erb within layouts/intranet (Duration: 144.1ms | Allocations: 7270)
+  Rendered layout layouts/intranet.html.erb (Duration: 144.5ms | Allocations: 7356)
+Completed 500 Internal Server Error in 206ms (ActiveRecord: 3.3ms | Allocations: 25329)
+
+
+  
+ActionView::Template::Error (undefined method `id' for nil):
+    224:           <div id="sortable-gallery" class="row">
+    225:   <%= f.fields_for :fotos do |galleries| %>
+    226:     <% if galleries %>
+    227:       <div class="col-md-55 sortable-item" data-id="<%= galleries.object.id %>">
+    228:         <div class="thumbnail">
+    229:           <div class="image view">
+    230:             <% unless galleries.object.nil? %>
+  
+app/views/intranet/veiculos/_form.html.erb:227
+app/views/intranet/veiculos/_form.html.erb:225
+app/views/intranet/veiculos/_form.html.erb:32
+app/views/intranet/veiculos/new.html.erb:3
+Started GET "/intranet/veiculos/new" for 127.0.0.1 at 2024-08-26 15:15:59 -0300
+Processing by Intranet::VeiculosController#new as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/intranet/intranet_controller.rb:8:in `authorize'
+  Rendering layout layouts/intranet.html.erb
+  Rendering intranet/veiculos/new.html.erb within layouts/intranet
+  Rendered intranet/veiculos/_image_cropping.html.erb (Duration: 7.3ms | Allocations: 3423)
+  Rendered intranet/veiculos/_form.html.erb (Duration: 12.3ms | Allocations: 7034)
+  Rendered intranet/veiculos/new.html.erb within layouts/intranet (Duration: 143.8ms | Allocations: 7270)
+  Rendered layout layouts/intranet.html.erb (Duration: 144.1ms | Allocations: 7356)
+Completed 500 Internal Server Error in 198ms (ActiveRecord: 2.9ms | Allocations: 25349)
+
+
+  
+ActionView::Template::Error (undefined method `id' for nil):
+    224:           <div id="sortable-gallery" class="row">
+    225:   <%= f.fields_for :fotos do |galleries| %>
+    226:     <% unless galleries.nil? %>
+    227:       <div class="col-md-55 sortable-item" data-id="<%= galleries.object.id %>">
+    228:         <div class="thumbnail">
+    229:           <div class="image view">
+    230:             <% unless galleries.object.nil? %>
+  
+app/views/intranet/veiculos/_form.html.erb:227
+app/views/intranet/veiculos/_form.html.erb:225
+app/views/intranet/veiculos/_form.html.erb:32
+app/views/intranet/veiculos/new.html.erb:3
+Started GET "/intranet/veiculos/new" for 127.0.0.1 at 2024-08-26 15:16:13 -0300
+Processing by Intranet::VeiculosController#new as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/intranet/intranet_controller.rb:8:in `authorize'
+  Rendering layout layouts/intranet.html.erb
+  Rendering intranet/veiculos/new.html.erb within layouts/intranet
+  Rendered intranet/veiculos/_image_cropping.html.erb (Duration: 5.7ms | Allocations: 3422)
+  Rendered intranet/veiculos/_form.html.erb (Duration: 12.8ms | Allocations: 8148)
+  Rendered intranet/veiculos/new.html.erb within layouts/intranet (Duration: 141.6ms | Allocations: 8384)
+  Rendered layout layouts/intranet.html.erb (Duration: 142.0ms | Allocations: 8470)
+Completed 500 Internal Server Error in 194ms (ActiveRecord: 3.5ms | Allocations: 26443)
+
+
+  
+ActionView::Template::Error (undefined method `new_record?' for nil):
+    252:                 <label class="input-group-btn" title="Importar imagem">
+    253:                   <span class="btn btn-primary">
+    254:                     <%= f.fields_for :galleries do |ff| %>
+    255:                     <% if ff.object.new_record? %>
+    256: 
+    257:                     Arquivo&hellip; <%= ff.file_field :image,
+    258:                     :class => 'fileupload campos_intranet field_galeria',
+  
+app/views/intranet/veiculos/_form.html.erb:255
+app/views/intranet/veiculos/_form.html.erb:254
+app/views/intranet/veiculos/_form.html.erb:32
+app/views/intranet/veiculos/new.html.erb:3
+Started GET "/intranet/veiculos/new" for 127.0.0.1 at 2024-08-26 15:16:53 -0300
+Processing by Intranet::VeiculosController#new as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/intranet/intranet_controller.rb:8:in `authorize'
+  Rendering layout layouts/intranet.html.erb
+  Rendering intranet/veiculos/new.html.erb within layouts/intranet
+  Rendered intranet/veiculos/_image_cropping.html.erb (Duration: 6.7ms | Allocations: 3422)
+  Rendered intranet/veiculos/_form.html.erb (Duration: 13.4ms | Allocations: 8143)
+  Rendered intranet/veiculos/new.html.erb within layouts/intranet (Duration: 138.5ms | Allocations: 8379)
+  Rendered layout layouts/intranet.html.erb (Duration: 138.9ms | Allocations: 8465)
+Completed 500 Internal Server Error in 194ms (ActiveRecord: 3.1ms | Allocations: 26438)
+
+
+  
+ActionView::Template::Error (undefined method `new_record?' for an instance of ActionView::Helpers::FormBuilder):
+    252:                 <label class="input-group-btn" title="Importar imagem">
+    253:                   <span class="btn btn-primary">
+    254:                     <%= f.fields_for :galleries do |ff| %>
+    255:                     <% if ff.new_record? %>
+    256: 
+    257:                     Arquivo&hellip; <%= ff.file_field :image,
+    258:                     :class => 'fileupload campos_intranet field_galeria',
+  
+app/views/intranet/veiculos/_form.html.erb:255
+app/views/intranet/veiculos/_form.html.erb:254
+app/views/intranet/veiculos/_form.html.erb:32
+app/views/intranet/veiculos/new.html.erb:3
+Started GET "/intranet/veiculos/new" for 127.0.0.1 at 2024-08-26 15:17:05 -0300
+Processing by Intranet::VeiculosController#new as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/intranet/intranet_controller.rb:8:in `authorize'
+  Rendering layout layouts/intranet.html.erb
+  Rendering intranet/veiculos/new.html.erb within layouts/intranet
+  Rendered intranet/veiculos/_image_cropping.html.erb (Duration: 6.6ms | Allocations: 3422)
+  Rendered intranet/veiculos/_form.html.erb (Duration: 14.2ms | Allocations: 8143)
+  Rendered intranet/veiculos/new.html.erb within layouts/intranet (Duration: 144.3ms | Allocations: 8379)
+  Rendered layout layouts/intranet.html.erb (Duration: 144.8ms | Allocations: 8465)
+Completed 500 Internal Server Error in 199ms (ActiveRecord: 3.6ms | Allocations: 26438)
+
+
+  
+ActionView::Template::Error (undefined method `previously_persisted?' for nil):
+    252:                 <label class="input-group-btn" title="Importar imagem">
+    253:                   <span class="btn btn-primary">
+    254:                     <%= f.fields_for :galleries do |ff| %>
+    255:                     <% unless ff.object.previously_persisted? %>
+    256: 
+    257:                     Arquivo&hellip; <%= ff.file_field :image,
+    258:                     :class => 'fileupload campos_intranet field_galeria',
+  
+app/views/intranet/veiculos/_form.html.erb:255
+app/views/intranet/veiculos/_form.html.erb:254
+app/views/intranet/veiculos/_form.html.erb:32
+app/views/intranet/veiculos/new.html.erb:3
+Started GET "/intranet/veiculos/new" for 127.0.0.1 at 2024-08-26 15:17:12 -0300
+Processing by Intranet::VeiculosController#new as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/intranet/intranet_controller.rb:8:in `authorize'
+  Rendering layout layouts/intranet.html.erb
+  Rendering intranet/veiculos/new.html.erb within layouts/intranet
+  Rendered intranet/veiculos/_image_cropping.html.erb (Duration: 7.0ms | Allocations: 3422)
+  Rendered intranet/veiculos/_form.html.erb (Duration: 12.0ms | Allocations: 8143)
+  Rendered intranet/veiculos/new.html.erb within layouts/intranet (Duration: 136.7ms | Allocations: 8380)
+  Rendered layout layouts/intranet.html.erb (Duration: 137.3ms | Allocations: 8466)
+Completed 500 Internal Server Error in 190ms (ActiveRecord: 3.8ms | Allocations: 26439)
+
+
+  
+ActionView::Template::Error (undefined method `previously_persisted?' for an instance of ActionView::Helpers::FormBuilder):
+    252:                 <label class="input-group-btn" title="Importar imagem">
+    253:                   <span class="btn btn-primary">
+    254:                     <%= f.fields_for :galleries do |ff| %>
+    255:                     <% unless ff.previously_persisted? %>
+    256: 
+    257:                     Arquivo&hellip; <%= ff.file_field :image,
+    258:                     :class => 'fileupload campos_intranet field_galeria',
+  
+app/views/intranet/veiculos/_form.html.erb:255
+app/views/intranet/veiculos/_form.html.erb:254
+app/views/intranet/veiculos/_form.html.erb:32
+app/views/intranet/veiculos/new.html.erb:3
+Started GET "/intranet/veiculos/new" for 127.0.0.1 at 2024-08-26 15:17:30 -0300
+Processing by Intranet::VeiculosController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/intranet/intranet_controller.rb:8:in `authorize'
+  Rendering layout layouts/intranet.html.erb
+  Rendering intranet/veiculos/new.html.erb within layouts/intranet
+  Rendered intranet/veiculos/_image_cropping.html.erb (Duration: 6.5ms | Allocations: 3426)
+  Rendered intranet/veiculos/_image_cropping.html.erb (Duration: 1.0ms | Allocations: 496)
+  Rendered intranet/veiculos/_docs_preview.html.erb (Duration: 1.1ms | Allocations: 92)
+  Rendered intranet/veiculos/_form.html.erb (Duration: 438.2ms | Allocations: 91086)
+  Rendered intranet/veiculos/new.html.erb within layouts/intranet (Duration: 560.8ms | Allocations: 91324)
+  [1m[36mKindOfPost Load (0.1ms)[0m  [1m[34mSELECT "kind_of_posts".* FROM "kind_of_posts"[0m
+  ↳ app/views/layouts/intranet.html.erb:85
+  Rendered layout layouts/intranet.html.erb (Duration: 666.5ms | Allocations: 122015)
+Completed 200 OK in 780ms (Views: 671.4ms | ActiveRecord: 4.3ms | Allocations: 140041)
+
+
+Started GET "/images/missing.png" for 127.0.0.1 at 2024-08-26 15:17:31 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/images/missing.png"):
+  
+Started GET "/green.png" for 127.0.0.1 at 2024-08-26 15:17:32 -0300
+Started GET "/images/missing.png" for 127.0.0.1 at 2024-08-26 15:17:32 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/green.png"):
+  
+  
+ActionController::RoutingError (No route matches [GET] "/images/missing.png"):
+  
+Started GET "/images/missing.png" for 127.0.0.1 at 2024-08-26 15:17:32 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/images/missing.png"):
+  
+Started GET "/fav_icon_intra.ico" for 127.0.0.1 at 2024-08-26 15:17:32 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/fav_icon_intra.ico"):
+  
+Started GET "/intranet/veiculos/new" for 127.0.0.1 at 2024-08-26 15:18:05 -0300
+Processing by Intranet::VeiculosController#new as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/intranet/intranet_controller.rb:8:in `authorize'
+  Rendering layout layouts/intranet.html.erb
+  Rendering intranet/veiculos/new.html.erb within layouts/intranet
+  Rendered intranet/veiculos/_image_cropping.html.erb (Duration: 6.9ms | Allocations: 3422)
+  Rendered intranet/veiculos/_form.html.erb (Duration: 12.3ms | Allocations: 8111)
+  Rendered intranet/veiculos/new.html.erb within layouts/intranet (Duration: 130.3ms | Allocations: 8348)
+  Rendered layout layouts/intranet.html.erb (Duration: 130.9ms | Allocations: 8434)
+Completed 500 Internal Server Error in 182ms (ActiveRecord: 2.7ms | Allocations: 26392)
+
+
+  
+ActionView::Template::Error (undefined method `new_record?' for nil):
+    252:                 <label class="input-group-btn" title="Importar imagem">
+    253:                   <span class="btn btn-primary">
+    254:                     <%= f.fields_for :fotos do |ff| %>
+    255:                     <% if ff.object.new_record? %>
+    256: 
+    257:                     Arquivo&hellip; <%= ff.file_field :image,
+    258:                     :class => 'fileupload campos_intranet field_galeria',
+  
+app/views/intranet/veiculos/_form.html.erb:255
+app/views/intranet/veiculos/_form.html.erb:254
+app/views/intranet/veiculos/_form.html.erb:32
+app/views/intranet/veiculos/new.html.erb:3
+Started GET "/intranet/veiculos/new" for 127.0.0.1 at 2024-08-26 15:19:34 -0300
+Processing by Intranet::VeiculosController#new as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/intranet/intranet_controller.rb:8:in `authorize'
+  Rendering layout layouts/intranet.html.erb
+  Rendering intranet/veiculos/new.html.erb within layouts/intranet
+  Rendered intranet/veiculos/_image_cropping.html.erb (Duration: 6.0ms | Allocations: 3422)
+  Rendered intranet/veiculos/_image_cropping.html.erb (Duration: 1.0ms | Allocations: 491)
+  Rendered intranet/veiculos/_docs_preview.html.erb (Duration: 0.6ms | Allocations: 90)
+  Rendered intranet/veiculos/_form.html.erb (Duration: 20.3ms | Allocations: 10935)
+  Rendered intranet/veiculos/new.html.erb within layouts/intranet (Duration: 136.0ms | Allocations: 11169)
+  [1m[36mKindOfPost Load (0.1ms)[0m  [1m[34mSELECT "kind_of_posts".* FROM "kind_of_posts"[0m
+  ↳ app/views/layouts/intranet.html.erb:85
+  Rendered layout layouts/intranet.html.erb (Duration: 234.9ms | Allocations: 42726)
+Completed 200 OK in 286ms (Views: 237.6ms | ActiveRecord: 3.0ms | Allocations: 60695)
+
+
+Started GET "/images/missing.png" for 127.0.0.1 at 2024-08-26 15:19:34 -0300
+Started GET "/green.png" for 127.0.0.1 at 2024-08-26 15:19:35 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/images/missing.png"):
+  
+Started GET "/images/missing.png" for 127.0.0.1 at 2024-08-26 15:19:35 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/green.png"):
+  
+  
+ActionController::RoutingError (No route matches [GET] "/images/missing.png"):
+  
+Started GET "/images/missing.png" for 127.0.0.1 at 2024-08-26 15:19:35 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/images/missing.png"):
+  
+Started POST "/intranet/veiculos" for 127.0.0.1 at 2024-08-26 15:19:47 -0300
+  
+ActionController::BadRequest (Invalid request parameters: expected Array (got Rack::QueryParser::Params) for param `fotos'):
+  
+Started GET "/intranet/veiculos/new" for 127.0.0.1 at 2024-08-26 15:20:19 -0300
+Processing by Intranet::VeiculosController#new as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/intranet/intranet_controller.rb:8:in `authorize'
+  Rendering layout layouts/intranet.html.erb
+  Rendering intranet/veiculos/new.html.erb within layouts/intranet
+  Rendered intranet/veiculos/_image_cropping.html.erb (Duration: 7.7ms | Allocations: 3422)
+  Rendered intranet/veiculos/_image_cropping.html.erb (Duration: 1.3ms | Allocations: 491)
+  Rendered intranet/veiculos/_docs_preview.html.erb (Duration: 0.6ms | Allocations: 90)
+  Rendered intranet/veiculos/_form.html.erb (Duration: 20.9ms | Allocations: 9378)
+  Rendered intranet/veiculos/new.html.erb within layouts/intranet (Duration: 128.0ms | Allocations: 9614)
+  [1m[36mKindOfPost Load (0.1ms)[0m  [1m[34mSELECT "kind_of_posts".* FROM "kind_of_posts"[0m
+  ↳ app/views/layouts/intranet.html.erb:85
+  Rendered layout layouts/intranet.html.erb (Duration: 233.6ms | Allocations: 41171)
+Completed 200 OK in 287ms (Views: 236.7ms | ActiveRecord: 3.2ms | Allocations: 59141)
+
+
+Started GET "/images/missing.png" for 127.0.0.1 at 2024-08-26 15:20:20 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/images/missing.png"):
+  
+Started POST "/intranet/veiculos" for 127.0.0.1 at 2024-08-26 15:20:27 -0300
+Processing by Intranet::VeiculosController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "intranet_veiculo"=>{"inativo"=>"0", "destaque"=>"0", "modelo"=>"teste", "versao"=>"teste", "codigo"=>"", "ano"=>"", "anofab"=>"", "quilometragem"=>"", "preco"=>"", "combustivel"=>"", "procedencia"=>"", "placa"=>"", "descricao"=>""}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/intranet/intranet_controller.rb:8:in `authorize'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/intranet/veiculos_controller.rb:27:in `block in create'
+  [1m[36mIntranet::Veiculo Create (1.2ms)[0m  [1m[32mINSERT INTO "intranet_veiculos" ("ano", "modelo", "preco", "observacao", "descricao", "quilometragem", "cor", "anofab", "combustivel", "procedencia", "inativo", "destaque", "codigo", "versao", "placa", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["ano", nil], ["modelo", "teste"], ["preco", nil], ["observacao", nil], ["descricao", ""], ["quilometragem", nil], ["cor", nil], ["anofab", ""], ["combustivel", ""], ["procedencia", ""], ["inativo", 0], ["destaque", 0], ["codigo", nil], ["versao", "teste"], ["placa", ""], ["created_at", "2024-08-26 18:20:27.896386"], ["updated_at", "2024-08-26 18:20:27.896386"]]
+  ↳ app/controllers/intranet/veiculos_controller.rb:27:in `block in create'
+  [1m[36mTRANSACTION (86.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/intranet/veiculos_controller.rb:27:in `block in create'
+Redirected to http://127.0.0.1:3000/intranet/veiculos/1
+Completed 302 Found in 106ms (ActiveRecord: 87.9ms | Allocations: 4711)
+
+
+Started GET "/intranet/veiculos/1" for 127.0.0.1 at 2024-08-26 15:20:28 -0300
+Processing by Intranet::VeiculosController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/intranet/intranet_controller.rb:8:in `authorize'
+  [1m[36mIntranet::Veiculo Load (0.2ms)[0m  [1m[34mSELECT "intranet_veiculos".* FROM "intranet_veiculos" WHERE "intranet_veiculos"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/intranet/veiculos_controller.rb:63:in `set_intranet_veiculo'
+  Rendering layout layouts/intranet.html.erb
+  Rendering intranet/veiculos/show.html.erb within layouts/intranet
+  Rendered intranet/veiculos/show.html.erb within layouts/intranet (Duration: 1.2ms | Allocations: 77)
+  [1m[36mKindOfPost Load (0.1ms)[0m  [1m[34mSELECT "kind_of_posts".* FROM "kind_of_posts"[0m
+  ↳ app/views/layouts/intranet.html.erb:85
+  Rendered layout layouts/intranet.html.erb (Duration: 104.7ms | Allocations: 30111)
+Completed 200 OK in 121ms (Views: 105.5ms | ActiveRecord: 0.3ms | Allocations: 32168)
+
+
+Started GET "/intranet/veiculos" for 127.0.0.1 at 2024-08-26 15:20:36 -0300
+Processing by Intranet::VeiculosController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/intranet/intranet_controller.rb:8:in `authorize'
+  Rendering layout layouts/intranet.html.erb
+  Rendering intranet/veiculos/index.html.erb within layouts/intranet
+  [1m[36mIntranet::Veiculo Load (0.2ms)[0m  [1m[34mSELECT "intranet_veiculos".* FROM "intranet_veiculos"[0m
+  ↳ app/views/intranet/veiculos/index.html.erb:67
+  Rendered intranet/veiculos/index.html.erb within layouts/intranet (Duration: 3.6ms | Allocations: 2172)
+  Rendered layout layouts/intranet.html.erb (Duration: 4.1ms | Allocations: 2257)
+Completed 500 Internal Server Error in 17ms (ActiveRecord: 0.2ms | Allocations: 3234)
+
+
+  
+ActionView::Template::Error (undefined method `kind_of_post' for an instance of Intranet::Veiculo):
+    67:               <% @intranet_veiculos.each do |post| %>
+    68:                 <tr>
+    69:                   <td><%= post.id %></td>
+    70:                   <td><%= post.kind_of_post.name %></td>
+    71:                   <td><%= post.titulo %></td>
+    72:                   <td><%= post.subtitulo %></td>
+    73:                   <td><%= post.data %></td>
+  
+app/views/intranet/veiculos/index.html.erb:70
+app/views/intranet/veiculos/index.html.erb:67
+Started GET "/intranet/veiculos" for 127.0.0.1 at 2024-08-26 15:22:22 -0300
+Processing by Intranet::VeiculosController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/intranet/intranet_controller.rb:8:in `authorize'
+  Rendering layout layouts/intranet.html.erb
+  Rendering intranet/veiculos/index.html.erb within layouts/intranet
+  [1m[36mIntranet::Veiculo Load (0.1ms)[0m  [1m[34mSELECT "intranet_veiculos".* FROM "intranet_veiculos"[0m
+  ↳ app/views/intranet/veiculos/index.html.erb:64
+  Rendered intranet/veiculos/index.html.erb within layouts/intranet (Duration: 7.2ms | Allocations: 7617)
+  [1m[36mKindOfPost Load (0.1ms)[0m  [1m[34mSELECT "kind_of_posts".* FROM "kind_of_posts"[0m
+  ↳ app/views/layouts/intranet.html.erb:85
+  Rendered layout layouts/intranet.html.erb (Duration: 107.0ms | Allocations: 39418)
+Completed 200 OK in 193ms (Views: 109.9ms | ActiveRecord: 3.8ms | Allocations: 51081)
+
+
+Started GET "/intranet/veiculos.xml" for 127.0.0.1 at 2024-08-26 15:24:46 -0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Intranet::VeiculosController#index as XML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/intranet/intranet_controller.rb:8:in `authorize'
+Completed 406 Not Acceptable in 169ms (ActiveRecord: 3.4ms | Allocations: 33671)
+
+
+  
+ActionController::UnknownFormat (Intranet::VeiculosController#index is missing a template for this request format and variant.
+
+request.formats: ["application/xml"]
+request.variant: []):
+  
+actionpack (7.1.3.4) lib/action_controller/metal/implicit_render.rb:44:in `default_render'
+actionpack (7.1.3.4) lib/action_controller/metal/basic_implicit_render.rb:7:in `send_action'
+actionpack (7.1.3.4) lib/abstract_controller/base.rb:224:in `process_action'
+actionpack (7.1.3.4) lib/action_controller/metal/rendering.rb:165:in `process_action'
+actionpack (7.1.3.4) lib/abstract_controller/callbacks.rb:259:in `block in process_action'
+activesupport (7.1.3.4) lib/active_support/callbacks.rb:121:in `block in run_callbacks'
+turbo-rails (2.0.6) lib/turbo-rails.rb:24:in `with_request_id'
+turbo-rails (2.0.6) app/controllers/concerns/turbo/request_id_tracking.rb:10:in `turbo_tracking_request_id'
+activesupport (7.1.3.4) lib/active_support/callbacks.rb:130:in `block in run_callbacks'
+actiontext (7.1.3.4) lib/action_text/rendering.rb:23:in `with_renderer'
+actiontext (7.1.3.4) lib/action_text/engine.rb:69:in `block (4 levels) in <class:Engine>'
+activesupport (7.1.3.4) lib/active_support/callbacks.rb:130:in `instance_exec'
+activesupport (7.1.3.4) lib/active_support/callbacks.rb:130:in `block in run_callbacks'
+activesupport (7.1.3.4) lib/active_support/callbacks.rb:141:in `run_callbacks'
+actionpack (7.1.3.4) lib/abstract_controller/callbacks.rb:258:in `process_action'
+actionpack (7.1.3.4) lib/action_controller/metal/rescue.rb:25:in `process_action'
+actionpack (7.1.3.4) lib/action_controller/metal/instrumentation.rb:74:in `block in process_action'
+activesupport (7.1.3.4) lib/active_support/notifications.rb:206:in `block in instrument'
+activesupport (7.1.3.4) lib/active_support/notifications/instrumenter.rb:58:in `instrument'
+activesupport (7.1.3.4) lib/active_support/notifications.rb:206:in `instrument'
+actionpack (7.1.3.4) lib/action_controller/metal/instrumentation.rb:73:in `process_action'
+actionpack (7.1.3.4) lib/action_controller/metal/params_wrapper.rb:261:in `process_action'
+activerecord (7.1.3.4) lib/active_record/railties/controller_runtime.rb:32:in `process_action'
+actionpack (7.1.3.4) lib/abstract_controller/base.rb:160:in `process'
+actionview (7.1.3.4) lib/action_view/rendering.rb:40:in `process'
+actionpack (7.1.3.4) lib/action_controller/metal.rb:227:in `dispatch'
+actionpack (7.1.3.4) lib/action_controller/metal.rb:309:in `dispatch'
+actionpack (7.1.3.4) lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+actionpack (7.1.3.4) lib/action_dispatch/routing/route_set.rb:32:in `serve'
+actionpack (7.1.3.4) lib/action_dispatch/journey/router.rb:51:in `block in serve'
+actionpack (7.1.3.4) lib/action_dispatch/journey/router.rb:131:in `block in find_routes'
+actionpack (7.1.3.4) lib/action_dispatch/journey/router.rb:124:in `each'
+actionpack (7.1.3.4) lib/action_dispatch/journey/router.rb:124:in `find_routes'
+actionpack (7.1.3.4) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (7.1.3.4) lib/action_dispatch/routing/route_set.rb:882:in `call'
+rack (3.1.7) lib/rack/tempfile_reaper.rb:20:in `call'
+rack (3.1.7) lib/rack/etag.rb:29:in `call'
+rack (3.1.7) lib/rack/conditional_get.rb:31:in `call'
+rack (3.1.7) lib/rack/head.rb:15:in `call'
+actionpack (7.1.3.4) lib/action_dispatch/http/permissions_policy.rb:36:in `call'
+actionpack (7.1.3.4) lib/action_dispatch/http/content_security_policy.rb:33:in `call'
+rack-session (2.0.0) lib/rack/session/abstract/id.rb:272:in `context'
+rack-session (2.0.0) lib/rack/session/abstract/id.rb:266:in `call'
+actionpack (7.1.3.4) lib/action_dispatch/middleware/cookies.rb:689:in `call'
+activerecord (7.1.3.4) lib/active_record/migration.rb:655:in `call'
+actionpack (7.1.3.4) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+activesupport (7.1.3.4) lib/active_support/callbacks.rb:101:in `run_callbacks'
+actionpack (7.1.3.4) lib/action_dispatch/middleware/callbacks.rb:28:in `call'
+actionpack (7.1.3.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.1.3.4) lib/action_dispatch/middleware/actionable_exceptions.rb:16:in `call'
+actionpack (7.1.3.4) lib/action_dispatch/middleware/debug_exceptions.rb:29:in `call'
+web-console (4.2.1) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.2.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in `call'
+actionpack (7.1.3.4) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (7.1.3.4) lib/rails/rack/logger.rb:37:in `call_app'
+railties (7.1.3.4) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (7.1.3.4) lib/active_support/tagged_logging.rb:135:in `block in tagged'
+activesupport (7.1.3.4) lib/active_support/tagged_logging.rb:39:in `tagged'
+activesupport (7.1.3.4) lib/active_support/tagged_logging.rb:135:in `tagged'
+activesupport (7.1.3.4) lib/active_support/broadcast_logger.rb:240:in `method_missing'
+railties (7.1.3.4) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.5.2) lib/sprockets/rails/quiet_assets.rb:17:in `call'
+actionpack (7.1.3.4) lib/action_dispatch/middleware/remote_ip.rb:92:in `call'
+actionpack (7.1.3.4) lib/action_dispatch/middleware/request_id.rb:28:in `call'
+rack (3.1.7) lib/rack/method_override.rb:28:in `call'
+rack (3.1.7) lib/rack/runtime.rb:24:in `call'
+activesupport (7.1.3.4) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (7.1.3.4) lib/action_dispatch/middleware/server_timing.rb:59:in `block in call'
+actionpack (7.1.3.4) lib/action_dispatch/middleware/server_timing.rb:24:in `collect_events'
+actionpack (7.1.3.4) lib/action_dispatch/middleware/server_timing.rb:58:in `call'
+actionpack (7.1.3.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.1.3.4) lib/action_dispatch/middleware/static.rb:25:in `call'
+rack (3.1.7) lib/rack/sendfile.rb:114:in `call'
+actionpack (7.1.3.4) lib/action_dispatch/middleware/host_authorization.rb:141:in `call'
+railties (7.1.3.4) lib/rails/engine.rb:536:in `call'
+puma (6.4.2) lib/puma/configuration.rb:272:in `call'
+puma (6.4.2) lib/puma/request.rb:100:in `block in handle_request'
+puma (6.4.2) lib/puma/thread_pool.rb:378:in `with_force_shutdown'
+puma (6.4.2) lib/puma/request.rb:99:in `handle_request'
+puma (6.4.2) lib/puma/server.rb:464:in `process_client'
+puma (6.4.2) lib/puma/server.rb:245:in `block in run'
+puma (6.4.2) lib/puma/thread_pool.rb:155:in `block in spawn_thread'
+Started GET "/intranet/veiculos.json" for 127.0.0.1 at 2024-08-26 15:26:08 -0300
+Processing by Intranet::VeiculosController#index as JSON
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/intranet/intranet_controller.rb:8:in `authorize'
+  [1m[36mIntranet::Veiculo Load (0.2ms)[0m  [1m[34mSELECT "intranet_veiculos".* FROM "intranet_veiculos" WHERE "intranet_veiculos"."inativo" != ?[0m  [["inativo", 1]]
+  ↳ app/controllers/intranet/veiculos_controller.rb:11:in `block (2 levels) in index'
+Completed 200 OK in 67ms (Views: 55.6ms | ActiveRecord: 0.4ms | Allocations: 20113)
+
+

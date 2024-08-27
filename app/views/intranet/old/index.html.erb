@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Veiculos</h1>
+
+<div id="intranet_veiculos">
+  <% @intranet_veiculos.each do |intranet_veiculo| %>
+    <%= render intranet_veiculo %>
+    <p>
+      <%= link_to "Show this veiculo", intranet_veiculo %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New veiculo", new_intranet_veiculo_path %>

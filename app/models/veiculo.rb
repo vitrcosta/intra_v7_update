@@ -1,6 +1,4 @@
 class Veiculo < ActiveRecord::Base
-  belongs_to :marca
-  belongs_to :tipo
 
   # has_many :opcionals, through: :veiculo_opcionals
   # has_many :veiculo_opcionals, dependent: :destroy
@@ -11,6 +9,10 @@ class Veiculo < ActiveRecord::Base
 
 
   has_one_attached :foto_principal
+
+  has_many_attached :fotos
+
+
 
 
   def set_codigo

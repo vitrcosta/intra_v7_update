@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @intranet_veiculo %>
+
+<div>
+  <%= link_to "Edit this veiculo", edit_intranet_veiculo_path(@intranet_veiculo) %> |
+  <%= link_to "Back to veiculos", intranet_veiculos_path %>
+
+  <%= button_to "Destroy this veiculo", @intranet_veiculo, method: :delete %>
+</div>

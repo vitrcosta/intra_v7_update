@@ -1,0 +1,217 @@
+<%= fields_for @intranet_veiculo do |f| %>
+
+<!-- image cropping -->
+<div class="container cropper">
+  <div class="row">
+    <div class="col-md-9">
+      <div class="img-container">
+        <%= image_tag "/images/missing.png", :id=>"image", :alt=>"Picture" %>
+      </div>
+    </div>
+
+
+    <label class="col-md-3 col-sm-12 col-xs-12">
+      Foto principal:
+    </label>
+
+    <div class="col-md-3 object_image_preview image_current">
+      <% if f.object.foto_principal.attached? %>
+      <%= image_tag f.object.foto_principal.url(:medium) %>
+      <% else %>
+        <label class="">
+          (Nenhuma imagem cadastrada)
+        </label>
+      <% end %>
+      <% unless f.object.foto_principal.blank? %>
+      <div class="form-group">
+        <label class="col-md-12 col-sm-12 col-xs-12">
+          <div class="checkbox">
+            <label class="checkbox-remove-image">
+              <%= check_box_tag :remover_foto_principal,'yes', false ,:class=>"flat" %> Remover imagem
+            </label>
+          </div>
+        </label>
+      </div>
+      <% end %>
+    </div>
+
+    <label class="col-md-3 col-sm-12 col-xs-12">
+      Tamanho máximo <br>recomendado: 300kb
+    </label>
+
+    <div class="col-md-3 object_image_preview">
+      <div class="box-image-cropped width-canvas"></div>
+    </div>
+  </div>
+
+
+  <div class="row">
+    <div class="col-md-9 docs-buttons">
+      <div class="btn-group">
+        <label class="btn btn-primary btn-upload" for="inputImage" title="Upload image file">
+          <input type="file" class="sr-only" id="inputImage" name="file" accept="image/*" >
+          <span class="docs-tooltip" data-toggle="tooltip" title="Importar imagem" >
+            <span class="fa fa-upload"></span> Buscar imagem
+          </span>
+        </label>
+
+      </div>
+
+      <div class="btn-group">
+        <button type="button" class="btn btn-primary" data-method="zoom" data-option="0.1" title="Zoom In">
+          <span class="docs-tooltip" data-toggle="tooltip" title="$().cropper(&quot;zoom&quot;, 0.1)">
+            <span class="fa fa-search-plus"></span>
+          </span>
+        </button>
+        <button type="button" class="btn btn-primary" data-method="zoom" data-option="-0.1" title="Zoom Out">
+          <span class="docs-tooltip" data-toggle="tooltip" title="$().cropper(&quot;zoom&quot;, -0.1)">
+            <span class="fa fa-search-minus"></span>
+          </span>
+        </button>
+      </div>
+
+      <div class="btn-group">
+        <button type="button" class="btn btn-primary" data-method="move" data-option="-10" data-second-option="0" title="Move Left">
+          <span class="docs-tooltip" data-toggle="tooltip" title="$().cropper(&quot;move&quot;, -10, 0)">
+            <span class="fa fa-arrow-left"></span>
+          </span>
+        </button>
+        <button type="button" class="btn btn-primary" data-method="move" data-option="10" data-second-option="0" title="Move Right">
+          <span class="docs-tooltip" data-toggle="tooltip" title="$().cropper(&quot;move&quot;, 10, 0)">
+            <span class="fa fa-arrow-right"></span>
+          </span>
+        </button>
+        <button type="button" class="btn btn-primary" data-method="move" data-option="0" data-second-option="-10" title="Move Up">
+          <span class="docs-tooltip" data-toggle="tooltip" title="$().cropper(&quot;move&quot;, 0, -10)">
+            <span class="fa fa-arrow-up"></span>
+          </span>
+        </button>
+        <button type="button" class="btn btn-primary" data-method="move" data-option="0" data-second-option="10" title="Move Down">
+          <span class="docs-tooltip" data-toggle="tooltip" title="$().cropper(&quot;move&quot;, 0, 10)">
+            <span class="fa fa-arrow-down"></span>
+          </span>
+        </button>
+      </div>
+
+      <div class="btn-group">
+        <button type="button" class="btn btn-primary" data-method="rotate" data-option="-45" title="Rotate Left">
+          <span class="docs-tooltip" data-toggle="tooltip" title="$().cropper(&quot;rotate&quot;, -45)">
+            <span class="fa fa-rotate-left"></span>
+          </span>
+        </button>
+        <button type="button" class="btn btn-primary" data-method="rotate" data-option="45" title="Rotate Right">
+          <span class="docs-tooltip" data-toggle="tooltip" title="$().cropper(&quot;rotate&quot;, 45)">
+            <span class="fa fa-rotate-right"></span>
+          </span>
+        </button>
+      </div>
+
+
+      <div class="btn-group">
+        <button type="button" class="btn btn-primary" >
+          <span class="docs-tooltip" title="Apagar imagem" onclick="limpar_imagem()">
+            <span class="fa fa-power-off"></span> Limpar/Voltar
+          </span>
+        </button>
+      </div>
+
+
+      <div class="btn-group btn-group-crop">
+        <button type="button" class="btn btn-primary" data-method="getCroppedCanvas">
+          <span class="docs-tooltip" data-toggle="tooltip" title="$().cropper(&quot;getCroppedCanvas&quot;)">
+            <span class="fa fa-crop"></span> Cortar
+          </span>
+        </button>
+
+      </div>
+      <div class="btn-group docs-toggles">
+        <div class="btn-group btn-group-justified" data-toggle="buttons">
+          <label class="btn btn-primary">
+            <input type="radio" class="sr-only" id="aspectRatio1" name="aspectRatio" value="1.3333333333333333">
+            <span class="docs-tooltip" data-toggle="tooltip" title="aspectRatio: 4 / 3" >
+              Notícia
+            </span>
+          </label>
+          <label class="btn btn-primary active">
+            <input type="radio" class="sr-only" id="aspectRatio0" name="aspectRatio" value="1.7777777777777777">
+            <span class="docs-tooltip" data-toggle="tooltip" title="aspectRatio: 16 / 9" >
+              Banner
+            </span>
+          </label>
+
+          <label class="btn btn-primary">
+            <input type="radio" class="sr-only" id="aspectRatio2" name="aspectRatio" value="1">
+            <span class="docs-tooltip" data-toggle="tooltip" title="aspectRatio: 1 / 1" >
+              Galeria
+            </span>
+          </label>
+          <label class="btn btn-primary">
+            <input type="radio" class="sr-only" id="aspectRatio3" name="aspectRatio" value="0.6666666666666666">
+            <span class="docs-tooltip" data-toggle="tooltip" title="aspectRatio: 2 / 3" >
+              Folheto
+            </span>
+          </label>
+          <label class="btn btn-primary">
+            <input type="radio" class="sr-only" id="aspectRatio4" name="aspectRatio" value="NaN">
+            <span class="docs-tooltip" data-toggle="tooltip" title="aspectRatio: NaN" >
+              Capa
+            </span>
+          </label>
+          <label class="btn btn-primary">
+            <input type="radio" class="sr-only" id="aspectRatio3" name="aspectRatio" value="0.6666666666666666">
+            <span class="docs-tooltip" data-toggle="tooltip" title="aspectRatio: 2 / 3" >
+              Institucional
+            </span>
+          </label>
+        </div>
+      </div><!-- /.docs-toggles -->
+
+      <!-- Show the cropped image in modal -->
+      <div class="modal fade docs-cropped" id="getCroppedCanvasModal" aria-hidden="true" aria-labelledby="getCroppedCanvasTitle" role="dialog" tabindex="-1">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+              <h4 class="modal-title" id="getCroppedCanvasTitle">Corte</h4>
+            </div>
+            <div class="modal-body"></div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+              <button  type="button" class="btn btn-success" data-dismiss="modal" id="salvar_cropped" title="Crop">
+                <span class="docs-tooltip" data-toggle="tooltip" title="Cortar">
+                  <span class="fa fa-crop"></span> Cortar
+                </span>
+              </button>
+              <a class="btn btn-primary" id="download" href="javascript:void(0);" download="cropped.png">Download</a>
+            </div>
+          </div>
+        </div>
+      </div><!-- /.modal -->
+
+
+
+    </div><!-- /.docs-buttons -->
+
+    <div class="col-md-3 docs-toggles" style="margin-top: -15px;display:none;">
+      <label class="">
+        Medidas obrigatórias da imagem:
+      </label>
+      <div class="docs-data">
+        <div class="input-group input-group-sm">
+          <label class="input-group-addon" for="dataWidth">Largura</label>
+          <input type="text" class="form-control" id="dataWidth" placeholder="width">
+          <span class="input-group-addon">px</span>
+        </div>
+        <div class="input-group input-group-sm">
+          <label class="input-group-addon" for="dataHeight">Altura</label>
+          <input type="text" class="form-control" id="dataHeight" placeholder="height">
+          <span class="input-group-addon">px</span>
+        </div>
+      </div>
+    </div><!-- /.docs-toggles -->
+
+  </div>
+</div>
+<!-- /image cropping -->
+
+<% end %>
