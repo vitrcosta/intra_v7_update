@@ -14,6 +14,13 @@ class Intranet::VeiculosController < Intranet::IntranetController
 
   # GET /intranet/veiculos/1 or /intranet/veiculos/1.json
   def show
+    set_intranet_veiculo()
+    respond_to do |format|
+      format.html
+      format.js
+      format.xml { @intranet_veiculo }
+      format.json { render json: @intranet_veiculo}
+    end
   end
 
   # GET /intranet/veiculos/new
