@@ -3,12 +3,12 @@ class Intranet::VeiculosController < Intranet::IntranetController
 
   # GET /intranet/veiculos or /intranet/veiculos.json
   def index
-    @intranet_veiculos = Intranet::Veiculo.all
+    @intranet_veiculos = Veiculo.all
     respond_to do |format|
       format.html
       format.js
-      format.xml { @intranet_veiculos = Intranet::Veiculo.where.not(inativo: true) }
-      format.json { render json: @intranet_veiculos = Intranet::Veiculo.where.not(inativo: true)}
+      format.xml { @intranet_veiculos = Veiculo.where.not(inativo: true) }
+      format.json { render json: @intranet_veiculos = Veiculo.where.not(inativo: true)}
     end
   end
 
@@ -25,16 +25,19 @@ class Intranet::VeiculosController < Intranet::IntranetController
 
   # GET /intranet/veiculos/new
   def new
-    @intranet_veiculo = Intranet::Veiculo.new
+    @intranet_veiculo = Veiculo.new
+    @intranet_veiculo.galleries.build
   end
 
   # GET /intranet/veiculos/1/edit
   def edit
+    @intranet_veiculo = Veiculo.find(params[:id])
+    @intranet_veiculo.galleries.build
   end
 
   # POST /intranet/veiculos or /intranet/veiculos.json
   def create
-    @intranet_veiculo = Intranet::Veiculo.new(intranet_veiculo_params)
+    @intranet_veiculo = Veiculo.new(intranet_veiculo_params)
 
     respond_to do |format|
       if @intranet_veiculo.save
@@ -51,7 +54,7 @@ class Intranet::VeiculosController < Intranet::IntranetController
   def update
     respond_to do |format|
       if @intranet_veiculo.update(intranet_veiculo_params)
-        format.html { redirect_to intranet_veiculo_url(@intranet_veiculo), notice: "Veiculo was successfully updated." }
+        format.html { redirect_to intranet_veiculos_url(), notice: "Veiculo was successfully updated." }
         format.json { render :show, status: :ok, location: @intranet_veiculo }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -73,11 +76,11 @@ class Intranet::VeiculosController < Intranet::IntranetController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_intranet_veiculo
-      @intranet_veiculo = Intranet::Veiculo.find(params[:id])
+      @intranet_veiculo = Veiculo.find(params[:id])
     end
 
     # Only allow a list of trusted parameters through.
     def intranet_veiculo_params
-      params.require(:intranet_veiculo).permit(:ano, :foto_principal, :modelo, :preco, :observacao, :descricao, :quilometragem, :cor, :anofab, :combustivel, :procedencia, :inativo, :destaque, :codigo, :versao, :placa, fotos: [])
+      params.require(:intranet_veiculo).permit(:ano, :foto_principal, :modelo, :preco, :observacao, :descricao, :quilometragem, :cor, :anofab, :combustivel, :procedencia, :inativo, :destaque, :codigo, :versao, :placa, :galleries_attributes => [:image, :id, :_destroy, :position ])
     end
 end

@@ -1,6 +1,6 @@
-class CreateIntranetVeiculos < ActiveRecord::Migration[7.1]
+class CreateVeiculos < ActiveRecord::Migration[7.1]
   def change
-    create_table :intranet_veiculos do |t|
+    create_table :veiculos do |t|
       t.integer :ano
       t.string :modelo
       t.decimal :preco, precision: 12, scale: 2

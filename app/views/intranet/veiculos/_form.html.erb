@@ -29,7 +29,7 @@ $(document).ready(function() {
 <div class="col-md-12 col-xs-12">
   <div class="x_panel">
 
-    <%= form_for @intranet_veiculo, html: { :multipart=> true , :novalidate=>"novalidate", :data=>{"parsley-validate"=>"true"},:class=>"form-horizontal form-label-left", :id=>"form_post" } do |f| %>
+    <%= form_for [:intranet, @intranet_veiculo], html: { :multipart=> true , :novalidate=>"novalidate", :data=>{"parsley-validate"=>"true"},:class=>"form-horizontal form-label-left", :id=>"form_post" } do |f| %>
     <div class="x_title">
       <h2>Veículo</h2>
       <ul class="nav navbar-right panel_toolbox">
@@ -209,17 +209,78 @@ $(document).ready(function() {
 </div>
 <!-- /image cropping -->
 
+<!-- GALLERY -->
+<div class="row">
+  <div class="col-md-12">
+    <div class="x_panel">
+      <div class="x_title">
+        <h2>Galeria de Fotos</h2>
+        <div class="clearfix"></div>
+      </div>
+      <div class="x_content">
 
+        <div class="row">
 
-
-<div class="form-group">
-          <label class="control-label col-md-3 col-sm-3 col-xs-12">
-            Galeria <span class="required">*</span>
-          </label>
-          <div class="col-md-9 col-sm-9 col-xs-12">
-            <%= f.file_field :fotos, multiple: true , :class=>"form-control col-md-7 col-xs-12", :data=> {"validate-length-range"=>"3", "validate-words"=>"1"}, :placeholder=>"Digite o título (obrigatório)", :required=> true %>
+          <div id="sortable-gallery" class="row">
+  <%= f.fields_for :galleries, @galleries do |galleries| %>
+    <% unless galleries.object.new_record? %>
+      <div class="col-md-55 sortable-item" data-id="<%= galleries.object.id %>">
+        <div class="thumbnail">
+          <div class="image view">
+            <% unless galleries.object.nil? %>
+              <%= image_tag galleries.object.image, style: "width: 100%; display: block;" %>
+            <% end %>
+          </div>
+          <div class="caption">
+            <div class="checkbox">
+              <label class="checkbox-remove-image">
+                <%= galleries.check_box :_destroy, class: "flat" %> Remover imagem
+              </label>
+            </div>
+            <%= galleries.hidden_field :position %>
           </div>
         </div>
+      </div>
+    <% end %>
+  <% end %>
+</div>
+
+
+          <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="col-md-3 col-sm-3 col-xs-12" style="padding-left: 0px !important;">
+              <div class="input-group">
+                <label class="input-group-btn" title="Importar imagem">
+                  <span class="btn btn-primary">
+                    <%= f.fields_for :galleries do |ff| %>
+                    <% if ff.object.new_record? %>
+
+                    Arquivo&hellip; <%= ff.file_field :image,
+                    :class => 'fileupload campos_intranet field_galeria',
+                    :style=>"display: none;",
+                    :onchange=>"galeria_change_file(this)" %>
+
+                    <div class="conta_quantos_botao_file"></div>
+
+                    <% end %>
+                    <% end %>
+                  </span>
+                </label>
+                <input type="text" name="galeria_text-file" class="form-control text_file_galeria" value="Nenhum arquivo selecionado" readonly>
+              </div>
+
+              <div class="append_imagens2"></div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- END GALLERY -->
+
+
+
 <div class="col-md-12 col-sm-12 col-xs-12">
 
 
