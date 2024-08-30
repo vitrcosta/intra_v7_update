@@ -11102,3 +11102,738 @@ Started GET "/images/missing.png" for 127.0.0.1 at 2024-08-28 17:18:09 -0300
   
 ActionController::RoutingError (No route matches [GET] "/images/missing.png"):
   
+Started GET "/intranet" for 127.0.0.1 at 2024-08-29 15:06:54 -0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Intranet::SessionsController#new as HTML
+  Rendering layout layouts/intranet_login.html.erb
+  Rendering intranet/sessions/new.html.erb within layouts/intranet_login
+  Rendered intranet/sessions/new.html.erb within layouts/intranet_login (Duration: 14452.2ms | Allocations: 81048)
+  Rendered layout layouts/intranet_login.html.erb (Duration: 15309.2ms | Allocations: 106130)
+Completed 200 OK in 17682ms (Views: 15891.4ms | ActiveRecord: 0.0ms | Allocations: 116278)
+
+
+Started GET "/criativitta-rodape.svg" for 127.0.0.1 at 2024-08-29 15:07:14 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/criativitta-rodape.svg"):
+  
+Started POST "/intranet/login" for 127.0.0.1 at 2024-08-29 16:16:21 -0300
+Processing by Intranet::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "name"=>"criativitta", "password"=>"[FILTERED]", "commit"=>"Entrar"}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."name" = ? LIMIT ?[0m  [["name", "criativitta"], ["LIMIT", 1]]
+  ↳ app/controllers/intranet/sessions_controller.rb:14:in `create'
+Redirected to http://127.0.0.1:3000/intranet/dashboard
+Completed 302 Found in 1215ms (ActiveRecord: 24.5ms | Allocations: 21325)
+
+
+Started GET "/intranet/dashboard" for 127.0.0.1 at 2024-08-29 16:16:23 -0300
+Processing by Intranet::DashboardController#index as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/intranet/intranet_controller.rb:8:in `authorize'
+{"07"=>[["2024", "07", "29", "18"], ["2024", "07", "30", "26"], ["2024", "07", "31", "19"]], "08"=>[["2024", "08", "01", "13"], ["2024", "08", "02", "16"], ["2024", "08", "03", "2"], ["2024", "08", "04", "3"], ["2024", "08", "05", "18"], ["2024", "08", "06", "11"], ["2024", "08", "07", "16"], ["2024", "08", "08", "14"], ["2024", "08", "09", "8"], ["2024", "08", "10", "9"], ["2024", "08", "11", "3"], ["2024", "08", "12", "18"], ["2024", "08", "13", "41"], ["2024", "08", "14", "35"], ["2024", "08", "15", "28"], ["2024", "08", "16", "33"], ["2024", "08", "17", "8"], ["2024", "08", "18", "16"], ["2024", "08", "19", "33"], ["2024", "08", "20", "22"], ["2024", "08", "21", "25"], ["2024", "08", "22", "20"], ["2024", "08", "23", "24"], ["2024", "08", "24", "8"], ["2024", "08", "25", "14"], ["2024", "08", "26", "17"], ["2024", "08", "27", "12"], ["2024", "08", "28", "20"], ["2024", "08", "29", "0"]]}
+  Rendering layout layouts/intranet.html.erb
+  Rendering intranet/dashboard/index.html.erb within layouts/intranet
+  Rendered intranet/dashboard/_dashboard_data.html.erb (Duration: 8.2ms | Allocations: 4616)
+  Rendered intranet/dashboard/index.html.erb within layouts/intranet (Duration: 353.4ms | Allocations: 4987)
+  [1m[36mKindOfPost Load (0.2ms)[0m  [1m[34mSELECT "kind_of_posts".* FROM "kind_of_posts"[0m
+  ↳ app/views/layouts/intranet.html.erb:85
+  Rendered layout layouts/intranet.html.erb (Duration: 816.2ms | Allocations: 36835)
+Completed 200 OK in 7980ms (Views: 821.7ms | ActiveRecord: 0.9ms | Allocations: 47490)
+
+
+Started GET "/fav_icon_intra.ico" for 127.0.0.1 at 2024-08-29 16:16:38 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/fav_icon_intra.ico"):
+  
+Started GET "/fav_icon_intra.ico" for 127.0.0.1 at 2024-08-29 16:16:45 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/fav_icon_intra.ico"):
+  
+Started GET "/intranet/veiculos" for 127.0.0.1 at 2024-08-29 16:24:05 -0300
+Processing by Intranet::VeiculosController#index as HTML
+  [1m[36mUser Load (12.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/intranet/intranet_controller.rb:8:in `authorize'
+  Rendering layout layouts/intranet.html.erb
+  Rendering intranet/veiculos/index.html.erb within layouts/intranet
+  [1m[36mVeiculo Load (0.3ms)[0m  [1m[34mSELECT "veiculos".* FROM "veiculos"[0m
+  ↳ app/views/intranet/veiculos/index.html.erb:64
+  Rendered intranet/veiculos/index.html.erb within layouts/intranet (Duration: 7.2ms | Allocations: 1051)
+  [1m[36mKindOfPost Load (0.2ms)[0m  [1m[34mSELECT "kind_of_posts".* FROM "kind_of_posts"[0m
+  ↳ app/views/layouts/intranet.html.erb:85
+  Rendered layout layouts/intranet.html.erb (Duration: 285.8ms | Allocations: 31171)
+Completed 200 OK in 939ms (Views: 287.1ms | ActiveRecord: 22.7ms | Allocations: 43338)
+
+
+Started GET "/fav_icon_intra.ico" for 127.0.0.1 at 2024-08-29 16:24:07 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/fav_icon_intra.ico"):
+  
+Started GET "/intranet/veiculos/new" for 127.0.0.1 at 2024-08-29 16:24:10 -0300
+Processing by Intranet::VeiculosController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/intranet/intranet_controller.rb:8:in `authorize'
+  Rendering layout layouts/intranet.html.erb
+  Rendering intranet/veiculos/new.html.erb within layouts/intranet
+  Rendered intranet/veiculos/_image_cropping.html.erb (Duration: 113.0ms | Allocations: 4112)
+  Rendered intranet/veiculos/_image_cropping.html.erb (Duration: 2.0ms | Allocations: 494)
+  Rendered intranet/veiculos/_docs_preview.html.erb (Duration: 1.1ms | Allocations: 92)
+  Rendered intranet/veiculos/_form.html.erb (Duration: 503.0ms | Allocations: 13195)
+  Rendered intranet/veiculos/new.html.erb within layouts/intranet (Duration: 780.7ms | Allocations: 13428)
+  [1m[36mKindOfPost Load (0.1ms)[0m  [1m[34mSELECT "kind_of_posts".* FROM "kind_of_posts"[0m
+  ↳ app/views/layouts/intranet.html.erb:85
+  Rendered layout layouts/intranet.html.erb (Duration: 1070.9ms | Allocations: 43334)
+Completed 200 OK in 1568ms (Views: 1072.1ms | ActiveRecord: 2.0ms | Allocations: 76781)
+
+
+Started GET "/images/missing.png" for 127.0.0.1 at 2024-08-29 16:24:12 -0300
+Started GET "/fav_icon_intra.ico" for 127.0.0.1 at 2024-08-29 16:24:12 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/images/missing.png"):
+  
+Started GET "/images/missing.png" for 127.0.0.1 at 2024-08-29 16:24:13 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/fav_icon_intra.ico"):
+  
+  
+ActionController::RoutingError (No route matches [GET] "/images/missing.png"):
+  
+Started GET "/images/missing.png" for 127.0.0.1 at 2024-08-29 16:24:14 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/images/missing.png"):
+  
+Started GET "/images/missing.png" for 127.0.0.1 at 2024-08-29 16:24:15 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/images/missing.png"):
+  
+Started POST "/intranet/veiculos" for 127.0.0.1 at 2024-08-29 16:24:34 -0300
+Processing by Intranet::VeiculosController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "veiculo"=>{"inativo"=>"0", "destaque"=>"0", "modelo"=>"teste", "versao"=>"teste", "codigo"=>"", "ano"=>"", "anofab"=>"", "quilometragem"=>"", "preco"=>"", "combustivel"=>"", "procedencia"=>"", "placa"=>"", "galleries_attributes"=>{"1"=>{"image"=>#<ActionDispatch::Http::UploadedFile:0x000001c697818f80 @tempfile=#<Tempfile:C:/Users/vitor/AppData/Local/Temp/RackMultipart20240829-20240-i3b2oj.jpeg>, @content_type="image/jpeg", @original_filename="WhatsApp Image 2024-07-05 at 15.29.14.jpeg", @headers="Content-Disposition: form-data; name=\"veiculo[galleries_attributes][1][image]\"; filename=\"WhatsApp Image 2024-07-05 at 15.29.14.jpeg\"\r\nContent-Type: image/jpeg\r\n">}}, "descricao"=>""}, "galeria_text-file"=>"WhatsApp Image 2024-07-05 at 15.29.14.jpeg", "post"=>{"galleries_attributes"=>{"1001"=>{"image"=>#<ActionDispatch::Http::UploadedFile:0x000001c697818cb0 @tempfile=#<Tempfile:C:/Users/vitor/AppData/Local/Temp/RackMultipart20240829-20240-z745ac.jpg>, @content_type="image/jpeg", @original_filename="KG LOGO.jpg", @headers="Content-Disposition: form-data; name=\"post[galleries_attributes][1001][image]\"; filename=\"KG LOGO.jpg\"\r\nContent-Type: image/jpeg\r\n">}}}, "galeria_text-file-1001"=>"KG LOGO.jpg", "galeria_text-file-1002"=>"Nenhum arquivo selecionado"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/intranet/intranet_controller.rb:8:in `authorize'
+Completed 400 Bad Request in 20ms (ActiveRecord: 0.2ms | Allocations: 1200)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: intranet_veiculo):
+  
+app/controllers/intranet/veiculos_controller.rb:84:in `intranet_veiculo_params'
+app/controllers/intranet/veiculos_controller.rb:40:in `create'
+Started GET "/" for 127.0.0.1 at 2024-08-29 16:26:05 -0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started POST "/intranet/veiculos" for 127.0.0.1 at 2024-08-29 16:26:05 -0300
+Processing by Intranet::SessionsController#new as HTML
+Processing by Intranet::VeiculosController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "veiculo"=>{"inativo"=>"0", "destaque"=>"0", "modelo"=>"teste", "versao"=>"teste", "codigo"=>"", "ano"=>"", "anofab"=>"", "quilometragem"=>"", "preco"=>"", "combustivel"=>"", "procedencia"=>"", "placa"=>"", "galleries_attributes"=>{"1"=>{"image"=>#<ActionDispatch::Http::UploadedFile:0x000001ed61a822d0 @tempfile=#<Tempfile:C:/Users/vitor/AppData/Local/Temp/RackMultipart20240829-13428-8yl0cv.jpeg>, @content_type="image/jpeg", @original_filename="WhatsApp Image 2024-07-05 at 15.29.14.jpeg", @headers="Content-Disposition: form-data; name=\"veiculo[galleries_attributes][1][image]\"; filename=\"WhatsApp Image 2024-07-05 at 15.29.14.jpeg\"\r\nContent-Type: image/jpeg\r\n">}}, "descricao"=>""}, "galeria_text-file"=>"WhatsApp Image 2024-07-05 at 15.29.14.jpeg", "post"=>{"galleries_attributes"=>{"1001"=>{"image"=>#<ActionDispatch::Http::UploadedFile:0x000001ed61a81e20 @tempfile=#<Tempfile:C:/Users/vitor/AppData/Local/Temp/RackMultipart20240829-13428-xi1t51.jpg>, @content_type="image/jpeg", @original_filename="KG LOGO.jpg", @headers="Content-Disposition: form-data; name=\"post[galleries_attributes][1001][image]\"; filename=\"KG LOGO.jpg\"\r\nContent-Type: image/jpeg\r\n">}}}, "galeria_text-file-1001"=>"KG LOGO.jpg", "galeria_text-file-1002"=>"Nenhum arquivo selecionado"}
+  Rendering layout layouts/intranet_login.html.erb
+  Rendering intranet/sessions/new.html.erb within layouts/intranet_login
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/intranet/intranet_controller.rb:8:in `authorize'
+Completed 400 Bad Request in 561ms (ActiveRecord: 9.9ms | Allocations: 66877)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: intranet_veiculo):
+  
+app/controllers/intranet/veiculos_controller.rb:84:in `intranet_veiculo_params'
+app/controllers/intranet/veiculos_controller.rb:40:in `create'
+  Rendered intranet/sessions/new.html.erb within layouts/intranet_login (Duration: 2517.7ms | Allocations: 373295)
+  Rendered layout layouts/intranet_login.html.erb (Duration: 2791.7ms | Allocations: 398109)
+Completed 200 OK in 3144ms (Views: 2861.0ms | ActiveRecord: 0.0ms | Allocations: 406836)
+
+
+Started GET "/criativitta-rodape.svg" for 127.0.0.1 at 2024-08-29 16:26:09 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/criativitta-rodape.svg"):
+  
+Started POST "/intranet/veiculos" for 127.0.0.1 at 2024-08-29 16:26:30 -0300
+Processing by Intranet::VeiculosController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "veiculo"=>{"inativo"=>"0", "destaque"=>"0", "modelo"=>"teste", "versao"=>"teste", "codigo"=>"", "ano"=>"", "anofab"=>"", "quilometragem"=>"", "preco"=>"", "combustivel"=>"", "procedencia"=>"", "placa"=>"", "galleries_attributes"=>{"1"=>{"image"=>#<ActionDispatch::Http::UploadedFile:0x000001ed677e2a88 @tempfile=#<Tempfile:C:/Users/vitor/AppData/Local/Temp/RackMultipart20240829-13428-w5fgkr.jpeg>, @content_type="image/jpeg", @original_filename="WhatsApp Image 2024-07-05 at 15.29.14.jpeg", @headers="Content-Disposition: form-data; name=\"veiculo[galleries_attributes][1][image]\"; filename=\"WhatsApp Image 2024-07-05 at 15.29.14.jpeg\"\r\nContent-Type: image/jpeg\r\n">}}, "descricao"=>""}, "galeria_text-file"=>"WhatsApp Image 2024-07-05 at 15.29.14.jpeg", "post"=>{"galleries_attributes"=>{"1001"=>{"image"=>#<ActionDispatch::Http::UploadedFile:0x000001ed677e2a38 @tempfile=#<Tempfile:C:/Users/vitor/AppData/Local/Temp/RackMultipart20240829-13428-72pvmz.jpg>, @content_type="image/jpeg", @original_filename="KG LOGO.jpg", @headers="Content-Disposition: form-data; name=\"post[galleries_attributes][1001][image]\"; filename=\"KG LOGO.jpg\"\r\nContent-Type: image/jpeg\r\n">}}}, "galeria_text-file-1001"=>"KG LOGO.jpg", "galeria_text-file-1002"=>"Nenhum arquivo selecionado"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/intranet/intranet_controller.rb:8:in `authorize'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/intranet/veiculos_controller.rb:43:in `block in create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/intranet/veiculos_controller.rb:43:in `block in create'
+Completed 500 Internal Server Error in 648ms (ActiveRecord: 14.3ms | Allocations: 58552)
+
+
+  
+NameError (Missing model class Intranet::Veiculo for the Gallery#intranet_veiculo association.):
+  
+app/controllers/intranet/veiculos_controller.rb:43:in `block in create'
+app/controllers/intranet/veiculos_controller.rb:42:in `create'
+Started POST "/intranet/veiculos" for 127.0.0.1 at 2024-08-29 16:27:25 -0300
+Processing by Intranet::VeiculosController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "veiculo"=>{"inativo"=>"0", "destaque"=>"0", "modelo"=>"teste", "versao"=>"teste", "codigo"=>"", "ano"=>"", "anofab"=>"", "quilometragem"=>"", "preco"=>"", "combustivel"=>"", "procedencia"=>"", "placa"=>"", "galleries_attributes"=>{"1"=>{"image"=>#<ActionDispatch::Http::UploadedFile:0x000001ed67b56548 @tempfile=#<Tempfile:C:/Users/vitor/AppData/Local/Temp/RackMultipart20240829-13428-o840rg.jpeg>, @content_type="image/jpeg", @original_filename="WhatsApp Image 2024-07-05 at 15.29.14.jpeg", @headers="Content-Disposition: form-data; name=\"veiculo[galleries_attributes][1][image]\"; filename=\"WhatsApp Image 2024-07-05 at 15.29.14.jpeg\"\r\nContent-Type: image/jpeg\r\n">}}, "descricao"=>""}, "galeria_text-file"=>"WhatsApp Image 2024-07-05 at 15.29.14.jpeg", "post"=>{"galleries_attributes"=>{"1001"=>{"image"=>#<ActionDispatch::Http::UploadedFile:0x000001ed67b564a8 @tempfile=#<Tempfile:C:/Users/vitor/AppData/Local/Temp/RackMultipart20240829-13428-g1e5sd.jpg>, @content_type="image/jpeg", @original_filename="KG LOGO.jpg", @headers="Content-Disposition: form-data; name=\"post[galleries_attributes][1001][image]\"; filename=\"KG LOGO.jpg\"\r\nContent-Type: image/jpeg\r\n">}}}, "galeria_text-file-1001"=>"KG LOGO.jpg", "galeria_text-file-1002"=>"Nenhum arquivo selecionado"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/intranet/intranet_controller.rb:8:in `authorize'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/intranet/veiculos_controller.rb:43:in `block in create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/intranet/veiculos_controller.rb:43:in `block in create'
+  Rendering layout layouts/intranet.html.erb
+  Rendering intranet/veiculos/new.html.erb within layouts/intranet
+  Rendered intranet/veiculos/_form.html.erb (Duration: 4.5ms | Allocations: 2547)
+  Rendered intranet/veiculos/new.html.erb within layouts/intranet (Duration: 273.8ms | Allocations: 2797)
+  Rendered layout layouts/intranet.html.erb (Duration: 274.8ms | Allocations: 2883)
+Completed 500 Internal Server Error in 1112ms (ActiveRecord: 23.7ms | Allocations: 35673)
+
+
+  
+ActionView::Template::Error (First argument in form cannot contain nil or be empty):
+    29: <div class="col-md-12 col-xs-12">
+    30:   <div class="x_panel">
+    31: 
+    32:     <%= form_for [:intranet, @intranet_veiculo], html: { :multipart=> true , :novalidate=>"novalidate", :data=>{"parsley-validate"=>"true"},:class=>"form-horizontal form-label-left", :id=>"form_post" } do |f| %>
+    33:     <div class="x_title">
+    34:       <h2>Veículo</h2>
+    35:       <ul class="nav navbar-right panel_toolbox">
+  
+app/views/intranet/veiculos/_form.html.erb:32
+app/views/intranet/veiculos/new.html.erb:3
+app/controllers/intranet/veiculos_controller.rb:47:in `block (2 levels) in create'
+app/controllers/intranet/veiculos_controller.rb:42:in `create'
+Started POST "/intranet/veiculos" for 127.0.0.1 at 2024-08-29 16:27:54 -0300
+Processing by Intranet::VeiculosController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "veiculo"=>{"inativo"=>"0", "destaque"=>"0", "modelo"=>"teste", "versao"=>"teste", "codigo"=>"", "ano"=>"", "anofab"=>"", "quilometragem"=>"", "preco"=>"", "combustivel"=>"", "procedencia"=>"", "placa"=>"", "galleries_attributes"=>{"1"=>{"image"=>#<ActionDispatch::Http::UploadedFile:0x000001ed67ab0eb8 @tempfile=#<Tempfile:C:/Users/vitor/AppData/Local/Temp/RackMultipart20240829-13428-zpw1qy.jpeg>, @content_type="image/jpeg", @original_filename="WhatsApp Image 2024-07-05 at 15.29.14.jpeg", @headers="Content-Disposition: form-data; name=\"veiculo[galleries_attributes][1][image]\"; filename=\"WhatsApp Image 2024-07-05 at 15.29.14.jpeg\"\r\nContent-Type: image/jpeg\r\n">}}, "descricao"=>""}, "galeria_text-file"=>"WhatsApp Image 2024-07-05 at 15.29.14.jpeg", "post"=>{"galleries_attributes"=>{"1001"=>{"image"=>#<ActionDispatch::Http::UploadedFile:0x000001ed67ab0e68 @tempfile=#<Tempfile:C:/Users/vitor/AppData/Local/Temp/RackMultipart20240829-13428-vzkhnb.jpg>, @content_type="image/jpeg", @original_filename="KG LOGO.jpg", @headers="Content-Disposition: form-data; name=\"post[galleries_attributes][1001][image]\"; filename=\"KG LOGO.jpg\"\r\nContent-Type: image/jpeg\r\n">}}}, "galeria_text-file-1001"=>"KG LOGO.jpg", "galeria_text-file-1002"=>"Nenhum arquivo selecionado"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/intranet/intranet_controller.rb:8:in `authorize'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/intranet/veiculos_controller.rb:43:in `block in create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/intranet/veiculos_controller.rb:43:in `block in create'
+  Rendering layout layouts/intranet.html.erb
+  Rendering intranet/veiculos/new.html.erb within layouts/intranet
+  Rendered intranet/veiculos/_image_cropping.html.erb (Duration: 3.1ms | Allocations: 1828)
+  Rendered intranet/veiculos/_form.html.erb (Duration: 225.5ms | Allocations: 6048)
+  Rendered intranet/veiculos/new.html.erb within layouts/intranet (Duration: 489.8ms | Allocations: 6285)
+  Rendered layout layouts/intranet.html.erb (Duration: 490.8ms | Allocations: 6371)
+Completed 500 Internal Server Error in 734ms (ActiveRecord: 14.5ms | Allocations: 38988)
+
+
+  
+ActionView::Template::Error (undefined method `foto_principal' for nil):
+    15:     </label>
+    16: 
+    17:     <div class="col-md-3 object_image_preview image_current">
+    18:       <% if f.object.foto_principal.attached? %>
+    19:       <%= image_tag f.object.foto_principal.url(:medium) %>
+    20:       <% else %>
+    21:         <label class="">
+  
+app/views/intranet/veiculos/_image_cropping.html.erb:18
+app/views/intranet/veiculos/_image_cropping.html.erb:1
+app/views/intranet/veiculos/_form.html.erb:203
+app/views/intranet/veiculos/_form.html.erb:32
+app/views/intranet/veiculos/new.html.erb:3
+app/controllers/intranet/veiculos_controller.rb:47:in `block (2 levels) in create'
+app/controllers/intranet/veiculos_controller.rb:42:in `create'
+Started GET "/intranet/veiculos" for 127.0.0.1 at 2024-08-29 16:28:08 -0300
+Processing by Intranet::VeiculosController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/intranet/intranet_controller.rb:8:in `authorize'
+  Rendering layout layouts/intranet.html.erb
+  Rendering intranet/veiculos/index.html.erb within layouts/intranet
+  Rendered intranet/veiculos/index.html.erb within layouts/intranet (Duration: 3.5ms | Allocations: 1541)
+  Rendered layout layouts/intranet.html.erb (Duration: 5.7ms | Allocations: 1626)
+Completed 500 Internal Server Error in 110ms (ActiveRecord: 0.2ms | Allocations: 2686)
+
+
+  
+ActionView::Template::Error (undefined method `each' for nil):
+    61:               </tr>
+    62:             </thead>
+    63:             <tbody>
+    64:               <% @intranet_veiculos.each do |post| %>
+    65:                 <tr>
+    66:                   <td><%= post.id %></td>
+    67:                   <td><%= post.modelo %></td>
+  
+app/views/intranet/veiculos/index.html.erb:64
+Started GET "/intranet/veiculos" for 127.0.0.1 at 2024-08-29 16:28:21 -0300
+Processing by Intranet::VeiculosController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/intranet/intranet_controller.rb:8:in `authorize'
+  Rendering layout layouts/intranet.html.erb
+  Rendering intranet/veiculos/index.html.erb within layouts/intranet
+  Rendered intranet/veiculos/index.html.erb within layouts/intranet (Duration: 0.8ms | Allocations: 1049)
+  Rendered layout layouts/intranet.html.erb (Duration: 2.8ms | Allocations: 1134)
+Completed 500 Internal Server Error in 54ms (ActiveRecord: 0.2ms | Allocations: 2011)
+
+
+  
+ActionView::Template::Error (undefined method `each' for nil):
+    61:               </tr>
+    62:             </thead>
+    63:             <tbody>
+    64:               <% @veiculo.each do |post| %>
+    65:                 <tr>
+    66:                   <td><%= post.id %></td>
+    67:                   <td><%= post.modelo %></td>
+  
+app/views/intranet/veiculos/index.html.erb:64
+Started GET "/intranet/veiculos" for 127.0.0.1 at 2024-08-29 16:28:45 -0300
+Processing by Intranet::VeiculosController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/intranet/intranet_controller.rb:8:in `authorize'
+  Rendering layout layouts/intranet.html.erb
+  Rendering intranet/veiculos/index.html.erb within layouts/intranet
+  [1m[36mVeiculo Load (0.2ms)[0m  [1m[34mSELECT "veiculos".* FROM "veiculos"[0m
+  ↳ app/views/intranet/veiculos/index.html.erb:64
+  Rendered intranet/veiculos/index.html.erb within layouts/intranet (Duration: 3.9ms | Allocations: 999)
+  [1m[36mKindOfPost Load (0.2ms)[0m  [1m[34mSELECT "kind_of_posts".* FROM "kind_of_posts"[0m
+  ↳ app/views/layouts/intranet.html.erb:85
+  Rendered layout layouts/intranet.html.erb (Duration: 346.2ms | Allocations: 33017)
+Completed 200 OK in 504ms (Views: 351.3ms | ActiveRecord: 11.0ms | Allocations: 44130)
+
+
+Started GET "/fav_icon_intra.ico" for 127.0.0.1 at 2024-08-29 16:28:47 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/fav_icon_intra.ico"):
+  
+Started GET "/intranet/veiculos/new" for 127.0.0.1 at 2024-08-29 16:28:48 -0300
+Processing by Intranet::VeiculosController#new as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/intranet/intranet_controller.rb:8:in `authorize'
+  Rendering layout layouts/intranet.html.erb
+  Rendering intranet/veiculos/new.html.erb within layouts/intranet
+  Rendered intranet/veiculos/_image_cropping.html.erb (Duration: 4.1ms | Allocations: 1782)
+  Rendered intranet/veiculos/_form.html.erb (Duration: 15.1ms | Allocations: 4262)
+  Rendered intranet/veiculos/new.html.erb within layouts/intranet (Duration: 21.1ms | Allocations: 4491)
+  Rendered layout layouts/intranet.html.erb (Duration: 23.2ms | Allocations: 4576)
+Completed 500 Internal Server Error in 100ms (ActiveRecord: 2.2ms | Allocations: 17751)
+
+
+  
+ActionView::Template::Error (undefined method `foto_principal' for nil):
+    15:     </label>
+    16: 
+    17:     <div class="col-md-3 object_image_preview image_current">
+    18:       <% if f.object.foto_principal.attached? %>
+    19:       <%= image_tag f.object.foto_principal.url(:medium) %>
+    20:       <% else %>
+    21:         <label class="">
+  
+app/views/intranet/veiculos/_image_cropping.html.erb:18
+app/views/intranet/veiculos/_image_cropping.html.erb:1
+app/views/intranet/veiculos/_form.html.erb:203
+app/views/intranet/veiculos/_form.html.erb:32
+app/views/intranet/veiculos/new.html.erb:3
+Started GET "/intranet/veiculos/new" for 127.0.0.1 at 2024-08-29 16:29:18 -0300
+Processing by Intranet::VeiculosController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/intranet/intranet_controller.rb:8:in `authorize'
+  Rendering layout layouts/intranet.html.erb
+  Rendering intranet/veiculos/new.html.erb within layouts/intranet
+  Rendered intranet/veiculos/_form.html.erb (Duration: 5.1ms | Allocations: 2529)
+  Rendered intranet/veiculos/new.html.erb within layouts/intranet (Duration: 275.7ms | Allocations: 2767)
+  Rendered layout layouts/intranet.html.erb (Duration: 277.0ms | Allocations: 2853)
+Completed 500 Internal Server Error in 436ms (ActiveRecord: 8.9ms | Allocations: 25984)
+
+
+  
+ActionView::Template::Error (undefined method `veiculos_path' for an instance of #<Class:0x000001ed64d9a8c0>):
+    29: <div class="col-md-12 col-xs-12">
+    30:   <div class="x_panel">
+    31: 
+    32:     <%= form_for @veiculo, html: { :multipart=> true , :novalidate=>"novalidate", :data=>{"parsley-validate"=>"true"},:class=>"form-horizontal form-label-left", :id=>"form_post" } do |f| %>
+    33:     <div class="x_title">
+    34:       <h2>Veículo</h2>
+    35:       <ul class="nav navbar-right panel_toolbox">
+  
+app/views/intranet/veiculos/_form.html.erb:32
+app/views/intranet/veiculos/new.html.erb:3
+Started GET "/intranet" for 127.0.0.1 at 2024-08-30 08:46:31 -0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Intranet::SessionsController#new as HTML
+  Rendering layout layouts/intranet_login.html.erb
+  Rendering intranet/sessions/new.html.erb within layouts/intranet_login
+  Rendered intranet/sessions/new.html.erb within layouts/intranet_login (Duration: 6348.1ms | Allocations: 81082)
+  Rendered layout layouts/intranet_login.html.erb (Duration: 6633.4ms | Allocations: 105980)
+Completed 200 OK in 7694ms (Views: 6805.8ms | ActiveRecord: 0.0ms | Allocations: 112208)
+
+
+Started GET "/criativitta-rodape.svg" for 127.0.0.1 at 2024-08-30 08:46:40 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/criativitta-rodape.svg"):
+  
+Started POST "/intranet/login" for 127.0.0.1 at 2024-08-30 09:00:30 -0300
+Processing by Intranet::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "name"=>"criativitta", "password"=>"[FILTERED]", "commit"=>"Entrar"}
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."name" = ? LIMIT ?[0m  [["name", "criativitta"], ["LIMIT", 1]]
+  ↳ app/controllers/intranet/sessions_controller.rb:14:in `create'
+Redirected to http://127.0.0.1:3000/intranet/dashboard
+Completed 302 Found in 829ms (ActiveRecord: 9.3ms | Allocations: 17327)
+
+
+Started GET "/intranet/dashboard" for 127.0.0.1 at 2024-08-30 09:00:31 -0300
+Processing by Intranet::DashboardController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/intranet/intranet_controller.rb:8:in `authorize'
+{"07"=>[["2024", "07", "30", "26"], ["2024", "07", "31", "19"]], "08"=>[["2024", "08", "01", "13"], ["2024", "08", "02", "16"], ["2024", "08", "03", "2"], ["2024", "08", "04", "3"], ["2024", "08", "05", "18"], ["2024", "08", "06", "11"], ["2024", "08", "07", "16"], ["2024", "08", "08", "14"], ["2024", "08", "09", "8"], ["2024", "08", "10", "9"], ["2024", "08", "11", "3"], ["2024", "08", "12", "18"], ["2024", "08", "13", "41"], ["2024", "08", "14", "35"], ["2024", "08", "15", "28"], ["2024", "08", "16", "33"], ["2024", "08", "17", "8"], ["2024", "08", "18", "16"], ["2024", "08", "19", "33"], ["2024", "08", "20", "22"], ["2024", "08", "21", "25"], ["2024", "08", "22", "20"], ["2024", "08", "23", "24"], ["2024", "08", "24", "8"], ["2024", "08", "25", "14"], ["2024", "08", "26", "17"], ["2024", "08", "27", "12"], ["2024", "08", "28", "20"], ["2024", "08", "29", "22"], ["2024", "08", "30", "0"]]}
+  Rendering layout layouts/intranet.html.erb
+  Rendering intranet/dashboard/index.html.erb within layouts/intranet
+  Rendered intranet/dashboard/_dashboard_data.html.erb (Duration: 5.2ms | Allocations: 4630)
+  Rendered intranet/dashboard/index.html.erb within layouts/intranet (Duration: 277.5ms | Allocations: 4998)
+  [1m[36mKindOfPost Load (0.2ms)[0m  [1m[34mSELECT "kind_of_posts".* FROM "kind_of_posts"[0m
+  ↳ app/views/layouts/intranet.html.erb:85
+  Rendered layout layouts/intranet.html.erb (Duration: 619.6ms | Allocations: 36271)
+Completed 200 OK in 7981ms (Views: 753.9ms | ActiveRecord: 0.7ms | Allocations: 46932)
+
+
+Started GET "/fav_icon_intra.ico" for 127.0.0.1 at 2024-08-30 09:00:43 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/fav_icon_intra.ico"):
+  
+Started GET "/fav_icon_intra.ico" for 127.0.0.1 at 2024-08-30 09:00:47 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/fav_icon_intra.ico"):
+  
+Started GET "/" for 127.0.0.1 at 2024-08-30 11:32:40 -0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Intranet::SessionsController#new as HTML
+  Rendering layout layouts/intranet_login.html.erb
+  Rendering intranet/sessions/new.html.erb within layouts/intranet_login
+  Rendered intranet/sessions/new.html.erb within layouts/intranet_login (Duration: 1408.8ms | Allocations: 80589)
+  Rendered layout layouts/intranet_login.html.erb (Duration: 1698.9ms | Allocations: 105562)
+Completed 200 OK in 1937ms (Views: 1721.1ms | ActiveRecord: 0.0ms | Allocations: 111785)
+
+
+Started GET "/criativitta-rodape.svg" for 127.0.0.1 at 2024-08-30 11:32:43 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/criativitta-rodape.svg"):
+  
+Started POST "/intranet/login" for 127.0.0.1 at 2024-08-30 11:32:54 -0300
+Processing by Intranet::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "name"=>"criativitta", "password"=>"[FILTERED]", "commit"=>"Entrar"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."name" = ? LIMIT ?[0m  [["name", "criativitta"], ["LIMIT", 1]]
+  ↳ app/controllers/intranet/sessions_controller.rb:14:in `create'
+Redirected to http://127.0.0.1:3000/intranet/dashboard
+Completed 302 Found in 570ms (ActiveRecord: 7.0ms | Allocations: 17362)
+
+
+Started GET "/intranet/dashboard" for 127.0.0.1 at 2024-08-30 11:32:55 -0300
+Processing by Intranet::DashboardController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/intranet/intranet_controller.rb:8:in `authorize'
+{"07"=>[["2024", "07", "30", "26"], ["2024", "07", "31", "19"]], "08"=>[["2024", "08", "01", "13"], ["2024", "08", "02", "16"], ["2024", "08", "03", "2"], ["2024", "08", "04", "3"], ["2024", "08", "05", "18"], ["2024", "08", "06", "11"], ["2024", "08", "07", "16"], ["2024", "08", "08", "14"], ["2024", "08", "09", "8"], ["2024", "08", "10", "9"], ["2024", "08", "11", "3"], ["2024", "08", "12", "18"], ["2024", "08", "13", "41"], ["2024", "08", "14", "35"], ["2024", "08", "15", "28"], ["2024", "08", "16", "33"], ["2024", "08", "17", "8"], ["2024", "08", "18", "16"], ["2024", "08", "19", "33"], ["2024", "08", "20", "22"], ["2024", "08", "21", "25"], ["2024", "08", "22", "20"], ["2024", "08", "23", "24"], ["2024", "08", "24", "8"], ["2024", "08", "25", "14"], ["2024", "08", "26", "17"], ["2024", "08", "27", "12"], ["2024", "08", "28", "20"], ["2024", "08", "29", "22"], ["2024", "08", "30", "0"]]}
+  Rendering layout layouts/intranet.html.erb
+  Rendering intranet/dashboard/index.html.erb within layouts/intranet
+  Rendered intranet/dashboard/_dashboard_data.html.erb (Duration: 13.8ms | Allocations: 4630)
+  Rendered intranet/dashboard/index.html.erb within layouts/intranet (Duration: 28.4ms | Allocations: 4998)
+  [1m[36mKindOfPost Load (0.2ms)[0m  [1m[34mSELECT "kind_of_posts".* FROM "kind_of_posts"[0m
+  ↳ app/views/layouts/intranet.html.erb:85
+  Rendered layout layouts/intranet.html.erb (Duration: 279.1ms | Allocations: 36219)
+Completed 200 OK in 7573ms (Views: 283.8ms | ActiveRecord: 0.4ms | Allocations: 46901)
+
+
+Started GET "/fav_icon_intra.ico" for 127.0.0.1 at 2024-08-30 11:33:08 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/fav_icon_intra.ico"):
+  
+Started GET "/intranet/veiculos" for 127.0.0.1 at 2024-08-30 11:33:10 -0300
+Processing by Intranet::VeiculosController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/intranet/intranet_controller.rb:8:in `authorize'
+  Rendering layout layouts/intranet.html.erb
+  Rendering intranet/veiculos/index.html.erb within layouts/intranet
+  [1m[36mVeiculo Load (0.2ms)[0m  [1m[34mSELECT "veiculos".* FROM "veiculos"[0m
+  ↳ app/views/intranet/veiculos/index.html.erb:64
+  Rendered intranet/veiculos/index.html.erb within layouts/intranet (Duration: 4.1ms | Allocations: 1050)
+  [1m[36mKindOfPost Load (0.2ms)[0m  [1m[34mSELECT "kind_of_posts".* FROM "kind_of_posts"[0m
+  ↳ app/views/layouts/intranet.html.erb:85
+  Rendered layout layouts/intranet.html.erb (Duration: 600.8ms | Allocations: 30050)
+Completed 200 OK in 1244ms (Views: 603.1ms | ActiveRecord: 0.5ms | Allocations: 38755)
+
+
+Started GET "/intranet/users" for 127.0.0.1 at 2024-08-30 11:33:15 -0300
+Processing by Intranet::UsersController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/intranet/intranet_controller.rb:8:in `authorize'
+  Rendering layout layouts/intranet.html.erb
+  Rendering intranet/users/index.html.erb within layouts/intranet
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/intranet/users/index.html.erb:44
+  Rendered intranet/users/index.html.erb within layouts/intranet (Duration: 3.8ms | Allocations: 843)
+  [1m[36mKindOfPost Load (0.2ms)[0m  [1m[34mSELECT "kind_of_posts".* FROM "kind_of_posts"[0m
+  ↳ app/views/layouts/intranet.html.erb:85
+  Rendered layout layouts/intranet.html.erb (Duration: 634.5ms | Allocations: 29755)
+Completed 200 OK in 1307ms (Views: 637.4ms | ActiveRecord: 0.5ms | Allocations: 30879)
+
+
+Started GET "/fav_icon_intra.ico" for 127.0.0.1 at 2024-08-30 11:33:26 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/fav_icon_intra.ico"):
+  
+Started GET "/fav_icon_intra.ico" for 127.0.0.1 at 2024-08-30 11:33:29 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/fav_icon_intra.ico"):
+  
+Started GET "/intranet/veiculos" for 127.0.0.1 at 2024-08-30 11:33:41 -0300
+Processing by Intranet::VeiculosController#index as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/intranet/intranet_controller.rb:8:in `authorize'
+  Rendering layout layouts/intranet.html.erb
+  Rendering intranet/veiculos/index.html.erb within layouts/intranet
+  [1m[36mVeiculo Load (0.1ms)[0m  [1m[34mSELECT "veiculos".* FROM "veiculos"[0m
+  ↳ app/views/intranet/veiculos/index.html.erb:64
+  Rendered intranet/veiculos/index.html.erb within layouts/intranet (Duration: 2.9ms | Allocations: 424)
+  [1m[36mKindOfPost Load (0.1ms)[0m  [1m[34mSELECT "kind_of_posts".* FROM "kind_of_posts"[0m
+  ↳ app/views/layouts/intranet.html.erb:85
+  Rendered layout layouts/intranet.html.erb (Duration: 611.2ms | Allocations: 30499)
+Completed 200 OK in 665ms (Views: 613.6ms | ActiveRecord: 0.9ms | Allocations: 31373)
+
+
+Started GET "/fav_icon_intra.ico" for 127.0.0.1 at 2024-08-30 11:33:44 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/fav_icon_intra.ico"):
+  
+Started GET "/intranet/veiculos/new" for 127.0.0.1 at 2024-08-30 11:33:45 -0300
+Processing by Intranet::VeiculosController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/intranet/intranet_controller.rb:8:in `authorize'
+  Rendering layout layouts/intranet.html.erb
+  Rendering intranet/veiculos/new.html.erb within layouts/intranet
+  Rendered intranet/veiculos/_form.html.erb (Duration: 9.3ms | Allocations: 2636)
+  Rendered intranet/veiculos/new.html.erb within layouts/intranet (Duration: 23.8ms | Allocations: 2869)
+  Rendered layout layouts/intranet.html.erb (Duration: 25.8ms | Allocations: 2954)
+Completed 500 Internal Server Error in 1617ms (ActiveRecord: 1.8ms | Allocations: 39031)
+
+
+  
+ActionView::Template::Error (undefined method `veiculos_path' for an instance of #<Class:0x0000019de7de7b38>):
+    29: <div class="col-md-12 col-xs-12">
+    30:   <div class="x_panel">
+    31: 
+    32:     <%= form_for @veiculo, html: { :multipart=> true , :novalidate=>"novalidate", :data=>{"parsley-validate"=>"true"},:class=>"form-horizontal form-label-left", :id=>"form_post" } do |f| %>
+    33:     <div class="x_title">
+    34:       <h2>Veículo</h2>
+    35:       <ul class="nav navbar-right panel_toolbox">
+  
+app/views/intranet/veiculos/_form.html.erb:32
+app/views/intranet/veiculos/new.html.erb:3
+Started GET "/intranet/veiculos/new" for 127.0.0.1 at 2024-08-30 11:34:12 -0300
+Processing by Intranet::VeiculosController#new as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/intranet/intranet_controller.rb:8:in `authorize'
+  Rendering layout layouts/intranet.html.erb
+  Rendering intranet/veiculos/new.html.erb within layouts/intranet
+  Rendered intranet/veiculos/_image_cropping.html.erb (Duration: 8.0ms | Allocations: 1811)
+  Rendered intranet/veiculos/_form.html.erb (Duration: 377.3ms | Allocations: 5335)
+  Rendered intranet/veiculos/new.html.erb within layouts/intranet (Duration: 706.7ms | Allocations: 5573)
+  Rendered layout layouts/intranet.html.erb (Duration: 714.4ms | Allocations: 5659)
+Completed 500 Internal Server Error in 948ms (ActiveRecord: 27.3ms | Allocations: 28795)
+
+
+  
+ActionView::Template::Error (undefined method `foto_principal' for nil):
+    15:     </label>
+    16: 
+    17:     <div class="col-md-3 object_image_preview image_current">
+    18:       <% if f.object.foto_principal.attached? %>
+    19:       <%= image_tag f.object.foto_principal.url(:medium) %>
+    20:       <% else %>
+    21:         <label class="">
+  
+app/views/intranet/veiculos/_image_cropping.html.erb:18
+app/views/intranet/veiculos/_image_cropping.html.erb:1
+app/views/intranet/veiculos/_form.html.erb:203
+app/views/intranet/veiculos/_form.html.erb:32
+app/views/intranet/veiculos/new.html.erb:3
+Started GET "/intranet/veiculos/new" for 127.0.0.1 at 2024-08-30 11:38:59 -0300
+Processing by Intranet::VeiculosController#new as HTML
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/intranet/intranet_controller.rb:8:in `authorize'
+  Rendering layout layouts/intranet.html.erb
+  Rendering intranet/veiculos/new.html.erb within layouts/intranet
+  Rendered intranet/veiculos/_image_cropping.html.erb (Duration: 81.9ms | Allocations: 3091)
+  Rendered intranet/veiculos/_image_cropping.html.erb (Duration: 2.0ms | Allocations: 491)
+  Rendered intranet/veiculos/_docs_preview.html.erb (Duration: 1.3ms | Allocations: 92)
+  Rendered intranet/veiculos/_form.html.erb (Duration: 352.2ms | Allocations: 10128)
+  Rendered intranet/veiculos/new.html.erb within layouts/intranet (Duration: 356.9ms | Allocations: 10366)
+  [1m[36mKindOfPost Load (0.3ms)[0m  [1m[34mSELECT "kind_of_posts".* FROM "kind_of_posts"[0m
+  ↳ app/views/layouts/intranet.html.erb:85
+  Rendered layout layouts/intranet.html.erb (Duration: 825.0ms | Allocations: 42005)
+Completed 200 OK in 988ms (Views: 831.0ms | ActiveRecord: 11.5ms | Allocations: 65185)
+
+
+Started GET "/images/missing.png" for 127.0.0.1 at 2024-08-30 11:39:02 -0300
+Started GET "/fav_icon_intra.ico" for 127.0.0.1 at 2024-08-30 11:39:02 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/images/missing.png"):
+  
+Started GET "/images/missing.png" for 127.0.0.1 at 2024-08-30 11:39:03 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/fav_icon_intra.ico"):
+  
+  
+ActionController::RoutingError (No route matches [GET] "/images/missing.png"):
+  
+Started GET "/images/missing.png" for 127.0.0.1 at 2024-08-30 11:39:04 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/images/missing.png"):
+  
+Started POST "/intranet/veiculos" for 127.0.0.1 at 2024-08-30 11:39:09 -0300
+Processing by Intranet::VeiculosController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "veiculo"=>{"inativo"=>"0", "destaque"=>"0", "modelo"=>"teste", "versao"=>"teste", "codigo"=>"", "ano"=>"", "anofab"=>"", "quilometragem"=>"", "preco"=>"", "combustivel"=>"", "procedencia"=>"", "placa"=>"", "descricao"=>""}, "galeria_text-file"=>"Nenhum arquivo selecionado"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/intranet/intranet_controller.rb:8:in `authorize'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/intranet/veiculos_controller.rb:43:in `block in create'
+  [1m[36mVeiculo Create (7.4ms)[0m  [1m[32mINSERT INTO "veiculos" ("ano", "modelo", "preco", "observacao", "descricao", "quilometragem", "cor", "anofab", "combustivel", "procedencia", "inativo", "destaque", "codigo", "versao", "placa", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["ano", nil], ["modelo", "teste"], ["preco", nil], ["observacao", nil], ["descricao", ""], ["quilometragem", nil], ["cor", nil], ["anofab", ""], ["combustivel", ""], ["procedencia", ""], ["inativo", 0], ["destaque", 0], ["codigo", nil], ["versao", "teste"], ["placa", ""], ["created_at", "2024-08-30 14:39:09.969911"], ["updated_at", "2024-08-30 14:39:09.969911"]]
+  ↳ app/controllers/intranet/veiculos_controller.rb:43:in `block in create'
+  [1m[36mTRANSACTION (4.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/intranet/veiculos_controller.rb:43:in `block in create'
+Completed 500 Internal Server Error in 62ms (ActiveRecord: 11.6ms | Allocations: 4616)
+
+
+  
+NoMethodError (undefined method `veiculo_url' for an instance of Intranet::VeiculosController):
+  
+app/controllers/intranet/veiculos_controller.rb:44:in `block (2 levels) in create'
+app/controllers/intranet/veiculos_controller.rb:42:in `create'
+Started POST "/intranet/veiculos" for 127.0.0.1 at 2024-08-30 11:39:28 -0300
+Processing by Intranet::VeiculosController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "veiculo"=>{"inativo"=>"0", "destaque"=>"0", "modelo"=>"teste", "versao"=>"teste", "codigo"=>"", "ano"=>"", "anofab"=>"", "quilometragem"=>"", "preco"=>"", "combustivel"=>"", "procedencia"=>"", "placa"=>"", "descricao"=>""}, "galeria_text-file"=>"Nenhum arquivo selecionado"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/intranet/intranet_controller.rb:8:in `authorize'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/intranet/veiculos_controller.rb:43:in `block in create'
+  [1m[36mVeiculo Create (2.2ms)[0m  [1m[32mINSERT INTO "veiculos" ("ano", "modelo", "preco", "observacao", "descricao", "quilometragem", "cor", "anofab", "combustivel", "procedencia", "inativo", "destaque", "codigo", "versao", "placa", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["ano", nil], ["modelo", "teste"], ["preco", nil], ["observacao", nil], ["descricao", ""], ["quilometragem", nil], ["cor", nil], ["anofab", ""], ["combustivel", ""], ["procedencia", ""], ["inativo", 0], ["destaque", 0], ["codigo", nil], ["versao", "teste"], ["placa", ""], ["created_at", "2024-08-30 14:39:29.454676"], ["updated_at", "2024-08-30 14:39:29.454676"]]
+  ↳ app/controllers/intranet/veiculos_controller.rb:43:in `block in create'
+  [1m[36mTRANSACTION (3.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/intranet/veiculos_controller.rb:43:in `block in create'
+Redirected to http://127.0.0.1:3000/intranet/veiculos/2
+Completed 302 Found in 118ms (ActiveRecord: 12.7ms | Allocations: 18877)
+
+
+Started GET "/intranet/veiculos/2" for 127.0.0.1 at 2024-08-30 11:39:29 -0300
+Processing by Intranet::VeiculosController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/intranet/intranet_controller.rb:8:in `authorize'
+  [1m[36mVeiculo Load (0.2ms)[0m  [1m[34mSELECT "veiculos".* FROM "veiculos" WHERE "veiculos"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/intranet/veiculos_controller.rb:79:in `set_veiculo'
+  [1m[36mCACHE Veiculo Load (0.0ms)[0m  [1m[34mSELECT "veiculos".* FROM "veiculos" WHERE "veiculos"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/intranet/veiculos_controller.rb:79:in `set_veiculo'
+  Rendering layout layouts/intranet.html.erb
+  Rendering intranet/veiculos/show.html.erb within layouts/intranet
+  Rendered intranet/veiculos/show.html.erb within layouts/intranet (Duration: 6.1ms | Allocations: 83)
+  [1m[36mKindOfPost Load (0.2ms)[0m  [1m[34mSELECT "kind_of_posts".* FROM "kind_of_posts"[0m
+  ↳ app/views/layouts/intranet.html.erb:85
+  Rendered layout layouts/intranet.html.erb (Duration: 208.1ms | Allocations: 31969)
+Completed 200 OK in 244ms (Views: 213.1ms | ActiveRecord: 0.5ms | Allocations: 34934)
+
+
+Started GET "/fav_icon_intra.ico" for 127.0.0.1 at 2024-08-30 11:39:30 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/fav_icon_intra.ico"):
+  
+Started GET "/intranet/veiculo/2" for 127.0.0.1 at 2024-08-30 11:39:36 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/intranet/veiculo/2"):
+  
+Started GET "/intranet/veiculos" for 127.0.0.1 at 2024-08-30 11:39:45 -0300
+Processing by Intranet::VeiculosController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/intranet/intranet_controller.rb:8:in `authorize'
+  Rendering layout layouts/intranet.html.erb
+  Rendering intranet/veiculos/index.html.erb within layouts/intranet
+  [1m[36mVeiculo Load (0.2ms)[0m  [1m[34mSELECT "veiculos".* FROM "veiculos"[0m
+  ↳ app/views/intranet/veiculos/index.html.erb:64
+  Rendered intranet/veiculos/index.html.erb within layouts/intranet (Duration: 6.1ms | Allocations: 1186)
+  [1m[36mKindOfPost Load (0.1ms)[0m  [1m[34mSELECT "kind_of_posts".* FROM "kind_of_posts"[0m
+  ↳ app/views/layouts/intranet.html.erb:85
+  Rendered layout layouts/intranet.html.erb (Duration: 203.2ms | Allocations: 31258)
+Completed 200 OK in 228ms (Views: 205.0ms | ActiveRecord: 0.4ms | Allocations: 32273)
+
+
+Started GET "/fav_icon_intra.ico" for 127.0.0.1 at 2024-08-30 11:39:46 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/fav_icon_intra.ico"):
+  
+Started GET "/intranet/veiculos/1/edit" for 127.0.0.1 at 2024-08-30 11:39:50 -0300
+Processing by Intranet::VeiculosController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/intranet/intranet_controller.rb:8:in `authorize'
+  [1m[36mVeiculo Load (0.1ms)[0m  [1m[34mSELECT "veiculos".* FROM "veiculos" WHERE "veiculos"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/intranet/veiculos_controller.rb:79:in `set_veiculo'
+  [1m[36mCACHE Veiculo Load (0.0ms)[0m  [1m[34mSELECT "veiculos".* FROM "veiculos" WHERE "veiculos"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/intranet/veiculos_controller.rb:34:in `edit'
+  Rendering layout layouts/intranet.html.erb
+  Rendering intranet/veiculos/edit.html.erb within layouts/intranet
+  [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 1], ["record_type", "Veiculo"], ["name", "foto_principal"], ["LIMIT", 1]]
+  ↳ app/views/intranet/veiculos/_image_cropping.html.erb:18
+  Rendered intranet/veiculos/_image_cropping.html.erb (Duration: 24.0ms | Allocations: 4086)
+  [1m[36mGallery Load (0.2ms)[0m  [1m[34mSELECT "galleries".* FROM "galleries" WHERE "galleries"."veiculo_id" = ? ORDER BY "galleries"."position" ASC[0m  [["veiculo_id", 1]]
+  ↳ app/views/intranet/veiculos/_form.html.erb:225
+  Rendered intranet/veiculos/_image_cropping.html.erb (Duration: 5.2ms | Allocations: 491)
+  Rendered intranet/veiculos/_docs_preview.html.erb (Duration: 0.8ms | Allocations: 90)
+  Rendered intranet/veiculos/_form.html.erb (Duration: 59.5ms | Allocations: 10986)
+  Rendered intranet/veiculos/edit.html.erb within layouts/intranet (Duration: 63.3ms | Allocations: 11219)
+  [1m[36mKindOfPost Load (0.1ms)[0m  [1m[34mSELECT "kind_of_posts".* FROM "kind_of_posts"[0m
+  ↳ app/views/layouts/intranet.html.erb:85
+  Rendered layout layouts/intranet.html.erb (Duration: 292.7ms | Allocations: 41118)
+Completed 200 OK in 558ms (Views: 293.4ms | ActiveRecord: 1.6ms | Allocations: 54137)
+
+
+Started GET "/images/missing.png" for 127.0.0.1 at 2024-08-30 11:39:51 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/images/missing.png"):
+  
+Started GET "/images/missing.png" for 127.0.0.1 at 2024-08-30 11:39:51 -0300
+Started GET "/fav_icon_intra.ico" for 127.0.0.1 at 2024-08-30 11:39:51 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/images/missing.png"):
+  
+  
+ActionController::RoutingError (No route matches [GET] "/fav_icon_intra.ico"):
+  
+Started GET "/images/missing.png" for 127.0.0.1 at 2024-08-30 11:39:53 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/images/missing.png"):
+  
+Started PATCH "/intranet/veiculos/1" for 127.0.0.1 at 2024-08-30 11:40:03 -0300
+Processing by Intranet::VeiculosController#update as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "veiculo"=>{"inativo"=>"0", "destaque"=>"0", "modelo"=>"teste", "versao"=>"teste", "codigo"=>"", "ano"=>"", "anofab"=>"", "quilometragem"=>"", "preco"=>"", "combustivel"=>"", "procedencia"=>"", "placa"=>"", "galleries_attributes"=>{"1"=>{"image"=>#<ActionDispatch::Http::UploadedFile:0x0000019deda81970 @tempfile=#<Tempfile:C:/Users/vitor/AppData/Local/Temp/RackMultipart20240830-20348-3a3zum.jpeg>, @content_type="image/jpeg", @original_filename="WhatsApp Image 2024-08-23 at 13.33.33.jpeg", @headers="Content-Disposition: form-data; name=\"veiculo[galleries_attributes][1][image]\"; filename=\"WhatsApp Image 2024-08-23 at 13.33.33.jpeg\"\r\nContent-Type: image/jpeg\r\n">}}, "descricao"=>""}, "galeria_text-file"=>"WhatsApp Image 2024-08-23 at 13.33.33.jpeg", "post"=>{"galleries_attributes"=>{"1001"=>{"image"=>#<ActionDispatch::Http::UploadedFile:0x0000019deda81920 @tempfile=#<Tempfile:C:/Users/vitor/AppData/Local/Temp/RackMultipart20240830-20348-gczyyp.jpeg>, @content_type="image/jpeg", @original_filename="WhatsApp Image 2024-07-05 at 15.29.14.jpeg", @headers="Content-Disposition: form-data; name=\"post[galleries_attributes][1001][image]\"; filename=\"WhatsApp Image 2024-07-05 at 15.29.14.jpeg\"\r\nContent-Type: image/jpeg\r\n">}}}, "galeria_text-file-1001"=>"WhatsApp Image 2024-07-05 at 15.29.14.jpeg", "galeria_text-file-1002"=>"Nenhum arquivo selecionado", "id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/intranet/intranet_controller.rb:8:in `authorize'
+  [1m[36mVeiculo Load (0.1ms)[0m  [1m[34mSELECT "veiculos".* FROM "veiculos" WHERE "veiculos"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/intranet/veiculos_controller.rb:79:in `set_veiculo'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/intranet/veiculos_controller.rb:56:in `block in update'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/intranet/veiculos_controller.rb:56:in `block in update'
+  Rendering layout layouts/intranet.html.erb
+  Rendering intranet/veiculos/edit.html.erb within layouts/intranet
+  [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 1], ["record_type", "Veiculo"], ["name", "foto_principal"], ["LIMIT", 1]]
+  ↳ app/views/intranet/veiculos/_image_cropping.html.erb:18
+  Rendered intranet/veiculos/_image_cropping.html.erb (Duration: 3.2ms | Allocations: 711)
+  [1m[36mGallery Load (0.1ms)[0m  [1m[34mSELECT "galleries".* FROM "galleries" WHERE "galleries"."veiculo_id" = ? ORDER BY "galleries"."position" ASC[0m  [["veiculo_id", 1]]
+  ↳ app/views/intranet/veiculos/_form.html.erb:225
+  Rendered intranet/veiculos/_image_cropping.html.erb (Duration: 0.9ms | Allocations: 44)
+  Rendered intranet/veiculos/_docs_preview.html.erb (Duration: 0.0ms | Allocations: 8)
+  Rendered intranet/veiculos/_form.html.erb (Duration: 24.0ms | Allocations: 5944)
+  Rendered intranet/veiculos/edit.html.erb within layouts/intranet (Duration: 24.6ms | Allocations: 6008)
+  [1m[36mKindOfPost Load (0.1ms)[0m  [1m[34mSELECT "kind_of_posts".* FROM "kind_of_posts"[0m
+  ↳ app/views/layouts/intranet.html.erb:85
+  Rendered layout layouts/intranet.html.erb (Duration: 237.2ms | Allocations: 35907)
+Completed 422 Unprocessable Content in 520ms (Views: 238.1ms | ActiveRecord: 3.8ms | Allocations: 53834)
+
+
+Started GET "/images/missing.png" for 127.0.0.1 at 2024-08-30 11:40:04 -0300
+Started GET "/fav_icon_intra.ico" for 127.0.0.1 at 2024-08-30 11:40:04 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/images/missing.png"):
+  
+  
+ActionController::RoutingError (No route matches [GET] "/fav_icon_intra.ico"):
+  
+Started GET "/images/missing.png" for 127.0.0.1 at 2024-08-30 11:40:05 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/images/missing.png"):
+  
+Started GET "/images/missing.png" for 127.0.0.1 at 2024-08-30 11:40:06 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/images/missing.png"):
+  

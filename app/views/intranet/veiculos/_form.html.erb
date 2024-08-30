@@ -29,7 +29,7 @@ $(document).ready(function() {
 <div class="col-md-12 col-xs-12">
   <div class="x_panel">
 
-    <%= form_for [:intranet, @intranet_veiculo], html: { :multipart=> true , :novalidate=>"novalidate", :data=>{"parsley-validate"=>"true"},:class=>"form-horizontal form-label-left", :id=>"form_post" } do |f| %>
+    <%= form_for [:intranet, @veiculo], html: { :multipart=> true , :novalidate=>"novalidate", :data=>{"parsley-validate"=>"true"},:class=>"form-horizontal form-label-left", :id=>"form_post" } do |f| %>
     <div class="x_title">
       <h2>Veículo</h2>
       <ul class="nav navbar-right panel_toolbox">
@@ -42,12 +42,12 @@ $(document).ready(function() {
         <br />
 
         <div class="text-center">
-          <% if @intranet_veiculo.errors.any? %>
+          <% if @veiculo.errors.any? %>
           <div id="error_explanation">
-            <h2><%= pluralize(@intranet_veiculo.errors.count, "erro") %> no preenchimento do fomulário:</h2>
+            <h2><%= pluralize(@veiculo.errors.count, "erro") %> no preenchimento do fomulário:</h2>
 
             <ul style="list-style: none;color: #f00;">
-              <% @intranet_veiculo.errors.full_messages.each do |message| %>
+              <% @veiculo.errors.full_messages.each do |message| %>
               <li><%= message %></li>
               <% end %>
             </ul>
@@ -200,7 +200,7 @@ $(document).ready(function() {
 
 <!-- image cropping -->
 <div  id="image_cropping">
-  <%= render partial: "image_cropping", object: @intranet_veiculo, as: 'post' %>
+  <%= render partial: "image_cropping", object: @veiculo, as: 'post' %>
   <div class="container cropper">
     <span style="font-size: 11px !important;"> Formato recomendado: <span style="color: black; font-weight: bolder; font-size:12px;">JPG.</span></span>
     <span style="font-size: 11px !important;"> Dimensões recomendadas: <span style="color: black; font-weight: bolder; font-size:12px;">1600x900 pixels.</span></span>
